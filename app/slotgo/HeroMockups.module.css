@@ -1,0 +1,18 @@
+.mockups { width: 100%; min-width: 0; position: relative; margin: 0; }
+.cameraReveal { transform-origin: 50% 60%; }
+.cameraReveal[data-ready="true"] { animation: cameraSettle 1.7s cubic-bezier(.2,.65,.25,1) both; }
+.artwork { position: relative; width: 100%; aspect-ratio: 1; }
+.hardware { display: block; width: 100%; height: auto; filter: drop-shadow(0 24px 22px #0005); }
+.mapping { position: absolute; top: 0; left: 0; width: 1254px; height: 1254px; transform-origin: 0 0; visibility: hidden; pointer-events: none; }
+.display { position: absolute; top: 0; left: 0; width: 806px; height: 1672px; transform-origin: 0 0; overflow: hidden; border-radius: 0 0 80px 80px; background: #0b1014; }
+.display img { display: block; width: 806px; height: 1746px; max-width: none; transform: translateY(-74px); }
+/* Keep the rear display behind the foreground phone's photographed edge. */
+.venueMask { position: absolute; inset: 0; clip-path: polygon(66% 8%, 96% 11%, 85% 69%, 60.2% 64.5%, 56.8% 51.5%); }
+.mockups figcaption { display: flex; justify-content: space-between; padding: 25px 5% 0; color: #c0cccc; font-size: .75rem; letter-spacing: .03em; }
+@keyframes cameraSettle {
+  from { transform: translateY(28px) rotate(-2deg) scale(.97); }
+  to { transform: translateY(0) rotate(0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cameraReveal[data-ready="true"] { animation: none; }
+}

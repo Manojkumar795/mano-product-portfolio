@@ -1,0 +1,90 @@
+.viewer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  background: transparent;
+  color: #82dce2;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  opacity: 0;
+  outline: none;
+  touch-action: pan-y;
+  transition: opacity 500ms ease;
+}
+
+.viewer[data-status="ready"] .canvas { opacity: 1; }
+.canvas:active { cursor: grabbing; }
+.canvas:focus-visible { box-shadow: inset 0 0 0 1px rgba(130, 220, 226, 0.75); }
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: min(66%, 260px);
+  gap: 12px;
+  color: rgba(224, 241, 242, 0.74);
+  font-size: 9px;
+  font-weight: 680;
+  letter-spacing: 0.14em;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.loading > i {
+  display: block;
+  height: 1px;
+  overflow: hidden;
+  background: rgba(130, 220, 226, 0.17);
+}
+
+.loading > i b {
+  display: block;
+  height: 100%;
+  background: #82dce2;
+  transition: width 180ms linear;
+}
+
+.instructions,
+.credit {
+  position: absolute;
+  z-index: 3;
+  bottom: 13px;
+  color: rgba(218, 237, 238, 0.48);
+  font-size: 10px;
+  font-weight: 450;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+
+.instructions { left: 15px; bottom: 34px; }
+
+.credit {
+  right: 15px;
+  display: flex;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.credit a { color: inherit; text-decoration: none; }
+.credit a:hover { color: #82dce2; }
+
+@media (max-width: 640px) {
+  .viewer { min-height: 0; }
+  .instructions { display: none; }
+  .credit { right: 10px; bottom: 9px; font-size: 9px; gap: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .canvas,
+  .loading > i b { transition: none; }
+}

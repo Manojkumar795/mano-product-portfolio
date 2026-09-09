@@ -1,0 +1,122 @@
+.cinema, .collection, .lightbox { --ink: #f2f4f6; --quiet: #aab6bd; --accent: #0dcccd; }
+.cinema { position: relative; isolation: isolate; background: #080b0d; color: var(--ink); overflow: hidden; scroll-margin-top: 20px; }
+.backdrop { object-fit: cover; object-position: center; opacity: .68; z-index: -2; }
+.cinema::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #06090cf0, #06090c65 54%, #06090c15); z-index: -1; }
+.cinemaInner { max-width: 1440px; margin: auto; padding: 40px clamp(24px, 5vw, 72px) 30px; }
+.filmHeader { display: flex; align-items: center; justify-content: space-between; gap: 24px; font-size: .8125rem; letter-spacing: .09em; text-transform: uppercase; color: #bbc3c8; }
+.filmHeader span:first-child { color: var(--ink); }
+.stage { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; min-height: 690px; }
+.editorial { position: relative; z-index: 2; padding: 56px 0; }
+.cinema p.sceneLabel { color: var(--accent); font-size: .8125rem; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 24px; }
+.cinema .sceneCopy h2 { font-size: clamp(2.25rem, 4.2vw, 4rem); line-height: 1.07; color: var(--ink); letter-spacing: -.055em; min-height: 2.2em; }
+.sceneCopy h2 span { display: block; }
+.cinema .sceneCopy p { color: #c2cbd0; font-size: 1.0625rem; line-height: 1.6; max-width: 340px; margin-top: 25px; min-height: 3.2em; }
+.cinema .collectionLink { color: #e9edef; display: inline-flex; align-items: center; gap: 24px; margin-top: 58px; padding: 10px 0; border-bottom: 1px solid #7f8a8f; font-size: .875rem; }
+.collectionLink svg { width: 18px; height: 18px; }
+.deviceStage { position: relative; width: 100%; min-width: 0; perspective: 1600px; }
+.phoneArtwork { position: relative; width: 112%; margin-left: -6%; transform: rotateY(-10deg) rotateZ(3deg); transform-origin: 65% 55%; animation: cameraMove 27s cubic-bezier(.25,.1,.25,1) both; animation-play-state: paused; }
+.phoneArtwork > img { display: block; width: 100%; height: auto; filter: drop-shadow(-25px 36px 22px #0009); }
+/* Live UI sits inside the photographed front display; the hardware is an image,
+   not a CSS-drawn phone. The source status bar is masked below the native one. */
+.liveDisplay { position: absolute; left: 42.75%; top: 9.55%; width: 42.55%; height: 86.45%; overflow: hidden; border-radius: 0 0 11% 11% / 0 0 5.5% 5.5%; background: #0b1014; }
+.demoScreen { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; pointer-events: none; }
+.demoScreen[data-active="true"] { opacity: 1; }
+.demoScreen .appScreen { position: absolute; width: 100%; height: 104.4%; top: -4.4%; aspect-ratio: auto; border-radius: 0; }
+.demoScreen .cropped { height: 100%; object-fit: fill; }
+.cinema[data-running="true"] .sceneCopy { animation: copyIn .7s ease both; }
+.playback { display: flex; gap: 28px; align-items: center; padding-top: 25px; border-top: 1px solid #ffffff29; }
+.cinema button, .collection button, .lightbox button { font: inherit; cursor: pointer; }
+.cinema :is(button, a):focus-visible, .collection button:focus-visible, .lightbox button:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.playButton { display: flex; flex-shrink: 0; align-items: center; gap: 9px; color: var(--ink); border: 1px solid #ffffff40; background: #080c10a8; border-radius: 30px; padding: 11px 17px; min-height: 44px; font-size: .875rem !important; }
+.playButton svg { width: 17px; height: 17px; }
+.playButton:hover { border-color: var(--accent); }
+.playButton:disabled { opacity: .6; cursor: default; }
+.timeline { flex: 1; min-width: 0; }
+.sceneButtons { display: flex; justify-content: space-between; gap: 10px; }
+.sceneButtons button { background: none; border: 0; padding: 7px 0 12px; min-height: 44px; font-size: .8125rem; color: #a6b2b9; }
+.sceneButtons button[aria-current] { color: var(--accent); }
+.progressTrack { height: 2px; background: #ffffff25; overflow: hidden; }
+.progressTrack > div { width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+.runtime { flex-shrink: 0; font-size: .8125rem; color: #cad2d6; font-variant-numeric: tabular-nums; }
+.runtime span { display: none; }
+.collection { background: #0b1014; color: var(--ink); padding: 100px max(24px, calc((100vw - 1200px) / 2)) 110px; scroll-margin-top: 20px; }
+.collectionHeader { display: flex; justify-content: space-between; gap: 48px; align-items: flex-end; margin-bottom: 76px; }
+.collection .collectionHeader h2 { color: var(--ink); font-size: clamp(2.25rem, 3.7vw, 3.5rem); }
+.collection .collectionHeader > div > p { color: var(--accent); font-size: .875rem; margin-bottom: 22px; }
+.collection .collectionHeader > p { max-width: 320px; color: #c0c9ce; font-size: 1rem; line-height: 1.65; }
+.collectionHeader > p span { display: block; margin-top: 12px; color: #909fa8; font-size: .875rem; }
+.appCollection + .appCollection { margin-top: 90px; }
+.groupHeading { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 0 0 23px; border-bottom: 1px solid #2b343a; margin-bottom: 36px; }
+.collection .groupHeading h3 { color: #eef3f5; font-size: 1.375rem; letter-spacing: -.02em; }
+.groupHeading > span { font-size: .875rem; color: #9eafb8; }
+.screenGrid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 42px 20px; }
+.galleryItem { min-width: 0; }
+.galleryItem > button { display: block; position: relative; width: 100%; padding: 0; border: 1px solid #323d45; border-radius: 15px; background: #141b20; transition: transform .25s ease, border-color .25s ease; }
+.galleryItem > button:hover { transform: translateY(-5px); border-color: #83d6d6; }
+.appScreen { display: block; position: relative; width: 100%; aspect-ratio: 806 / 1746; overflow: hidden; border-radius: 14px; background: #0b1014; }
+.cropped { display: block; width: 100%; height: auto; }
+/* Original PNGs are displayed through the same 806×1746 application bounds.
+   No resampling or alteration of the supplied screen artwork is required. */
+.original { position: absolute; width: 129.776675%; height: 112.256586%; max-width: none; left: -14.888337%; top: -1.546392%; }
+.enlarge { position: absolute; inset: auto 8px 8px auto; display: grid; place-items: center; width: 29px; height: 29px; background: #080e12e8; border: 1px solid #69818b80; border-radius: 50%; color: #e7f1f4; opacity: 0; transition: opacity .2s ease; }
+.enlarge svg { width: 15px; height: 15px; }
+.galleryItem > button:is(:hover, :focus-visible) .enlarge { opacity: 1; }
+.galleryItem figcaption { display: flex; gap: 10px; margin-top: 14px; font-size: .8125rem; line-height: 1.4; color: #c3cdd2; }
+.galleryItem figcaption > span { color: #748791; font-variant-numeric: tabular-nums; font-size: .75rem; padding-top: 1px; }
+.lightbox { padding: 0; border: 1px solid #35424b; border-radius: 16px; width: min(600px, calc(100% - 32px)); max-width: none; max-height: calc(100dvh - 32px); background: #10181e; color: var(--ink); margin: auto; overscroll-behavior: contain; }
+.lightbox::backdrop { background: #020507e8; backdrop-filter: blur(10px); }
+.lightboxPanel { padding: 22px; }
+.lightboxPanel > header { display: flex; gap: 20px; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.lightbox .lightboxPanel h2 { color: var(--ink); font-size: 1.25rem; line-height: 1.25; letter-spacing: -.025em; }
+.lightbox .lightboxPanel header p { color: #9eafb8; font-size: .8125rem; margin-bottom: 4px; }
+.lightbox button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: var(--ink); border: 1px solid #3a4852; border-radius: 8px; min-height: 44px; padding: 9px 12px; font-size: .875rem; }
+.lightbox button:disabled { opacity: .3; cursor: default; }
+.lightbox button svg { width: 19px; height: 19px; }
+.expandedScreen { width: min(100%, 360px); margin: auto; }
+.lightboxPanel > footer { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 24px; }
+.lightboxPanel > footer > span { color: #99adb7; font-size: .8125rem; font-variant-numeric: tabular-nums; }
+@keyframes cameraMove { 0% { transform: translateY(18px) rotateY(-13deg) rotateZ(4deg) scale(.95); } 40% { transform: translateY(-6px) rotateY(2deg) rotateZ(-2deg) scale(1.02); } 75% { transform: translateY(2px) rotateY(-5deg) rotateZ(1deg) scale(.98); } 100% { transform: translateY(-7px) rotateY(-8deg) rotateZ(2deg) scale(1); } }
+@keyframes copyIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media (min-width: 1650px) { .stage { min-height: 760px; } }
+@media (max-width: 1100px) {
+  .stage { min-height: 600px; grid-template-columns: 1fr 1fr; }
+  .phoneArtwork { width: 128%; margin-left: -14%; }
+  .collection { padding-inline: 32px; }
+  .screenGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 36px 24px; }
+}
+@media (max-width: 760px) {
+  .cinemaInner { padding: 28px 24px; }
+  .filmHeader { font-size: .75rem; }
+  .filmHeader span:last-child { display: none; }
+  .stage { grid-template-columns: 1fr; min-height: 0; }
+  .editorial { padding: 48px 0 12px; }
+  .cinema .sceneCopy h2 { font-size: clamp(2.1rem, 7vw, 3.3rem); }
+  .cinema .sceneCopy p { margin-top: 18px; max-width: none; min-height: 3.2em; }
+  .cinema .collectionLink { margin-top: 20px; }
+  .deviceStage { width: min(100%, 480px); margin: 15px auto 20px; }
+  .phoneArtwork { width: 106%; margin-left: -8%; }
+  .playback { gap: 20px; flex-wrap: wrap; }
+  .playButton { order: 1; }
+  .timeline { flex-basis: 100%; }
+  .runtime { order: 2; margin-left: auto; }
+  .runtime span { display: inline; font-size: .75rem; }
+  .sceneButtons { gap: 8px; }
+  .sceneButtons button { font-size: .75rem; }
+  .collection { padding: 70px 24px 80px; }
+  .collectionHeader { display: block; margin-bottom: 48px; }
+  .collection .collectionHeader > p { margin-top: 24px; max-width: 440px; }
+  .screenGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 16px; }
+  .appCollection + .appCollection { margin-top: 64px; }
+}
+@media (max-width: 500px) {
+  .screenGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .galleryItem figcaption { font-size: .8125rem; gap: 7px; }
+  .lightboxPanel { padding: 16px; }
+  .lightbox { width: calc(100% - 20px); max-height: calc(100dvh - 20px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phoneArtwork { animation: none; transform: none; }
+  .cinema[data-running="true"] .sceneCopy { animation: none; }
+  .demoScreen, .galleryItem > button, .enlarge { transition: none; }
+  .galleryItem > button:hover { transform: none; }
+}
