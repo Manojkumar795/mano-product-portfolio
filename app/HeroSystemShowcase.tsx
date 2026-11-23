@@ -1,8 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import NikeShoePreview from "./NikeShoePreview";
+import FlightControl from "./FlightControl";
+import FrameRate from "./FrameRate";
+import { useShowcaseActivity } from "./useShowcaseActivity";
+import { SHOE_STORIES, type ShoeStory } from "./stride-motion";
 
-const showcaseDuration = 4800;
+const showcaseDurations = [4800, 6000, 6000, 4800];
+const selectedSlideDuration = 7000;
+const slideNames = ["MachineOS", "STRIDE", "ALTITUDE", "FRAME RATE"];
+const keepSlideshowPlaying = () => {};
 
 function SystemRail({
   active,
@@ -84,16 +92,26 @@ function SystemFooter({
   );
 }
 
-function MachineSystem({ active }: { active: number }) {
+function MachineSystem({ active, restartToken }: { active: number; restartToken: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!restartToken) return;
+    ref.current?.getAnimations({ subtree: true }).forEach(animation => {
+      if (animation instanceof CSSAnimation) animation.currentTime = 0;
+    });
+  }, [restartToken]);
   return (
     <div
+      ref={ref}
       className={`system-slide machine-system-slide machine-library-slide${active === 0 ? " is-active" : ""}`}
+      id="showcase-slide-0"
       aria-hidden={active !== 0}
+      inert={active !== 0}
     >
       <header className="machine-library-head">
         <div>
-          <small>01 / Industrial UI</small>
           <strong>MachineOS</strong>
+          <small>Industrial design system</small>
         </div>
         <nav>
           <span className="active">Components</span>
@@ -163,6 +181,15 @@ function MachineSystem({ active }: { active: number }) {
               <i>
                 <b />
               </i>
+            </div>
+            <div className="machine-source-specimen">
+              <span>Control source</span>
+              <div className="machine-source-field">
+                <strong>Local panel</strong>
+                <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -249,386 +276,142 @@ function MachineSystem({ active }: { active: number }) {
   );
 }
 
-function CockpitSystem({ active }: { active: number }) {
+function CommerceSystem({ active, restartToken }: { active: number; restartToken: number }) {
+  const [entrance, setEntrance] = useState(0);
+  const [story, setStory] = useState<ShoeStory>(0);
+  const [size, setSize] = useState(8);
+  const [bag, setBag] = useState(0);
+  const [added, setAdded] = useState(false);
+  useEffect(() => {
+    if (active === 1) { setEntrance(value => value + 1); setStory(0); }
+  }, [active, restartToken]);
+  const copy = SHOE_STORIES[story];
   return (
     <div
-      className={`system-slide cockpit-system-slide aero-library-slide${active === 1 ? " is-active" : ""}`}
+      className={`system-slide hero-commerce-slide${active === 1 ? " is-active" : ""}`}
+      id="showcase-slide-1"
       aria-hidden={active !== 1}
+      inert={active !== 1}
+      data-story={story}
     >
-      <header className="aero-library-head">
-        <div className="aero-mark">A</div>
-        <div>
-          <small>02 / Avionics UI</small>
-          <strong>Aero Interface Kit</strong>
-        </div>
-        <nav>
-          <span className="active">Display</span>
-          <span>Control</span>
-          <span>Input</span>
-          <span>Token</span>
-        </nav>
-        <small className="aero-library-count">64 components</small>
+      <header className="hero-commerce-head">
+        <div className="hero-commerce-wordmark">stride<span>®</span></div>
+        <nav><span className="active">Discover</span><span>Running</span><span>Everyday</span></nav>
+        <span className="hero-commerce-bag" aria-label={`Demo bag, ${bag} ${bag === 1 ? "item" : "items"}`}>Bag <b>{bag}</b></span>
       </header>
-
-      <div className="aero-library-board">
-        <section className="aero-display-tile">
-          <header>
-            <div>
-              <small>Display / PFD</small>
-              <strong>Primary flight</strong>
-            </div>
-            <div className="aero-state-dots">
-              <i className="active" />
-              <i />
-              <i />
-            </div>
-          </header>
-          <div className="aero-display-canvas">
-            <div className="aero-mode-line">
-              <span>
-                <small>A/THR</small>
-                <strong>SPEED</strong>
-              </span>
-              <span>
-                <small>AP1</small>
-                <strong>NAV</strong>
-              </span>
-              <span>
-                <small>FD</small>
-                <strong>ALT*</strong>
-              </span>
-            </div>
-            <div className="aero-flight-layout">
-              <div className="aero-speed-scale">
-                <small>SPD</small>
-                <span>250</span>
-                <strong>240</strong>
-                <span>230</span>
-                <i />
-              </div>
-              <div className="aero-attitude">
-                <div className="aero-horizon-field">
-                  <div className="aero-horizon" />
-                  <div className="aero-ladder">
-                    <span className="pitch-20">
-                      <small>20</small>
-                      <i />
-                      <small>20</small>
-                    </span>
-                    <span className="pitch-10">
-                      <small>10</small>
-                      <i />
-                      <small>10</small>
-                    </span>
-                    <span className="pitch-5">
-                      <i />
-                    </span>
-                    <span className="pitch-minus-10">
-                      <small>10</small>
-                      <i />
-                      <small>10</small>
-                    </span>
-                  </div>
-                </div>
-                <div className="aero-bank-scale">
-                  <i />
-                  <i />
-                  <i />
-                  <i />
-                  <i />
-                  <b />
-                </div>
-                <div className="aero-flight-path">
-                  <i />
-                  <b />
-                  <i />
-                </div>
-                <div className="aero-aircraft-symbol">
-                  <i />
-                  <b />
-                  <i />
-                </div>
-                <div className="aero-director">
-                  <i />
-                  <b />
-                </div>
-                <span className="aero-radio-alt">
-                  RA <strong>2480</strong>
-                </span>
-              </div>
-              <div className="aero-alt-scale">
-                <small>ALT</small>
-                <span>352</span>
-                <strong>
-                  <em>FL</em>350
-                </strong>
-                <span>348</span>
-                <i />
-                <b>360</b>
-              </div>
-            </div>
-            <div className="aero-heading-scale">
-              <span>330</span>
-              <span>335</span>
-              <strong>
-                <small>HDG</small> 340
-              </strong>
-              <span>345</span>
-              <span>350</span>
-            </div>
+      <div className="hero-commerce-body">
+        <section className="hero-commerce-photo">
+          <small>THE EVERYDAY EDIT</small>
+          <div className="hero-commerce-image">
+            <NikeShoePreview active={active === 1} moving resetKey={entrance} onInteract={keepSlideshowPlaying} onStoryChange={setStory} />
           </div>
+          <span>Built for the miles ahead.</span>
         </section>
-
-        <section className="aero-components-tile">
-          <header>
-            <span>Component states</span>
-            <small>28 variants</small>
-          </header>
-          <div className="aero-button-row">
-            <button type="button" tabIndex={-1}>
-              Normal
-            </button>
-            <button className="armed" type="button" tabIndex={-1}>
-              Armed
-            </button>
-            <button className="warning" type="button" tabIndex={-1}>
-              Alert
-            </button>
-          </div>
-          <div className="aero-component-row">
-            <div className="aero-switch">
-              <span>AP1</span>
-              <i>
-                <b />
-              </i>
+        <section className="hero-commerce-details">
+          <div className="hero-commerce-category"><span>Lifestyle sneaker</span></div>
+          <h3>Air Max Plus</h3>
+          <div className="hero-commerce-story">
+            <div key={`${entrance}-${story}`} className="commerce-story-copy">
+              <h4>{copy.title}</h4>
+              <p>{copy.description}</p>
             </div>
-            <div className="aero-switch off">
-              <span>FD2</span>
-              <i>
-                <b />
-              </i>
-            </div>
-            <div className="aero-knob">
-              <i />
-              <span>80</span>
-            </div>
+            <i className="commerce-story-accent" aria-hidden="true" />
           </div>
-          <div className="aero-input-row">
-            <span>Range</span>
-            <i>
-              <b />
-            </i>
-            <strong>80 NM</strong>
-          </div>
-        </section>
-
-        <section className="aero-token-tile">
-          <header>
-            <span>Tokens</span>
-            <small>12</small>
-          </header>
-          <div>
-            <span className="normal">
-              <i />
-              Normal
-            </span>
-            <span className="selected">
-              <i />
-              Selected
-            </span>
-            <span className="caution">
-              <i />
-              Caution
-            </span>
-            <span className="critical">
-              <i />
-              Critical
-            </span>
-          </div>
-        </section>
-
-        <section className="aero-variable-tile">
-          <header>
-            <span>Variables</span>
-            <small>18</small>
-          </header>
-          <div>
-            <span>
-              <small>Grid</small>
-              <strong>08</strong>
-            </span>
-            <span>
-              <small>Radius</small>
-              <strong>06</strong>
-            </span>
-            <span>
-              <small>Motion</small>
-              <strong>240</strong>
-            </span>
-          </div>
+          <div className="hero-commerce-colours"><p>Colour <b>Sunset</b></p><div><button type="button" tabIndex={active === 1 ? 0 : -1} className="commerce-colour-sunset selected" aria-label="Sunset, original model colour" aria-pressed="true" /></div></div>
+          <div className="hero-commerce-sizes"><p>Select size</p><div>{[6,7,8,9,10].map(option=><button type="button" key={option} tabIndex={active === 1 ? 0 : -1} className={option === size ? "selected" : ""} aria-label={`Size ${option}`} aria-pressed={option === size} onClick={() => { setSize(option); setAdded(false); }}>{option}</button>)}</div></div>
+          <button type="button" className="hero-commerce-add" tabIndex={active === 1 ? 0 : -1} onClick={() => { setBag(count => count + 1); setAdded(true); }}>{added ? "Added to bag" : "Add to bag"}<b aria-hidden="true">{added ? "✓" : "+"}</b></button>
+          <p className="hero-commerce-delivery" role="status">{added ? `Sunset · Size ${size} added to demo bag` : "Shopping preview · No checkout"}</p>
         </section>
       </div>
-
-      <SystemFooter
-        active={active}
-        components="64 components"
-        variables="18 tokens"
-        release="06.5"
-      />
-    </div>
-  );
-}
-
-function RadarSystem({ active }: { active: number }) {
-  return (
-    <div
-      className={`system-slide radar-system-slide${active === 2 ? " is-active" : ""}`}
-      aria-hidden={active !== 2}
-    >
-      <div className="control-topbar">
-        <div className="control-title">
-          <small>OPS / DS — 03</small>
-          <strong>Flight operations radar system</strong>
-        </div>
-        <div className="control-modes">
-          <span className="active">Traffic</span>
-          <span>Weather</span>
-          <span>Conflict</span>
-        </div>
-        <span className="control-health">
-          <i />
-          142 live tracks
-        </span>
-      </div>
-
-      <div className="control-body">
-        <SystemRail active={2} code="OP" />
-        <div className="control-canvas">
-          <section className="primary-control-panel">
-            <header>
-              <div>
-                <small>Operations map / O-18</small>
-                <strong>Track lifecycle overview</strong>
-              </div>
-              <span>
-                <i />
-                Synchronized
-              </span>
-            </header>
-            <div className="radar-control-graphic">
-              <div className="radar-scope">
-                <i className="radar-ring radar-ring-one" />
-                <i className="radar-ring radar-ring-two" />
-                <i className="radar-ring radar-ring-three" />
-                <i className="radar-axis radar-axis-x" />
-                <i className="radar-axis radar-axis-y" />
-                <i className="radar-beam" />
-              </div>
-              <span className="radar-track track-a">
-                AI 502 <i />
-              </span>
-              <span className="radar-track track-b">
-                6E 214 <i />
-              </span>
-              <span className="radar-track track-c">
-                UK 863 <i />
-              </span>
-              <span className="radar-track track-d">
-                SQ 511 <i />
-              </span>
-              <div className="radar-route route-a" />
-              <div className="radar-route route-b" />
-              <div className="weather-cell weather-a" />
-              <div className="weather-cell weather-b" />
-            </div>
-            <footer>
-              <div>
-                <small>Tracks</small>
-                <strong>142 active</strong>
-              </div>
-              <div>
-                <small>Conflicts</small>
-                <strong>02 resolved</strong>
-              </div>
-              <div>
-                <small>Handoffs</small>
-                <strong>08 queued</strong>
-              </div>
-            </footer>
-          </section>
-
-          <section className="component-control-panel radar-track-panel">
-            <header>
-              <div>
-                <small>Track pattern / T-11</small>
-                <strong>Priority queue</strong>
-              </div>
-              <span>Live</span>
-            </header>
-            <div className="track-list">
-              <span>
-                <i className="track-normal" />
-                <b>AI 502</b>
-                <small>Stable</small>
-              </span>
-              <span>
-                <i className="track-focus" />
-                <b>6E 214</b>
-                <small>Handoff</small>
-              </span>
-              <span>
-                <i className="track-caution" />
-                <b>UK 863</b>
-                <small>Weather</small>
-              </span>
-            </div>
-            <div className="state-meter radar-load">
-              <span>
-                <small>Sector load</small>
-                <b>74%</b>
-              </span>
-              <i>
-                <b style={{ width: "74%" }} />
-              </i>
-            </div>
-          </section>
-
-          <SystemTokens labels={["Tracked", "Handoff", "Weather", "Conflict"]} />
-        </div>
-      </div>
-
-      <SystemFooter
-        active={active}
-        components="36 components"
-        variables="16 tokens"
-        release="03.8"
-      />
-      <div className="control-sweep" />
+      <footer className="hero-commerce-footer"><span>No live pricing</span><span>3D: <a href="https://sketchfab.com/3d-models/nike-air-max-plus-sunset-2df7e6025d29489192c92bd81fed0b54" target="_blank" rel="noreferrer" tabIndex={active === 1 ? 0 : -1}>SRUSH651</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer" tabIndex={active === 1 ? 0 : -1}>CC BY 4.0</a></span></footer>
     </div>
   );
 }
 
 export default function HeroSystemShowcase() {
   const [activeSystem, setActiveSystem] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [manuallySelected, setManuallySelected] = useState(false);
+  const [slideRestarts, setSlideRestarts] = useState([0, 0, 0, 0]);
+  const { ref, running, reducedMotion } = useShowcaseActivity(true);
+  const [frameFocused, setFrameFocused] = useState(false);
+  const interacting = activeSystem === 3 && frameFocused;
+  const elapsed = useRef(0);
+  const countdown = useRef<HTMLElement>(null);
+  const selectSlide = (step: number) => {
+    setManuallySelected(true);
+    elapsed.current = 0;
+    setActiveSystem(current => (current + step + slideNames.length) % slideNames.length);
+  };
+  const restartSlide = (index: number) => {
+    setManuallySelected(true);
+    setActiveSystem(index);
+    setSlideRestarts(current => current.map((count, slide) => slide === index ? count + 1 : count));
+  };
+  const sceneActions = { paused, onInteract: keepSlideshowPlaying, onPause: () => setPaused(true), onResume: () => setPaused(false), onNext: () => selectSlide(1), onPrevious: () => selectSlide(-1) };
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(
-      () => setActiveSystem((current) => (current + 1) % 3),
-      showcaseDuration,
-    );
-    return () => window.clearInterval(timer);
-  }, []);
+    elapsed.current = 0;
+    if (countdown.current) countdown.current.style.transform = "scaleX(0)";
+  }, [activeSystem, slideRestarts]);
+  useEffect(() => {
+    if (reducedMotion) setPaused(true);
+  }, [reducedMotion]);
+  useEffect(() => {
+    if (paused || interacting || !running) return;
+    const duration = manuallySelected ? selectedSlideDuration : showcaseDurations[activeSystem];
+    let frame = 0;
+    let previous: number | null = null;
+    const tick = (time: number) => {
+      if (previous !== null) elapsed.current += Math.min(100, time - previous);
+      previous = time;
+      if (countdown.current) countdown.current.style.transform = `scaleX(${Math.min(1, elapsed.current / duration)})`;
+      if (elapsed.current >= duration) {
+        setManuallySelected(false);
+        setActiveSystem(current => (current + 1) % slideNames.length);
+        return;
+      }
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [activeSystem, slideRestarts, paused, manuallySelected, interacting, running]);
 
   return (
     <div
-      className={`hero-art hero-control-system hero-system-rotator system-theme-${activeSystem + 1}`}
-      role="img"
-      aria-label="Three rotating product design systems for industrial controls, avionics displays and flight operations radar"
+      className={`hero-art hero-control-system hero-system-rotator hero-showcase-shell system-theme-${[1, 4, 2, 5][activeSystem]}`}
+      ref={ref}
+      role="region"
+      aria-roledescription="carousel"
+      tabIndex={0}
+      aria-label="Product showcase: MachineOS, STRIDE Ecommerce, ALTITUDE, FRAME RATE. Use left and right arrow keys to change slides."
+      onKeyDown={event => { if (event.target !== event.currentTarget) return; if (event.key === "ArrowRight" || event.key === "ArrowLeft") { event.preventDefault(); selectSlide(event.key === "ArrowRight" ? 1 : -1); } if (event.key === "Home") { event.preventDefault(); restartSlide(0); } }}
     >
-      <MachineSystem active={activeSystem} />
-      <CockpitSystem active={activeSystem} />
-      <RadarSystem active={activeSystem} />
+      <div className="showcase-viewport">
+      <MachineSystem active={activeSystem} restartToken={slideRestarts[0]} />
+      <CommerceSystem active={activeSystem} restartToken={slideRestarts[1]} />
+      <FlightControl active={activeSystem === 2} restartToken={slideRestarts[2]} {...sceneActions} />
+      <FrameRate active={activeSystem === 3} onFocusChange={setFrameFocused} />
+      </div>
+      <div className="showcase-selector">
+        <nav aria-label="Portfolio showcase slides">
+          {slideNames.map((name, index) => (
+            <button type="button" key={name} aria-current={activeSystem === index ? "true" : undefined}
+              aria-controls={`showcase-slide-${index}`} onClick={() => restartSlide(index)}>
+              <span>{name}</span>
+              <span className="showcase-countdown" aria-hidden="true">
+                {activeSystem === index && <i ref={countdown} />}
+              </span>
+            </button>
+          ))}
+        </nav>
+        <div className="showcase-playback">
+          <button type="button" onClick={() => setPaused(current => !current)} aria-label={paused ? "Play portfolio slideshow" : "Pause portfolio slideshow"}>
+            <svg viewBox="0 0 16 16" aria-hidden="true">{paused ? <path d="M5 3.5v9l7-4.5z" /> : <path d="M4 3h3v10H4zm5 0h3v10H9z" />}</svg>
+            {paused ? "Play" : "Pause"}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

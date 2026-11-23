@@ -1,0 +1,180 @@
+.frame.frame {
+  display: block;
+  background: #101415;
+  color: #f6f7fa;
+  isolation: isolate;
+  container-type: inline-size;
+  font-family: inherit;
+}
+
+.art, .shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.art {
+  background-size: cover;
+  background-position: center;
+  transition: opacity .45s ease;
+}
+
+.shade {
+  background: linear-gradient(90deg, #101415 3%, #101415ed 24%, #10141577 41%, transparent 66%),
+    linear-gradient(0deg, #101415 0%, transparent 38%);
+}
+
+.scroll {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2cqw, 30px);
+  padding: 3.1cqw 2cqw 2.4cqw;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 38% minmax(0, 1fr);
+  align-items: center;
+  flex: 1;
+}
+
+.copy { min-width: 0; padding-left: 1.8cqw; }
+.brand { font-size: clamp(10px, 1.25cqw, 21px); letter-spacing: .46em; }
+
+.copy h2 {
+  margin: 3cqw 0 2cqw;
+  color: white;
+  font-size: clamp(27px, 4.8cqw, 82px);
+  font-weight: 750;
+  letter-spacing: -.045em;
+  line-height: .98;
+  white-space: nowrap;
+}
+
+.controls { display: grid; gap: 1.8cqw; width: 79%; }
+.controls > label {
+  display: grid;
+  gap: .65cqw;
+  color: #e1e2e2;
+  font-size: clamp(12px, 1.2cqw, 20px);
+}
+
+.controls select, .resolutions {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ffffff62;
+  border-radius: 7px;
+  background: #1b2022bc;
+  color: white;
+  color-scheme: dark;
+  font: inherit;
+}
+
+.controls select {
+  width: 100%;
+  min-height: 30px;
+  padding: .48cqw .9cqw;
+  font-size: clamp(13px, 1.35cqw, 23px);
+}
+
+.resolutions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.resolutions label { position: relative; cursor: pointer; }
+.resolutions input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.resolutions span {
+  display: grid;
+  place-items: center;
+  min-height: max(28px, 2.8cqw);
+  border-radius: 6px;
+  font-size: clamp(12px, 1.2cqw, 20px);
+}
+.resolutions input:checked + span { color: #101415; background: #f4f4f4; font-weight: 700; }
+
+.benchmark, .result, .links { display: flex; flex-wrap: wrap; align-items: center; }
+.benchmark { gap: 5px 1.3cqw; margin-top: 1.85cqw; }
+.result { gap: .9cqw; font-size: clamp(12px, 1.15cqw, 19px); }
+.result strong { font-size: clamp(18px, 2.35cqw, 40px); letter-spacing: -.04em; }
+.result span { padding-left: .9cqw; border-left: 1px solid #ffffff55; }
+
+.detailButton, .links a, .details a {
+  color: #fff;
+  font: inherit;
+  font-size: clamp(12px, 1.15cqw, 19px);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.detailButton { padding: 2px 0; background: none; border: 0; cursor: pointer; }
+.details { padding: 8px; margin-top: 5px; background: #15191a; color: #eee; font-size: 12px; }
+.links { gap: 9px 2.6cqw; margin-top: 2.3cqw; }
+
+.frame img.gpu {
+  width: 100%;
+  height: auto;
+  max-height: 34cqw;
+  object-fit: contain;
+  opacity: 1;
+  transform: none;
+  animation: none;
+  filter: drop-shadow(0 15px 15px #0008);
+}
+
+.strip { display: flex; gap: .85cqw; flex: none; }
+.strip button {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  aspect-ratio: 2.45;
+  overflow: hidden;
+  border: 1px solid #ffffff35;
+  border-radius: 7px;
+  padding: 0;
+  background: #161b1e;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.strip button::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(0deg, #0b0c0ee6, transparent 75%);
+  pointer-events: none;
+}
+.strip button[aria-pressed=true]::after { border-bottom: max(3px, .4cqw) solid var(--accent); }
+.strip span {
+  position: absolute;
+  left: 5%;
+  bottom: 13%;
+  right: 4%;
+  z-index: 1;
+  font-size: clamp(11px, 1.5cqw, 25px);
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -.025em;
+}
+.frame .strip img { width: 100%; height: 100%; object-fit: cover; transform: none; animation: none; filter: none; opacity: 1; }
+.frame :focus-visible, .resolutions input:focus-visible + span { outline: 2px solid white; outline-offset: -2px; }
+
+@container (max-width: 540px) {
+  .scroll { padding: 14px; }
+  .main { display: flex; flex-direction: column; align-items: stretch; gap: 10px; }
+  .copy { padding-left: 0; }
+  .copy h2 { margin: 9px 0 12px; white-space: normal; }
+  .copy h2 br { display: none; }
+  .controls { width: 100%; gap: 8px; }
+  .controls select, .resolutions span { min-height: 36px; }
+  .benchmark { margin-top: 9px; }
+  .links { margin-top: 10px; }
+  .frame img.gpu { align-self: center; max-height: 27cqw; }
+  .strip { gap: 7px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; }
+  .strip button { flex: 0 0 44%; scroll-snap-align: start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame.frame, .art { transition: none; }
+}

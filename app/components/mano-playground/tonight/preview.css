@@ -1,0 +1,3 @@
+body:has(.tonight-preview) { margin: 0; background: #0d1018; }
+.tonight-preview { min-height: 100dvh; display: grid; place-items: center; padding: clamp(14px, 3vw, 28px); background: radial-gradient(ellipse at 20% 0%, #344f7680, transparent 45%), radial-gradient(ellipse at 95% 90%, #2c264180, transparent 50%), #0c0f16; }
+@media (max-width: 700px) { .tonight-preview { padding: 14px; } }

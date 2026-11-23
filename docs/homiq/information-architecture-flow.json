@@ -1,0 +1,479 @@
+{
+  "width": 1400,
+  "height": 920,
+  "nodes": [
+    {
+      "id": "welcome",
+      "label": "Welcome",
+      "x": 50,
+      "y": 24,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "sign-in",
+      "label": "Sign in",
+      "x": 330,
+      "y": 110,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "create-account",
+      "label": "Create account",
+      "x": 50,
+      "y": 110,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "recover-password",
+      "label": "Reset password",
+      "x": 610,
+      "y": 110,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "verify-code",
+      "label": "Verify code",
+      "x": 890,
+      "y": 110,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "change-password",
+      "label": "New password",
+      "x": 890,
+      "y": 190,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "my-home",
+      "label": "Home",
+      "x": 330,
+      "y": 306,
+      "width": 180,
+      "height": 44,
+      "kind": "main"
+    },
+    {
+      "id": "my-rooms",
+      "label": "Rooms",
+      "x": 890,
+      "y": 306,
+      "width": 180,
+      "height": 44,
+      "kind": "main"
+    },
+    {
+      "id": "profile",
+      "label": "Profile",
+      "x": 1170,
+      "y": 306,
+      "width": 180,
+      "height": 44,
+      "kind": "main"
+    },
+    {
+      "id": "room-appliances",
+      "label": "Room appliances",
+      "x": 610,
+      "y": 430,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "profile-details",
+      "label": "Profile details",
+      "x": 1170,
+      "y": 430,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "push-notifications",
+      "label": "Notifications",
+      "x": 1170,
+      "y": 530,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "device-scan-or-nfc",
+      "label": "Add device",
+      "x": 50,
+      "y": 430,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "device-light-found",
+      "label": "Connect light",
+      "x": 50,
+      "y": 530,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "device-select-location",
+      "label": "Choose room",
+      "x": 50,
+      "y": 630,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "device-name",
+      "label": "Name device",
+      "x": 50,
+      "y": 730,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "device-added",
+      "label": "Device added",
+      "x": 50,
+      "y": 830,
+      "width": 180,
+      "height": 44,
+      "kind": "done"
+    },
+    {
+      "id": "scene-choose",
+      "label": "Choose scene",
+      "x": 330,
+      "y": 430,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "scene-name",
+      "label": "Name scene",
+      "x": 330,
+      "y": 530,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "scene-select-devices",
+      "label": "Select devices",
+      "x": 330,
+      "y": 630,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "scene-set-device-states",
+      "label": "Set ON / OFF",
+      "x": 330,
+      "y": 730,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "scene-added",
+      "label": "Scene saved",
+      "x": 330,
+      "y": 830,
+      "width": 180,
+      "height": 44,
+      "kind": "done"
+    },
+    {
+      "id": "room-name",
+      "label": "Name room",
+      "x": 890,
+      "y": 430,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "room-choose-photo",
+      "label": "Choose photo",
+      "x": 890,
+      "y": 530,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "room-select-devices",
+      "label": "Select devices",
+      "x": 890,
+      "y": 630,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "room-added",
+      "label": "Room added",
+      "x": 890,
+      "y": 730,
+      "width": 180,
+      "height": 44,
+      "kind": "done"
+    },
+    {
+      "id": "air-conditioner",
+      "label": "Air conditioner",
+      "x": 610,
+      "y": 610,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "lamp",
+      "label": "Lamp",
+      "x": 610,
+      "y": 710,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    },
+    {
+      "id": "tv-remote",
+      "label": "TV remote",
+      "x": 610,
+      "y": 810,
+      "width": 180,
+      "height": 44,
+      "kind": "screen"
+    }
+  ],
+  "edges": [
+    {
+      "source": "welcome",
+      "target": "sign-in",
+      "path": "M140 68V88H420V110",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "sign-in",
+      "target": "create-account",
+      "path": "M330 132H230",
+      "bidirectional": true,
+      "arrow": true
+    },
+    {
+      "source": "sign-in",
+      "target": "recover-password",
+      "path": "M510 132H610",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "recover-password",
+      "target": "verify-code",
+      "path": "M790 132H890",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "verify-code",
+      "target": "change-password",
+      "path": "M980 154V190",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "sign-in",
+      "target": "my-home",
+      "path": "M420 270V306",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "sign-in",
+      "target": "my-rooms",
+      "path": "M980 270V306",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "sign-in",
+      "target": "profile",
+      "path": "M1260 270V306",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "my-home",
+      "target": "device-scan-or-nfc",
+      "path": "M140 390V430",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "my-home",
+      "target": "scene-choose",
+      "path": "M420 390V430",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "my-rooms",
+      "target": "room-appliances",
+      "path": "M700 390V430",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "my-rooms",
+      "target": "room-name",
+      "path": "M980 390V430",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "profile",
+      "target": "profile-details",
+      "path": "M1140 452H1170",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "profile",
+      "target": "push-notifications",
+      "path": "M1140 552H1170",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "my-home",
+      "target": "air-conditioner",
+      "path": "M590 632H610",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "my-home",
+      "target": "lamp",
+      "path": "M590 732H610",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "my-home",
+      "target": "tv-remote",
+      "path": "M590 832H610",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "room-appliances",
+      "target": "air-conditioner",
+      "path": "M700 474V510H590",
+      "bidirectional": false,
+      "arrow": false
+    },
+    {
+      "source": "device-scan-or-nfc",
+      "target": "device-light-found",
+      "path": "M140 474V530",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "device-light-found",
+      "target": "device-select-location",
+      "path": "M140 574V630",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "device-select-location",
+      "target": "device-name",
+      "path": "M140 674V730",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "device-name",
+      "target": "device-added",
+      "path": "M140 774V830",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "scene-choose",
+      "target": "scene-name",
+      "path": "M420 474V530",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "scene-name",
+      "target": "scene-select-devices",
+      "path": "M420 574V630",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "scene-select-devices",
+      "target": "scene-set-device-states",
+      "path": "M420 674V730",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "scene-set-device-states",
+      "target": "scene-added",
+      "path": "M420 774V830",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "room-name",
+      "target": "room-choose-photo",
+      "path": "M980 474V530",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "room-choose-photo",
+      "target": "room-select-devices",
+      "path": "M980 574V630",
+      "bidirectional": false,
+      "arrow": true
+    },
+    {
+      "source": "room-select-devices",
+      "target": "room-added",
+      "path": "M980 674V730",
+      "bidirectional": false,
+      "arrow": true
+    }
+  ],
+  "rails": [
+    "M420 154V270H1260",
+    "M420 350V390H140",
+    "M510 328H590V832",
+    "M980 350V390H700",
+    "M1170 328H1140V552"
+  ]
+}

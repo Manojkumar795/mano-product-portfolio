@@ -1,0 +1,1933 @@
+/* ALTITUDE is deliberately scoped to the third slide. The portfolio frame is unchanged. */
+.hero-system-rotator:has(.altitude-slide.is-active) {
+  background: #f8f7f4;
+  border-color: #dddedb;
+  box-shadow:
+    0 65px 150px rgba(0, 0, 0, 0.58),
+    0 0 0 1px #ffffff12;
+}
+.hero-system-rotator:has(.altitude-slide.is-active)::before {
+  background: #f8f7f4;
+}
+.system-slide.altitude-slide {
+  --alt-ink: #101c2b;
+  --alt-muted: #536577;
+  --alt-teal: #008f93;
+  --alt-border: #152c3f16;
+  --alt-safe: clamp(71px, calc(4vw + 16px), 161px);
+  display: grid;
+  grid-template-rows: 42px minmax(0, 1fr) 76px;
+  background: #f8f7f4;
+  color: var(--alt-ink);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.4;
+  overflow: hidden;
+  padding-right: var(--alt-safe);
+  text-shadow: none;
+}
+.altitude-slide :is(h3, h4, p) {
+  margin: 0;
+}
+.altitude-slide button {
+  border: 0;
+  background: none;
+  color: inherit;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  font: inherit;
+  letter-spacing: normal;
+}
+.altitude-slide :is(button, input, [tabindex]):focus-visible {
+  outline: 2px solid #007c83;
+  outline-offset: 3px;
+}
+.altitude-slide svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.altitude-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 17px 0 20px;
+  border-bottom: 1px solid var(--alt-border);
+  z-index: 8;
+  background: #f9f8f6;
+}
+.altitude-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  white-space: nowrap;
+}
+.altitude-logo svg {
+  width: 24px;
+  height: 24px;
+  fill: #101c2b;
+  stroke-width: 0.5;
+}
+.altitude-header nav {
+  display: flex;
+  align-self: stretch;
+  gap: 26px;
+}
+.altitude-header nav button {
+  position: relative;
+  font-size: 11px;
+  color: var(--alt-muted);
+  min-height: 36px;
+  white-space: nowrap;
+}
+.altitude-header nav button[aria-current] {
+  font-weight: 650;
+  color: var(--alt-ink);
+}
+.altitude-header nav button[aria-current]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -7px;
+  right: -7px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--alt-teal);
+}
+.altitude-profile-wrap {
+  position: relative;
+}
+.altitude-header .altitude-profile {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 10px;
+  background: #e3e4e2;
+}
+.altitude-profile-panel {
+  position: absolute;
+  top: 34px;
+  right: 0;
+  width: 160px;
+  padding: 14px;
+  display: grid;
+  gap: 7px;
+  background: #fff;
+  border: 1px solid var(--alt-border);
+  border-radius: 10px;
+  box-shadow: 0 8px 30px #142b3917;
+  font-size: 11px;
+}
+.altitude-profile-panel > span {
+  color: var(--alt-muted);
+}
+.altitude-profile-panel button {
+  text-align: left;
+  color: #007c83;
+  text-decoration: underline;
+  min-height: 28px;
+}
+.altitude-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(176px, 1fr);
+  min-height: 0;
+  min-width: 0;
+}
+.altitude-world {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  background: radial-gradient(ellipse at 47% 96%, #dddeda42, transparent 64%);
+}
+.altitude-journey-title {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  z-index: 3;
+  pointer-events: none;
+}
+.altitude-slide .altitude-eyebrow {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2.1px;
+  color: #46586a;
+  line-height: 1.5;
+}
+.altitude-journey-title h3 {
+  font-size: clamp(22px, 4.2cqw, 37px);
+  font-weight: 650;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin: 6px 0 3px;
+}
+.altitude-journey-title h3 span {
+  font-weight: 350;
+  padding: 0 4px;
+  color: #3f5365;
+}
+.altitude-journey-title > p:not(.altitude-eyebrow) {
+  font-size: 11px;
+  color: #435467;
+}
+.altitude-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 650;
+  background: #f2f3f0e8;
+  border: 1px solid #dfe2e1;
+  padding: 4px 9px;
+  border-radius: 20px;
+  margin-top: 8px;
+}
+.altitude-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #03999b;
+}
+.altitude-world-tools {
+  position: absolute;
+  bottom: 9px;
+  left: 18px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  pointer-events: none;
+  z-index: 4;
+}
+.altitude-world-tools > span {
+  font-size: 8px;
+  color: #fff;
+  text-shadow:
+    0 1px 4px #062d40,
+    0 0 10px #062d40;
+}
+.altitude-world-tools button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d6dedd;
+  background: #fcfbf7;
+  border-radius: 50%;
+  color: #334b5a;
+  font-size: 20px;
+  pointer-events: auto;
+  flex-shrink: 0;
+}
+.altitude-overview {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 1.7cqw, 18px);
+  min-width: 0;
+  min-height: 0;
+  margin: 9px 0 7px;
+  border-left: 1px solid var(--alt-border);
+  padding: 10px 15px 0 18px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #b7c9c8 transparent;
+}
+.altitude-overview h4 {
+  font-size: clamp(16px, 2.75cqw, 24px);
+  font-weight: 650;
+  line-height: 1.15;
+  letter-spacing: -0.6px;
+  margin-top: 5px;
+}
+.altitude-timezones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--alt-border);
+}
+.altitude-timezones > div {
+  display: grid;
+  gap: 6px;
+}
+.altitude-timezones > div:last-child {
+  padding-left: 10px;
+  border-left: 1px solid var(--alt-border);
+}
+.altitude-timezones strong {
+  font-size: clamp(11px, 1.75cqw, 15px);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.altitude-timezones span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--alt-muted);
+  font-size: 10px;
+}
+.altitude-timezones > b {
+  font-size: 21px;
+  font-weight: 300;
+  color: #91a0a9;
+}
+.altitude-progress-summary > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.altitude-progress-summary strong {
+  font-size: clamp(11px, 1.8cqw, 16px);
+  font-weight: 650;
+}
+.altitude-progress-summary span {
+  color: var(--alt-muted);
+  font-size: 9px;
+  white-space: nowrap;
+}
+.altitude-progress-summary span b {
+  font-size: 12px;
+  color: #008c91;
+  font-weight: 650;
+}
+.altitude-progress-summary span em {
+  font-style: normal;
+}
+.altitude-progress-summary p {
+  font-size: 10px;
+  color: var(--alt-muted);
+  margin: 3px 0 11px;
+}
+.altitude-progress-track {
+  height: 6px;
+  border-radius: 5px;
+  background: #e3e7e6;
+}
+.altitude-progress-track > span {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  background: #00979b;
+}
+.altitude-progress-track > span::after {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  right: -5px;
+  top: -2.5px;
+  border-radius: 50%;
+  background: #008f93;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px #19333c25;
+}
+.altitude-aircraft-card {
+  padding: 10px 11px;
+  border: 1px solid var(--alt-border);
+  border-radius: 8px;
+  box-shadow: 0 3px 9px #142b3905;
+  min-height: 0;
+}
+.altitude-aircraft-card .altitude-eyebrow {
+  display: flex;
+  justify-content: space-between;
+}
+.altitude-aircraft-card .altitude-eyebrow span {
+  font-size: 15px;
+  line-height: 10px;
+}
+.altitude-aircraft-card .altitude-aircraft-image {
+  width: 100%;
+  height: clamp(44px, 9cqw, 86px);
+  display: block;
+  position: relative;
+  margin: 2px 0;
+}
+.altitude-slide .altitude-aircraft-image img {
+  position: static;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  filter: none;
+  transform: none;
+  animation: none;
+  opacity: 1;
+  mix-blend-mode: normal;
+  border-radius: 0;
+  box-shadow: none;
+}
+.altitude-aircraft-image > span {
+  position: absolute;
+  top: 40%;
+  left: 55%;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 9px #142b3925;
+  width: 18px;
+  height: 18px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.altitude-aircraft-card > strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+.altitude-aircraft-card > p:not(.altitude-eyebrow) {
+  font-size: 10px;
+  color: var(--alt-muted);
+  margin: 2px 0 8px;
+}
+.altitude-slide .altitude-primary {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 29px;
+  padding: 5px 10px;
+  background: var(--alt-teal);
+  color: #fff;
+  border-radius: 25px;
+  font-size: 10px;
+  font-weight: 550;
+}
+.altitude-slide .altitude-primary:hover {
+  background: #00787d;
+}
+.altitude-slide .altitude-arrival-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-align: left;
+  font-size: 11px;
+  min-height: 27px;
+  flex-shrink: 0;
+}
+.altitude-detail-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-height: 100%;
+  padding: 2px 0 6px;
+}
+.altitude-detail-panel > p:not(.altitude-eyebrow) {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #526272;
+}
+.altitude-detail-panel .altitude-detail-note {
+  font-size: 9px !important;
+  line-height: 1.5;
+  color: #647582;
+}
+.altitude-detail-panel > .altitude-primary {
+  margin-top: auto;
+  flex-shrink: 0;
+}
+.altitude-detail-panel > h4 {
+  margin-top: -8px;
+}
+.altitude-detail-panel dl {
+  margin: 0;
+  display: grid;
+  gap: 11px;
+  font-size: 11px;
+}
+.altitude-detail-panel dl > div {
+  display: grid;
+  gap: 3px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--alt-border);
+}
+.altitude-detail-panel dt {
+  color: var(--alt-muted);
+  font-size: 9px;
+}
+.altitude-detail-panel dd {
+  margin: 0;
+  font-weight: 550;
+}
+.altitude-discover-panel > button {
+  display: flex;
+  text-align: left;
+  gap: 9px;
+  align-items: center;
+  min-height: 45px;
+  border-top: 1px solid var(--alt-border);
+  font-size: 11px;
+}
+.altitude-discover-panel > button > span {
+  font-size: 9px;
+  color: var(--alt-teal);
+}
+.altitude-discover-panel > button > div {
+  display: grid;
+  gap: 3px;
+}
+.altitude-discover-panel > button small {
+  font-size: 9px;
+  color: var(--alt-muted);
+}
+.altitude-discover-panel > button b {
+  margin-left: auto;
+  font-size: 17px;
+  font-weight: 400;
+}
+.altitude-footer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(176px, 1fr);
+  gap: 17px;
+  border-top: 1px solid var(--alt-border);
+  padding: 10px 15px 5px 20px;
+  z-index: 5;
+  background: #f9f8f6;
+}
+.altitude-scrubber {
+  min-width: 0;
+}
+.altitude-scrubber label {
+  display: flex;
+  justify-content: space-between;
+  letter-spacing: 1.8px;
+  font-size: 8px;
+  color: #43586a;
+  font-weight: 550;
+}
+.altitude-scrubber output {
+  letter-spacing: 0;
+  color: #008c91;
+  font-size: 11px;
+}
+.altitude-scrubber-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 3px;
+}
+.altitude-slide .altitude-play {
+  height: 29px;
+  width: 29px;
+  flex-shrink: 0;
+  border: 1px solid #d9dedf;
+  border-radius: 50%;
+  background: #f3f4f1;
+  font-size: 11px;
+}
+.altitude-scrubber-row > div {
+  flex: 1;
+  min-width: 0;
+}
+.altitude-scrubber input {
+  display: block;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 18px;
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+}
+.altitude-scrubber input::-webkit-slider-runnable-track {
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(
+    to right,
+    #00969a var(--journey-progress),
+    #e3e7e6 var(--journey-progress)
+  );
+}
+.altitude-scrubber input::-moz-range-track {
+  height: 5px;
+  border-radius: 5px;
+  background: linear-gradient(
+    to right,
+    #00969a var(--journey-progress),
+    #e3e7e6 var(--journey-progress)
+  );
+}
+.altitude-scrubber input::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: #00969a;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px #203c4328;
+  margin-top: -4.5px;
+}
+.altitude-scrubber input::-moz-range-thumb {
+  width: 11px;
+  height: 11px;
+  background: #00969a;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px #203c4328;
+}
+.altitude-scrubber-labels {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  font-size: 8px;
+  color: #536577;
+  white-space: nowrap;
+}
+.altitude-bottom-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  min-width: 0;
+}
+.altitude-bottom-right > nav {
+  display: flex;
+  border: 1px solid #dce1df;
+  border-radius: 30px;
+  background: #f4f5f2;
+  padding: 2px;
+}
+.altitude-bottom-right > nav > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 29px;
+  flex: 1;
+  border-radius: 25px;
+  font-size: 9px;
+  color: #344e60;
+}
+.altitude-bottom-right > nav > button svg {
+  width: 14px;
+  height: 14px;
+}
+.altitude-bottom-right > nav > button[aria-current] {
+  background: #008f93;
+  color: #fff;
+}
+.altitude-demo-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+  color: #536577;
+  font-size: 6.5px;
+  white-space: nowrap;
+}
+.altitude-demo-caption .showcase-scene-controls {
+  gap: 2px;
+}
+.altitude-demo-caption .showcase-scene-controls button {
+  background: transparent;
+  border: 0;
+  color: #405669;
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  font-size: 13px;
+  border-radius: 50%;
+}
+.altitude-demo-caption .showcase-scene-controls button:hover {
+  background: #e2eeea;
+}
+.altitude-demo-caption .showcase-scene-controls .showcase-play {
+  font-size: 8px;
+}
+.altitude-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.altitude-canvas {
+  position: absolute;
+  inset: 0;
+  cursor: grab;
+  touch-action: none;
+  outline-offset: -4px !important;
+}
+.altitude-canvas:active {
+  cursor: grabbing;
+}
+.altitude-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+.altitude-projected {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  visibility: hidden;
+}
+.altitude-airport {
+  width: 0;
+  height: 10px;
+  transform: translate(0, -5px);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.altitude-airport i {
+  display: block;
+  margin-left: -5px;
+  width: 10px;
+  height: 10px;
+  background: #00999b;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #45e8df88;
+}
+.altitude-airport span {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  padding: 3px 7px;
+  background: #fffef8;
+  border-radius: 14px;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  box-shadow: 0 2px 9px #0b3a4920;
+}
+.altitude-stage .altitude-plane-label {
+  padding: 4px 8px;
+  background: #fffef9;
+  border-radius: 20px;
+  white-space: nowrap;
+  font-size: 8px;
+  box-shadow: 0 2px 9px #0b3a4920;
+}
+.altitude-stage .altitude-hotspot {
+  width: 24px;
+  height: 24px;
+  background: #fff;
+  border: 1px solid #d4dcdd;
+  box-shadow: 0 2px 10px #29394125;
+  border-radius: 50%;
+  font-size: 17px;
+}
+.altitude-stage .altitude-hotspot[aria-pressed="true"] {
+  background: #008f93;
+  color: #fff;
+}
+.altitude-stage-message {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 9px;
+  padding: 100px 25px 45px;
+  text-align: center;
+  color: #526778;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 90%, #dce9e8, transparent 70%);
+  font-size: 11px;
+}
+.altitude-stage-message strong {
+  font-size: 15px;
+  font-weight: 550;
+  color: #163447;
+}
+.altitude-stage-message button {
+  pointer-events: auto;
+  color: #007f86;
+  text-decoration: underline;
+  font-size: 11px;
+}
+.altitude-fallback-route {
+  width: 100%;
+  height: 70px;
+  color: #008f93;
+  font-size: 10px;
+}
+.altitude-fallback-route > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 8px;
+}
+.altitude-fallback-route > div > span {
+  height: 2px;
+  flex: 1;
+  background: repeating-linear-gradient(
+    to right,
+    #008f93 0 5px,
+    transparent 5px 9px
+  );
+  position: relative;
+}
+.altitude-fallback-route i {
+  position: absolute;
+  top: -11px;
+  left: var(--fallback-position);
+  font-size: 18px;
+  transform: translateX(-50%);
+  font-style: normal;
+}
+.altitude-rotation {
+  position: absolute;
+  bottom: 9px;
+  left: 13px;
+  display: flex;
+  gap: 3px;
+  z-index: 4;
+}
+.altitude-rotation button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fbfcf5e0;
+  border: 1px solid #d5dedc;
+  font-size: 13px;
+  color: #243f51;
+}
+.altitude-part-controls {
+  position: absolute;
+  bottom: 47px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  z-index: 4;
+}
+.altitude-part-controls button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #fffdf8e8;
+  border: 1px solid #cfdedb;
+  border-radius: 30px;
+  font-size: 10px;
+  min-height: 28px;
+  padding: 4px 10px;
+  color: #39535e;
+}
+.altitude-part-controls button[aria-pressed="true"] {
+  background: #008f93;
+  color: white;
+  border-color: #008f93;
+}
+.altitude-slide[data-view="aircraft"] .altitude-world-tools > span {
+  color: #536577;
+  text-shadow: none;
+}
+.altitude-slide[data-view="aircraft"] .altitude-journey-title h3 {
+  font-size: clamp(20px, 3.1cqw, 28px);
+  max-width: 250px;
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .system-slide.altitude-slide {
+    grid-template-rows: 37px minmax(0, 1fr) 67px;
+  }
+  .altitude-header {
+    padding-left: 14px;
+    padding-right: 9px;
+  }
+  .altitude-logo {
+    font-size: 10px;
+    letter-spacing: 2.8px;
+    gap: 7px;
+  }
+  .altitude-header nav {
+    gap: 18px;
+  }
+  .altitude-header nav button {
+    font-size: 10px;
+  }
+  .altitude-content,
+  .altitude-footer {
+    grid-template-columns: minmax(0, 1.65fr) minmax(174px, 1fr);
+  }
+  .altitude-journey-title {
+    left: 14px;
+    top: 10px;
+  }
+  .altitude-journey-title h3 {
+    font-size: 26px;
+  }
+  .altitude-overview {
+    padding: 5px 9px 0 12px;
+    gap: 10px;
+  }
+  .altitude-timezones {
+    padding-bottom: 9px;
+  }
+  .altitude-aircraft-card {
+    padding: 7px;
+  }
+  .altitude-aircraft-card .altitude-aircraft-image {
+    height: 43px;
+  }
+  .altitude-aircraft-card > strong {
+    font-size: 11px;
+  }
+  .altitude-aircraft-card > p:not(.altitude-eyebrow) {
+    margin-bottom: 5px;
+  }
+  .altitude-overview h4 {
+    font-size: 18px;
+  }
+  .altitude-timezones strong {
+    font-size: 10px;
+  }
+  .altitude-progress-summary strong {
+    font-size: 11px;
+  }
+  .altitude-progress-summary span em {
+    display: none;
+  }
+  .altitude-overview .altitude-primary {
+    min-height: 25px;
+    font-size: 9px;
+  }
+  .altitude-footer {
+    padding: 7px 8px 4px 14px;
+    gap: 12px;
+  }
+  .altitude-demo-caption {
+    font-size: 6px;
+  }
+  .altitude-world-tools > span {
+    font-size: 7px;
+    max-width: 110px;
+  }
+  .altitude-detail-panel {
+    gap: 10px;
+  }
+  .altitude-detail-panel > p:not(.altitude-eyebrow) {
+    font-size: 11px;
+  }
+  .altitude-detail-panel dl {
+    gap: 6px;
+  }
+}
+@media (max-width: 760px) {
+  .system-slide.altitude-slide {
+    padding-left: calc(8vw + 10px);
+    padding-right: calc(8vw + 10px);
+    grid-template-rows: 35px minmax(0, 1fr) 69px;
+    font-size: 10px;
+  }
+  .altitude-header {
+    padding: 0 3px;
+    gap: 5px;
+  }
+  .altitude-logo {
+    font-size: 10px;
+    letter-spacing: 2.6px;
+    gap: 6px;
+  }
+  .altitude-logo svg {
+    width: 20px;
+    height: 20px;
+  }
+  .altitude-header nav {
+    gap: 17px;
+  }
+  .altitude-header nav button {
+    font-size: 10px;
+    min-height: 32px;
+  }
+  .altitude-header .altitude-profile {
+    height: 24px;
+    width: 24px;
+    font-size: 9px;
+  }
+  .altitude-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    overflow: hidden;
+  }
+  .altitude-world {
+    min-height: 110px;
+    overflow: hidden;
+  }
+  .altitude-journey-title {
+    top: 8px;
+    left: 3px;
+  }
+  .altitude-journey-title h3 {
+    font-size: 24px;
+    margin-top: 4px;
+  }
+  .altitude-slide .altitude-eyebrow {
+    font-size: 6px;
+    letter-spacing: 1.5px;
+  }
+  .altitude-journey-title > p:not(.altitude-eyebrow) {
+    font-size: 9px;
+  }
+  .altitude-status {
+    font-size: 8px;
+    padding: 3px 7px;
+    margin-top: 5px;
+  }
+  .altitude-status i {
+    width: 5px;
+    height: 5px;
+  }
+  .altitude-overview {
+    border-left: 0;
+    border-top: 1px solid var(--alt-border);
+    padding: 7px 3px 5px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 7px 12px;
+    max-height: 92px;
+    overflow: auto;
+  }
+  .altitude-overview-heading,
+  .altitude-aircraft-card {
+    display: none;
+  }
+  .altitude-timezones {
+    border-bottom: 0;
+    padding: 0;
+    gap: 5px;
+  }
+  .altitude-timezones strong {
+    font-size: 9px;
+  }
+  .altitude-timezones > div {
+    gap: 4px;
+  }
+  .altitude-timezones > div:last-child {
+    padding-left: 4px;
+  }
+  .altitude-timezones span {
+    font-size: 8px;
+    gap: 3px;
+  }
+  .altitude-timezones svg {
+    width: 13px;
+    height: 13px;
+  }
+  .altitude-timezones > b {
+    font-size: 16px;
+  }
+  .altitude-progress-summary strong {
+    font-size: 10px;
+  }
+  .altitude-progress-summary span b {
+    font-size: 10px;
+  }
+  .altitude-progress-summary span em {
+    display: none;
+  }
+  .altitude-progress-summary p {
+    font-size: 8px;
+    margin: 2px 0 7px;
+  }
+  .altitude-progress-track {
+    height: 4px;
+  }
+  .altitude-progress-track > span::after {
+    width: 9px;
+    height: 9px;
+    top: -2.5px;
+  }
+  .altitude-overview > .altitude-arrival-link {
+    display: none;
+  }
+  .altitude-footer {
+    grid-template-columns: 1fr 1fr;
+    padding: 5px 3px 2px;
+    gap: 10px;
+    align-items: center;
+  }
+  .altitude-scrubber label {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+  .altitude-scrubber output {
+    font-size: 10px;
+  }
+  .altitude-scrubber-row {
+    gap: 5px;
+  }
+  .altitude-slide .altitude-play {
+    width: 26px;
+    height: 26px;
+    font-size: 9px;
+  }
+  .altitude-scrubber-labels {
+    font-size: 6px;
+  }
+  .altitude-scrubber-labels > span:nth-child(2) {
+    display: none;
+  }
+  .altitude-scrubber input {
+    height: 24px;
+  }
+  .altitude-bottom-right > nav > button {
+    min-height: 28px;
+    font-size: 8px;
+    gap: 3px;
+  }
+  .altitude-bottom-right > nav > button svg {
+    display: none;
+  }
+  .altitude-demo-caption {
+    font-size: 5.5px;
+    white-space: normal;
+    line-height: 1.2;
+  }
+  .altitude-demo-caption .showcase-scene-controls button {
+    width: 16px;
+    height: 18px;
+  }
+  .altitude-demo-caption > span {
+    max-width: 100px;
+  }
+  .altitude-world-tools {
+    right: 4px;
+    bottom: 5px;
+    left: 5px;
+    gap: 5px;
+  }
+  .altitude-world-tools > span {
+    font-size: 6.5px;
+    max-width: 140px;
+    text-align: right;
+  }
+  .altitude-world-tools button {
+    width: 26px;
+    height: 26px;
+    font-size: 18px;
+  }
+  .altitude-rotation {
+    bottom: 6px;
+    left: 4px;
+  }
+  .altitude-rotation button {
+    width: 23px;
+    height: 23px;
+  }
+  .altitude-airport span {
+    font-size: 6px;
+    padding: 3px 5px;
+    letter-spacing: 0.3px;
+  }
+  .altitude-airport i {
+    width: 8px;
+    height: 8px;
+    margin-left: -4px;
+  }
+  .altitude-stage .altitude-plane-label {
+    font-size: 7px;
+    padding: 4px 6px;
+  }
+  .altitude-part-controls {
+    bottom: 36px;
+    gap: 5px;
+  }
+  .altitude-part-controls button {
+    font-size: 8px;
+    min-height: 24px;
+    padding: 3px 8px;
+  }
+  .altitude-stage .altitude-hotspot {
+    width: 22px;
+    height: 22px;
+    font-size: 14px;
+  }
+  .altitude-detail-panel {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 4px 10px;
+    min-height: 0;
+    padding: 0;
+  }
+  .altitude-detail-panel > .altitude-eyebrow,
+  .altitude-detail-panel > .altitude-detail-note {
+    display: none;
+  }
+  .altitude-detail-panel > h4 {
+    font-size: 14px;
+    margin: 0;
+  }
+  .altitude-detail-panel > p:not(.altitude-eyebrow) {
+    font-size: 9px;
+    line-height: 1.4;
+    grid-column: 1;
+    grid-row: 2/4;
+  }
+  .altitude-detail-panel > .altitude-primary {
+    min-height: 25px;
+    font-size: 8px;
+    grid-column: 2;
+    grid-row: 1/3;
+    width: 115px;
+    padding: 4px 7px;
+  }
+  .altitude-detail-panel > .altitude-arrival-link {
+    grid-column: 2;
+    font-size: 8px;
+    min-height: 24px;
+  }
+  .altitude-slide[data-view="aircraft"] .altitude-journey-title h3 {
+    font-size: 20px;
+    max-width: 180px;
+  }
+  .altitude-arrival-panel {
+    display: block;
+  }
+  .altitude-arrival-panel > p:not(.altitude-eyebrow) {
+    font-size: 8px;
+    margin: 3px 0;
+  }
+  .altitude-arrival-panel dl {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 12px;
+    font-size: 9px;
+    margin: 7px 0;
+  }
+  .altitude-arrival-panel dl > div {
+    padding: 0;
+    border: 0;
+    gap: 1px;
+  }
+  .altitude-arrival-panel dt {
+    font-size: 7px;
+  }
+  .altitude-arrival-panel > .altitude-primary {
+    display: none;
+  }
+  .altitude-arrival-panel > .altitude-detail-note {
+    display: block;
+    font-size: 7px !important;
+  }
+  .altitude-discover-panel {
+    display: block;
+  }
+  .altitude-discover-panel > p:not(.altitude-eyebrow) {
+    font-size: 9px;
+    margin: 4px 0;
+  }
+  .altitude-discover-panel > button {
+    min-height: 31px;
+    font-size: 10px;
+  }
+  .altitude-discover-panel > button > div {
+    gap: 0;
+  }
+  .altitude-discover-panel > button small {
+    font-size: 8px;
+  }
+  .altitude-stage-message {
+    padding: 70px 15px 35px;
+    font-size: 9px;
+    gap: 5px;
+  }
+  .altitude-stage-message strong {
+    font-size: 12px;
+  }
+  .altitude-fallback-route {
+    height: 40px;
+    font-size: 8px;
+  }
+  .altitude-fallback-route > div {
+    margin: 5px 0;
+  }
+  .altitude-stage-message button {
+    font-size: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .altitude-slide,
+  .altitude-slide * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Keep the card's action inside the unchanged, finite hero frame. */
+@media (min-width: 761px) {
+  .altitude-overview {
+    gap: 10px;
+  }
+  .altitude-aircraft-card {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 117px;
+  }
+  .altitude-aircraft-card .altitude-aircraft-image {
+    flex: 1;
+    height: auto;
+    min-height: 26px;
+    max-height: 82px;
+  }
+  .altitude-aircraft-card > .altitude-primary {
+    flex-shrink: 0;
+  }
+}
+@media (max-width: 760px) {
+  .altitude-canvas {
+    top: 43px;
+  }
+  .altitude-journey-title {
+    right: 3px;
+  }
+  .altitude-status {
+    position: absolute;
+    right: 0;
+    top: 12px;
+  }
+}
+
+/* Match the reference's compact chrome, wider globe, and full aircraft preview. */
+.system-slide.altitude-slide {
+  --alt-ink: #0c1929;
+  --alt-muted: #506176;
+  --alt-teal: #00999c;
+  background: #faf9f6;
+}
+.altitude-header, .altitude-footer { background: #faf9f6; }
+.altitude-aircraft-card > .altitude-aircraft-image { overflow: hidden; }
+.altitude-profile-panel a { color: #007c83; }
+@media (min-width: 761px) {
+  .system-slide.altitude-slide { grid-template-rows: 33px minmax(0,1fr) 76px; }
+  .altitude-content, .altitude-footer { grid-template-columns: minmax(0,2.3fr) minmax(174px,1fr); }
+  .altitude-header nav button { font-size: 9px; min-height: 31px; }
+  .altitude-logo { font-size: 11px; letter-spacing: 3.7px; }
+  .altitude-logo svg { width: 23px; height: 23px; }
+  .altitude-header .altitude-profile { width: 22px; height: 22px; font-size: 9px; }
+  .altitude-journey-title { top: 12px; }
+  .altitude-journey-title h3 { font-size: clamp(22px,2.95cqw,27px); font-weight: 650; letter-spacing: -.65px; }
+  .altitude-slide .altitude-eyebrow { font-size: 6.5px; letter-spacing: 1.8px; }
+  .altitude-journey-title > p:not(.altitude-eyebrow) { font-size: 10.5px; }
+  .altitude-status { font-size: 9px; padding: 4px 8px; margin-top: 8px; }
+  .altitude-overview { padding: 10px 15px 0 18px; gap: 13px; overflow: auto; }
+  .altitude-overview h4 { font-size: clamp(16px,2.25cqw,20px); letter-spacing: -.55px; }
+  .altitude-timezones { padding: 2px 0 13px; }
+  .altitude-timezones strong { font-size: 11px; }
+  .altitude-timezones span { font-size: 9px; }
+  .altitude-progress-summary strong { font-size: 12px; }
+  .altitude-progress-summary p { font-size: 9px; margin-bottom: 11px; }
+  .altitude-progress-summary span { font-size: 8px; }
+  .altitude-progress-summary span b { font-size: 11px; }
+  .altitude-aircraft-card { display: grid; grid-template-rows: 12px minmax(52px,1fr) auto auto 25px; padding: 10px; min-height: 147px; flex: 1; }
+  .altitude-aircraft-card .altitude-aircraft-image { height: 100%; min-height: 52px; max-height: none; margin: 0; }
+  .altitude-aircraft-card > strong { font-size: 12px; }
+  .altitude-aircraft-card > p:not(.altitude-eyebrow) { font-size: 9px; margin: 2px 0 8px; }
+  .altitude-slide .altitude-primary { min-height: 25px; font-size: 9px; }
+  .altitude-slide .altitude-arrival-link { font-size: 10px; min-height: 23px; }
+  .altitude-world-tools { justify-content: center; left: 20px; right: 18px; bottom: 12px; }
+  .altitude-world-tools > span { font-size: 7.5px; max-width: none; }
+  .altitude-world-tools > button { position: absolute; right: 0; }
+  .altitude-rotation { opacity: 0; transition: opacity .15s; }
+  .altitude-stage:hover .altitude-rotation, .altitude-stage:focus-within .altitude-rotation { opacity: 1; }
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .system-slide.altitude-slide { grid-template-rows: 31px minmax(0,1fr) 65px; }
+  .altitude-content,.altitude-footer { grid-template-columns: minmax(0,1.9fr) minmax(156px,1fr); }
+  .altitude-overview { padding: 6px 9px 0 11px; gap: 8px; }
+  .altitude-overview h4 { font-size: 15px; }
+  .altitude-timezones { padding-bottom: 8px; }
+  .altitude-timezones strong { font-size: 9px; }
+  .altitude-progress-summary strong { font-size: 10px; }
+  .altitude-aircraft-card { grid-template-rows: 10px minmax(37px,1fr) auto auto 23px; min-height: 117px; padding: 7px; }
+  .altitude-aircraft-card .altitude-aircraft-image { min-height: 37px; }
+  .altitude-aircraft-card > strong { font-size: 10px; }
+  .altitude-aircraft-card > p:not(.altitude-eyebrow) { font-size: 8px; margin-bottom: 4px; }
+}
+
+.altitude-ocean-label { pointer-events: none; color: #f0f4f2; font-size: 7px; font-style: italic; text-align: center; letter-spacing: 3px; line-height: 1.8; text-shadow: 0 1px 4px #073344; }
+@media(max-width:760px) { .altitude-ocean-label { font-size: 6px; letter-spacing: 1.5px; } }
+
+/* Quiet motion makes the real-time journey apparent without flashing the interface. */
+.altitude-airport i { position: relative; }
+.altitude-airport i::after {
+  content: ""; position: absolute; inset: -5px; border: 1px solid #7bf4e9;
+  border-radius: 50%; pointer-events: none;
+  animation: altitude-pin-pulse 2.4s ease-out infinite; animation-play-state: paused;
+}
+.altitude-airport-hnd i::after { animation-delay: 1.2s; }
+.altitude-plane-label::before {
+  content: ""; display: inline-block; width: 5px; height: 5px; margin-right: 5px;
+  border-radius: 50%; background: #00999c; vertical-align: middle;
+  animation: altitude-pointer-breathe 1.9s ease-in-out infinite; animation-play-state: paused;
+}
+.altitude-progress-track > span::after {
+  animation: altitude-progress-pulse 2.4s ease-in-out infinite; animation-play-state: paused;
+}
+.altitude-slide[data-motion="true"] .altitude-airport i::after,
+.altitude-slide[data-motion="true"] .altitude-plane-label::before,
+.altitude-slide[data-motion="true"] .altitude-progress-track > span::after {
+  animation-play-state: running;
+}
+@keyframes altitude-pin-pulse {
+  0% { transform: scale(.6); opacity: .8; }
+  85%, 100% { transform: scale(1.8); opacity: 0; }
+}
+@keyframes altitude-pointer-breathe {
+  0%, 100% { opacity: .55; box-shadow: 0 0 0 0 #00999c00; }
+  50% { opacity: 1; box-shadow: 0 0 0 3px #00999c18; }
+}
+@keyframes altitude-progress-pulse {
+  0%, 100% { box-shadow: 0 2px 5px #19333c25, 0 0 0 0 #00999c00; }
+  50% { box-shadow: 0 2px 5px #19333c25, 0 0 0 4px #00999c1c; }
+}
+
+/* A navy globe stage gives the backlit Earth contrast; reading surfaces stay warm white. */
+.system-slide.altitude-slide {
+  background: radial-gradient(ellipse at 80% 25%, #edf4f321, transparent 62%), #faf9f6;
+}
+.altitude-world {
+  isolation: isolate;
+  margin: 8px;
+  border-radius: 12px;
+  border: 1px solid #132f41;
+  box-shadow: inset 0 1px 0 #ffffff0d;
+  color: #f5f8fb;
+  background: radial-gradient(ellipse at 83% 13%, #213b4b, #0b2232 42%, #06131f 78%);
+}
+.altitude-world::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 14% 18%, #d5ecff66 0 .55px, transparent 1px),
+    radial-gradient(circle at 35% 8%, #d5ecff40 0 .6px, transparent 1px),
+    radial-gradient(circle at 69% 25%, #d5ecff50 0 .5px, transparent 1px),
+    radial-gradient(circle at 8% 61%, #d5ecff33 0 .6px, transparent 1px),
+    radial-gradient(circle at 92% 74%, #d5ecff40 0 .5px, transparent 1px),
+    radial-gradient(ellipse 27% 38% at 86% 12%, #ffc36e20, #d4944110 44%, transparent 76%),
+    radial-gradient(ellipse 58% 50% at 102% 0%, #ffe1a314 5%, transparent 76%);
+  opacity: .85;
+  transform-origin: 93% 6%;
+  animation: altitude-sunlight 8s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.altitude-world::after {
+  content: "";
+  position: absolute;
+  left: 24%; right: 9%; bottom: 2%; height: 11%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse, #163c4a13, transparent 69%);
+}
+.altitude-header, .altitude-footer {
+  background: #fffdf8d9;
+  -webkit-backdrop-filter: blur(14px) saturate(1.08);
+  backdrop-filter: blur(14px) saturate(1.08);
+  box-shadow: inset 0 1px 0 #ffffffd9;
+}
+.altitude-journey-title {
+  top: 20px;
+  padding-bottom: 12px;
+  border-radius: 0;
+  background: none;
+}
+.altitude-journey-title .altitude-eyebrow { color: #c3d4df; }
+.altitude-journey-title h3 span { color: #b5cbd7; }
+.altitude-journey-title h3 { margin: 8px 0 7px; }
+.altitude-journey-subline { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.altitude-journey-subline p { font-size: 10.5px; color: #c7d8e2; }
+.altitude-journey-subline .altitude-status {
+  position: static; margin: 0; font-size: 8px; padding: 3px 7px;
+  background: #d9f4ef; border-color: #ffffff4d; color: #09696c;
+}
+.altitude-world :is(.altitude-airport span, .altitude-plane-label, .altitude-hotspot) { color: #173441; }
+.altitude-world :is(button, [tabindex]):focus-visible { outline-color: #83e9df; }
+.altitude-slide[data-view="aircraft"] .altitude-world-tools > span { color: #c7d8e2; }
+.altitude-world .altitude-stage-message { color: #c7d8e2; background: radial-gradient(ellipse at 50% 90%, #193d4a, transparent 70%); }
+.altitude-world .altitude-stage-message strong { color: #f5f8fb; }
+.altitude-world .altitude-stage-message button { color: #8be4dd; }
+.altitude-slide :is(.altitude-airport span, .altitude-plane-label, .altitude-hotspot,
+  .altitude-aircraft-card, .altitude-world-tools button, .altitude-play,
+  .altitude-bottom-right > nav, .altitude-part-controls button, .altitude-profile-panel) {
+  background: linear-gradient(145deg, #fffffff2, #fffdf5bd 60%, #e5f2edc9);
+  border: 1px solid #ffffffb3;
+  -webkit-backdrop-filter: blur(14px) saturate(1.12);
+  backdrop-filter: blur(14px) saturate(1.12);
+  box-shadow: inset 0 1px 0 #ffffff, inset 0 -1px 0 #17384716, 0 5px 16px #1638471c;
+}
+.altitude-stage .altitude-plane-label { padding: 6px 10px; overflow: hidden; }
+.altitude-bottom-right > nav { position: relative; isolation: isolate; overflow: hidden; }
+.altitude-bottom-right > nav::before,
+.altitude-aircraft-card::before,
+.altitude-stage .altitude-plane-label::after {
+  content: "";
+  position: absolute; inset: 0;
+  pointer-events: none; z-index: 2;
+  background: linear-gradient(115deg, transparent 35%, #ffffffb3 47%, #ffffff26 53%, transparent 66%);
+  transform: translateX(-120%);
+  animation: altitude-glass-reflection 10s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.altitude-aircraft-card { position: relative; isolation: isolate; overflow: hidden; }
+.altitude-slide .altitude-aircraft-card {
+  box-shadow: inset 0 1px 0 #ffffff, 0 3px 12px #1638470c;
+}
+.altitude-aircraft-card::before { top: 24px; bottom: 65px; animation-delay: .5s; }
+.altitude-bottom-right > nav::before { bottom: auto; height: 5px; }
+.altitude-stage .altitude-plane-label::after { bottom: auto; height: 4px; animation-delay: .9s; }
+.altitude-bottom-right > nav > button { position: relative; z-index: 1; }
+.altitude-slide .altitude-hotspot[aria-pressed="true"],
+.altitude-slide .altitude-part-controls button[aria-pressed="true"] { background: #008f93; }
+.altitude-slide button { transition: background-color .18s, box-shadow .18s; }
+.altitude-slide :is(.altitude-primary, .altitude-play, .altitude-plane-label, .altitude-world-tools button):active {
+  box-shadow: inset 0 2px 4px #15394126;
+}
+.altitude-aircraft-image > span {
+  left: auto; top: 5px; right: 1px;
+  border: 1px solid #dee6e2; color: #007d83;
+}
+.altitude-slide[data-motion="true"] .altitude-world::before,
+.altitude-slide[data-motion="true"] .altitude-bottom-right > nav::before,
+.altitude-slide[data-motion="true"] .altitude-aircraft-card::before,
+.altitude-slide[data-motion="true"] .altitude-plane-label::after { animation-play-state: running; }
+@keyframes altitude-sunlight {
+  0%, 100% { opacity: .64; transform: scale(.96); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+@keyframes altitude-glass-reflection {
+  0% { transform: translateX(-120%); opacity: 0; }
+  10% { opacity: .65; }
+  30%, 100% { transform: translateX(120%); opacity: 0; }
+}
+@media (min-width: 761px) {
+  .altitude-journey-title .altitude-eyebrow { letter-spacing: 1.4px; }
+  .altitude-aircraft-card {
+    grid-template-rows: 12px minmax(40px, 1fr) auto auto minmax(29px, auto);
+    min-height: 155px;
+    padding: 10px 10px 13px;
+    gap: 2px;
+  }
+  .altitude-aircraft-card .altitude-aircraft-image { min-height: 40px; }
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .altitude-journey-title { top: 16px; left: 14px; }
+  .altitude-aircraft-card {
+    grid-template-rows: 10px minmax(30px, 1fr) auto auto minmax(27px, auto);
+    min-height: 132px;
+    padding: 8px 8px 11px;
+    gap: 1px;
+  }
+  .altitude-aircraft-card .altitude-aircraft-image { min-height: 30px; }
+  .altitude-journey-subline { gap: 5px; }
+  .altitude-journey-subline p { font-size: 9px; }
+}
+@media (max-width: 760px) {
+  .altitude-world { margin: 4px 0 6px; border-radius: 9px; }
+  .altitude-journey-title { top: 9px; padding-bottom: 5px; }
+  .altitude-journey-title h3 { margin: 4px 0 3px; }
+  .altitude-journey-subline { gap: 5px; justify-content: space-between; }
+  .altitude-journey-subline p { font-size: 9px; }
+  .altitude-journey-subline .altitude-status { font-size: 7px; padding: 2px 6px; }
+  .altitude-canvas { top: 63px; }
+  .altitude-slide :is(.altitude-airport span, .altitude-plane-label, .altitude-aircraft-card) {
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .altitude-slide *, .altitude-slide *::before, .altitude-slide *::after {
+    animation: none !important; transition: none !important;
+  }
+}
+
+/* Optical depth comes from translucent layers, clear edges and restrained tint. */
+.altitude-content {
+  background: radial-gradient(ellipse at 90% 55%, #b1dfe54d, transparent 35%),
+    radial-gradient(ellipse at 72% 98%, #8ddbc42e, transparent 30%);
+}
+.altitude-overview {
+  background: linear-gradient(135deg, #ffffff5c, #f8fcfa80 58%, #d6e9ec38);
+  border-left: 1px solid #ffffffb3;
+  -webkit-backdrop-filter: blur(18px) saturate(1.25);
+  backdrop-filter: blur(18px) saturate(1.25);
+  box-shadow: inset 1px 0 0 #ffffff, inset -1px 0 0 #5577870a;
+}
+.altitude-slide :is(.altitude-aircraft-card, .altitude-bottom-right > nav, .altitude-profile-panel) {
+  background: linear-gradient(145deg, #ffffffa8, #f7fcfa5c 56%, #bddde57a);
+  border: 1px solid #ffffffd9;
+  -webkit-backdrop-filter: blur(20px) saturate(1.35);
+  backdrop-filter: blur(20px) saturate(1.35);
+  box-shadow: inset 0 1px 0 #ffffff, inset 0 -1px 0 #497a8b24,
+    0 4px 14px #2348560f, 0 0 0 1px #729bab12;
+}
+.altitude-slide :is(.altitude-play, .altitude-world-tools button, .altitude-rotation button, .altitude-part-controls button, .altitude-hotspot) {
+  background: linear-gradient(145deg, #ffffffb8, #e6f5f06b 60%, #c3e0e58f);
+  border: 1px solid #ffffffcf;
+  -webkit-backdrop-filter: blur(12px) saturate(1.35);
+  backdrop-filter: blur(12px) saturate(1.35);
+  box-shadow: inset 0 1px 1px #ffffff, inset 0 -1px 1px #447b8c30,
+    0 3px 10px #1c43592b;
+}
+.altitude-slide .altitude-primary {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: linear-gradient(155deg, #368f98e8, #087880ed 52%, #0b677de8);
+  border: 1px solid #d7ffff80;
+  color: #fff;
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+  box-shadow: inset 0 1px 0 #e6ffff80, inset 0 -1px 0 #063c5770, 0 3px 9px #0b68732e;
+}
+.altitude-slide .altitude-primary::before {
+  content: ""; position: absolute; inset: 1px 8% 50%; border-radius: inherit; pointer-events: none;
+  background: linear-gradient(#ffffff2e, #ffffff00);
+}
+.altitude-slide .altitude-primary:hover { background: linear-gradient(155deg, #429ea6f2, #087b84f2 52%, #096275f2); }
+.altitude-bottom-right > nav > button[aria-current] {
+  background: linear-gradient(145deg, #ffffffd9, #d3ebe3a8);
+  border-radius: 19px; color: #086974;
+  box-shadow: inset 0 1px 0 #ffffff, inset 0 -1px 0 #64968b2e, 0 2px 5px #153c4612;
+}
+.altitude-slide .altitude-hotspot[aria-pressed="true"],
+.altitude-slide .altitude-part-controls button[aria-pressed="true"] { background: linear-gradient(145deg, #3299a0, #006974); color: #fff; }
+.altitude-header, .altitude-footer {
+  background: linear-gradient(135deg, #fffefaad, #f2f8f3a3);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  backdrop-filter: blur(20px) saturate(1.2);
+  box-shadow: inset 0 1px 0 #ffffffd9, inset 0 -1px 0 #ffffff80;
+}
+@media (max-width: 760px) {
+  .altitude-overview { border: 1px solid #ffffffa8; border-radius: 10px; }
+  .altitude-slide :is(.altitude-overview, .altitude-aircraft-card, .altitude-bottom-right > nav) {
+    -webkit-backdrop-filter: blur(10px) saturate(1.2); backdrop-filter: blur(10px) saturate(1.2);
+  }
+}
+
+/* One passenger surface: midnight Earth, mist-blue glass and a studio aircraft. */
+.system-slide.altitude-slide { background: #e5edf2; }
+.altitude-header, .altitude-footer {
+  background: linear-gradient(115deg, #edf3f7ed, #e0eaf1f2);
+  border-color: #34506412;
+}
+.altitude-content {
+  background: linear-gradient(100deg, #0b1c2d 0%, #172d41 50%, #c0d1df 68%, #e7eef5 100%);
+}
+.altitude-overview {
+  padding: 12px 14px;
+  gap: 10px;
+  margin: 0;
+  border: 0;
+  background: radial-gradient(ellipse at 0 50%, #a9c3d738, transparent 65%),
+    linear-gradient(135deg, #d7e4efed, #eaf1f8f2 65%, #dce8f1f2);
+  box-shadow: inset 1px 0 0 #ffffff59, inset 10px 0 22px #395c7610;
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  backdrop-filter: blur(12px) saturate(1.1);
+  scrollbar-gutter: stable;
+}
+.altitude-flight-timing {
+  flex-shrink: 0;
+  padding: 10px 12px;
+  border: 1px solid #ffffffa3;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #ffffff85, #c8dae526);
+  box-shadow: inset 0 1px 0 #ffffffb8, 0 3px 12px #24465e08;
+  font-variant-numeric: tabular-nums;
+}
+.altitude-schedule-date {
+  display: flex; justify-content: space-between; gap: 6px;
+  font-size: 12px; color: #546879; margin-bottom: 9px;
+}
+.altitude-schedule-date span:last-child { color: #476675; }
+.altitude-route-times { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.altitude-route-times > div { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.altitude-route-times > div:last-child { text-align: right; align-items: flex-end; }
+.altitude-route-times strong { font-size: 24px; letter-spacing: -.7px; font-weight: 600; line-height: 1.1; }
+.altitude-route-times span { font-size: 12px; color: #516677; }
+.altitude-route-times time { font-size: 18px; line-height: 1.3; font-weight: 600; margin-top: 4px; white-space: nowrap; }
+.altitude-route-times small { font-size: 12px; font-weight: 500; color: #496373; }
+.altitude-route-times em { font-size: 12px; font-style: normal; color: #147581; }
+.altitude-route-line { position: relative; height: 16px; margin: 7px 5px 4px; }
+.altitude-route-line::before { content: ""; position: absolute; inset: 7px 0 auto; height: 2px; background: #7195a63d; }
+.altitude-route-line::after { content: ""; position: absolute; left: 0; top: 7px; height: 2px; width: var(--route-progress); background: #188d93; }
+.altitude-route-line > :is(i, b) { position: absolute; top: 5px; width: 6px; height: 6px; border-radius: 50%; background: #698797; z-index: 1; }
+.altitude-route-line > i { left: -3px; background: #11868b; }
+.altitude-route-line > b { right: -3px; }
+.altitude-route-line > span { position: absolute; left: var(--route-progress); top: -2px; transform: translateX(-50%); z-index: 2; color: #007d86; background: #e8f1f5; border-radius: 50%; padding: 1px; }
+.altitude-route-line svg { width: 17px; height: 17px; transform: rotate(45deg); }
+.altitude-duration { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: #526979; }
+.altitude-duration strong { color: #146775; font-weight: 600; }
+.altitude-flight-status { flex-shrink: 0; padding: 0 3px; }
+.altitude-flight-status strong { font-size: 14px; font-weight: 600; }
+.altitude-flight-status p { font-size: 12px; color: #506778; margin-top: 2px; }
+.altitude-aircraft-viewer {
+  display: flex; flex-direction: column; flex: 1 0 auto; min-height: 218px; min-width: 0;
+  padding: 5px 7px 7px; border-radius: 15px;
+  background: linear-gradient(140deg, #f6faff80, #c7d9e76b);
+  border: 1px solid #ffffffb3;
+  box-shadow: inset 0 1px 0 #ffffffcf, inset 0 -1px 0 #698ca326, 0 6px 18px #193d5610;
+  overflow: hidden;
+}
+.altitude-aircraft-display {
+  --aircraft-reflection: 48%;
+  position: relative; flex: 1; min-height: 153px; isolation: isolate; border-radius: 11px; overflow: hidden;
+  background: radial-gradient(ellipse at var(--aircraft-reflection) 25%, #ffffffa6, transparent 65%),
+    linear-gradient(170deg, #c2d5e4, #e3edf5 55%, #b8cfdf);
+}
+.altitude-aircraft-display::after {
+  content: ""; pointer-events: none; position: absolute; left: 12%; right: 12%; bottom: 19%; height: 5%; z-index: -1;
+  border-radius: 50%; background: #304d652e; filter: blur(7px);
+}
+.altitude-exterior-view { position: absolute; inset: 0 0 18px; cursor: grab; touch-action: pan-y; }
+.altitude-exterior-view:active { cursor: grabbing; }
+.altitude-exterior-view canvas, .hero-art .altitude-aircraft-poster {
+  display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+  opacity: 1; filter: none; transform: none; animation: none; object-fit: contain;
+}
+.altitude-aircraft-viewer [hidden] { display: none !important; }
+.altitude-aircraft-viewer[hidden] { display: none !important; }
+.altitude-view-reset {
+  position: absolute; top: 5px; right: 5px; width: 30px; height: 30px;
+  border-radius: 50% !important; background: #ffffff66 !important; font-size: 20px !important;
+  box-shadow: inset 0 1px 0 #ffffff !important; color: #315466 !important;
+}
+.altitude-view-controls { position: absolute; bottom: 3px; left: 8px; right: 8px; display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+.altitude-view-controls > span { font-size: 12px; color: #416173; }
+.altitude-view-controls button { width: 32px; height: 28px; border-radius: 9px; font-size: 22px; color: #3c6274; background: #ffffff42; }
+.altitude-view-controls button:disabled { opacity: .45; }
+.altitude-aircraft-identity { display: flex; align-items: baseline; justify-content: space-between; padding: 6px 5px 5px; gap: 8px; }
+.altitude-aircraft-identity strong { font-size: 14px; font-weight: 600; letter-spacing: -.2px; }
+.altitude-aircraft-identity span { font-size: 12px; color: #496573; }
+.altitude-aircraft-segments { display: grid; grid-template-columns: repeat(3, 1fr); padding: 3px; gap: 3px; border-radius: 10px; background: #7c9fb41c; box-shadow: inset 0 1px 3px #3957690c; }
+.altitude-aircraft-segments button { font-size: 12px; min-height: 29px; border-radius: 8px; color: #4b6577; transition: background .18s, box-shadow .18s; }
+.altitude-aircraft-segments button[aria-pressed="true"] { color: #126874; background: linear-gradient(150deg, #ffffffd6, #e1eef5b3); box-shadow: inset 0 1px 0 #fff, 0 2px 5px #29435314; }
+.altitude-aircraft-viewer button:hover { background-color: #f5fcffb3; }
+.altitude-aircraft-viewer button:active { box-shadow: inset 0 1px 4px #31567126; }
+.altitude-aircraft-specs { position: absolute; inset: 0; margin: 0; padding: 13px; display: grid; grid-template-columns: 1fr 1fr; align-content: center; gap: 12px 10px; font-size: 12px; }
+.altitude-aircraft-specs dt { color: #4d677b; font-size: 12px; }
+.altitude-aircraft-specs dd { margin: 2px 0 0; font-size: 14px; font-weight: 600; }
+.altitude-cabin-view { position: absolute; inset: 0; margin: 0; }
+.hero-art .altitude-cabin-view img { width: 100%; height: 100%; object-fit: cover; opacity: 1; filter: none; animation: none; transform: none; }
+.altitude-cabin-view figcaption { position: absolute; bottom: 0; left: 0; right: 0; padding: 7px; font-size: 12px; color: #fff; background: linear-gradient(transparent, #142437d9); }
+.altitude-demo-caption { justify-content: flex-end; }
+.altitude-world-tools > span { display: none; }
+@media (min-width: 761px) {
+  .altitude-content, .altitude-footer { grid-template-columns: minmax(0, 1.5fr) minmax(240px, 1fr); }
+  .altitude-world { margin-right: 0; border-radius: 12px 0 0 12px; }
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .altitude-content, .altitude-footer { grid-template-columns: minmax(0, 1.35fr) minmax(220px, 1fr); }
+  .altitude-overview { padding: 8px; gap: 8px; }
+  .altitude-flight-timing { padding: 8px 9px; }
+  .altitude-schedule-date { margin-bottom: 6px; }
+  .altitude-route-times strong { font-size: 21px; }
+  .altitude-route-times time { font-size: 16px; }
+  .altitude-aircraft-viewer { min-height: 204px; }
+  .altitude-aircraft-display { min-height: 140px; }
+}
+@media (max-width: 760px) {
+  .altitude-content { overflow-y: auto; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 210px auto; align-content: start; overscroll-behavior: contain; }
+  .altitude-world { margin: 4px 0 0; min-height: 210px; }
+  .altitude-overview { display: flex; flex-direction: column; padding: 12px; margin: 0; gap: 10px; max-height: none; overflow: visible; border-radius: 0 0 10px 10px; }
+  .altitude-flight-timing { padding: 10px 12px; }
+  .altitude-aircraft-viewer { min-height: 244px; }
+  .altitude-aircraft-display { min-height: 180px; }
+  .altitude-canvas { top: 59px; }
+  .altitude-footer { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+}
+
+/* Reclaimed footer height belongs to Earth and the aircraft, not another toolbar. */
+.system-slide.altitude-slide { grid-template-rows: 33px minmax(0, 1fr); }
+.altitude-content { min-height: 0; }
+.altitude-overview {
+  padding: 10px 12px 12px; gap: 8px; overflow: visible; scrollbar-gutter: auto;
+  background: radial-gradient(ellipse at 0 5%, #f3d9ae1f, transparent 40%),
+    radial-gradient(ellipse at 0 65%, #97bcd22e, transparent 65%),
+    linear-gradient(140deg, #cbddebec, #e0ebf3f2 58%, #d1e1edf2);
+  box-shadow: inset 1px 0 0 #ffffff40;
+}
+.altitude-panel-nav {
+  flex-shrink: 0; display: grid; grid-template-columns: repeat(3, 1fr);
+  padding: 3px; gap: 2px; background: #61849c14; border-radius: 10px;
+}
+.altitude-panel-nav button { min-height: 28px; border-radius: 8px; font-size: 12px; color: #4a6579; }
+.altitude-panel-nav button[aria-current] { color: #0a6874; background: #f1f8fcad; box-shadow: inset 0 1px 0 #ffffff80; }
+.altitude-panel-nav button:hover { background-color: #eef8fc7d; }
+.altitude-panel-nav button:active { box-shadow: inset 0 1px 4px #34556d1a; }
+.altitude-flight-timing {
+  padding: 9px 10px; background: linear-gradient(135deg, #eff7fc66, #cbdfe92b);
+  border-color: #ffffff42; border-radius: 12px; box-shadow: inset 0 1px 0 #ffffff59;
+}
+.altitude-route-times { gap: 8px; }
+.altitude-route-times > div { gap: 1px; }
+.altitude-route-times strong { font-size: 21px; line-height: 1.1; }
+.altitude-route-times span { font-size: 12px; line-height: 1.3; white-space: nowrap; }
+.altitude-route-times time { margin-top: 2px; font-size: 18px; line-height: 1.2; }
+.altitude-route-line { height: 14px; margin: 6px 5px 3px; }
+.altitude-duration { line-height: 1.25; gap: 5px; }
+.altitude-duration :is(span, strong) { white-space: nowrap; }
+.altitude-flight-status { display: flex; align-items: center; justify-content: space-between; gap: 5px; margin-top: 7px; padding: 6px 0 0; border-top: 1px solid #40647814; }
+.altitude-flight-status strong { font-size: 12px; line-height: 1.3; }
+.altitude-flight-status > span { font-size: 12px; color: #2d7681; white-space: nowrap; }
+.altitude-aircraft-viewer {
+  flex: 1 1 0; min-height: 0; padding: 4px 5px 6px;
+  border: 1px solid #ffffff4d; border-radius: 12px;
+  background: linear-gradient(140deg, #eaf4fb75, #b9d1e35c);
+  box-shadow: inset 0 1px 0 #ffffff66, 0 4px 10px #294d6608;
+}
+.altitude-aircraft-display { min-height: 0; border-radius: 9px; }
+.altitude-aircraft-display::after { bottom: 21%; left: 14%; right: 14%; height: 4%; opacity: .8; }
+.altitude-exterior-view { inset: 0 0 24px; }
+.altitude-exterior-view :is(canvas, img) { object-fit: contain; }
+.altitude-aircraft-identity { padding: 6px 5px 5px; }
+.altitude-aircraft-segments button { min-height: 29px; }
+.altitude-view-reset { width: 28px; height: 28px; font-size: 19px !important; }
+.altitude-view-controls { bottom: 2px; left: 5px; right: 5px; }
+.altitude-view-controls span { font-size: 12px; letter-spacing: .7px; }
+.altitude-view-controls button { width: 32px; min-height: 28px; }
+.altitude-world { margin-bottom: 8px; }
+.altitude-world-tools { justify-content: space-between; left: 12px; right: 12px; bottom: 12px; }
+.altitude-world-tools .altitude-globe-reset { position: static; }
+.altitude-compact-journey {
+  position: relative; display: flex; align-items: center; gap: 3px; padding: 3px;
+  border-radius: 12px; pointer-events: auto;
+  background: linear-gradient(130deg, #274454b3, #142d40b3);
+  border: 1px solid #afdae029; box-shadow: inset 0 1px 0 #e7ffff14;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: #e6f5f9;
+}
+.altitude-compact-journey button {
+  position: static; color: inherit; box-shadow: none; border: 0; background: transparent;
+  -webkit-backdrop-filter: none; backdrop-filter: none; font-size: 12px; border-radius: 8px;
+}
+.altitude-compact-journey .altitude-compact-play { width: 30px; height: 30px; font-size: 13px; }
+.altitude-compact-journey .altitude-journey-position { width: auto; height: 30px; padding: 0 8px; display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; }
+.altitude-compact-journey button:hover { background: #ebfcff18; }
+.altitude-compact-journey button:active { background: #ebfcff0d; }
+.altitude-journey-checkpoints {
+  position: absolute; bottom: 45px; left: 0; min-width: 175px; padding: 5px;
+  display: grid; gap: 3px; border-radius: 12px;
+  background: #16374af5; border: 1px solid #8eb2bd4d; box-shadow: 0 5px 16px #07131c26;
+}
+.altitude-journey-checkpoints button { width: 100%; height: auto; min-height: 34px; padding: 6px 9px; text-align: left; }
+.altitude-slide .altitude-detail-panel { min-height: 0; overflow-y: auto; }
+@media (min-width: 761px) {
+  .altitude-content { grid-template-columns: minmax(0, 2.15fr) minmax(230px, 1fr); }
+  .altitude-journey-title { top: 18px; left: 18px; }
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .system-slide.altitude-slide { grid-template-rows: 31px minmax(0, 1fr); }
+  .altitude-content { grid-template-columns: minmax(0, 1.8fr) minmax(220px, 1fr); }
+  .altitude-overview { padding: 8px; gap: 7px; }
+  .altitude-flight-timing { padding: 7px 8px; }
+  .altitude-route-times strong { font-size: 20px; }
+  .altitude-route-times time { font-size: 16px; }
+  .altitude-aircraft-viewer { min-height: 0; }
+  .altitude-aircraft-display { min-height: 0; }
+  .altitude-aircraft-specs { padding: 10px; gap: 10px; }
+}
+@media (max-width: 760px) {
+  .system-slide.altitude-slide { grid-template-rows: 35px minmax(0, 1fr); }
+  .altitude-content { grid-template-columns: minmax(0, 1fr); grid-template-rows: 230px auto; overflow-y: auto; }
+  .altitude-world { min-height: 230px; margin-bottom: 0; }
+  .altitude-overview { overflow: visible; padding: 10px; }
+  .altitude-aircraft-viewer { flex: auto; min-height: 242px; }
+  .altitude-aircraft-display { min-height: 175px; }
+  .altitude-world-tools { left: 8px; right: 8px; bottom: 8px; }
+}
+@media (min-width: 761px) and (max-width: 1000px) {
+  .altitude-content { grid-template-columns: minmax(0, 1fr); grid-template-rows: 230px auto; overflow-y: auto; }
+  .altitude-world { min-height: 230px; margin: 6px 6px 0; border-radius: 10px 10px 0 0; }
+  .altitude-canvas { top: 59px; }
+  .altitude-overview { padding: 10px; }
+  .altitude-aircraft-viewer { flex: auto; min-height: 260px; }
+  .altitude-aircraft-display { min-height: 193px; }
+}
+
+/* Clean, quiet surfaces. The globe is the visual focus; controls do not sparkle. */
+#showcase-slide-2 { grid-template-rows: minmax(0, 1fr); background: #bed1df; }
+#showcase-slide-2 .altitude-content { background: #06131f; }
+#showcase-slide-2 .altitude-world { border: 0; box-shadow: none; margin: 0; border-radius: 0; }
+#showcase-slide-2 .altitude-overview {
+  padding: 20px 16px 16px; gap: 16px; border: 0;
+  background: radial-gradient(ellipse at 0 0, #e2c9a61a, transparent 48%),
+    linear-gradient(155deg, #bbcedd, #cfdde8 52%, #b8cedd);
+  box-shadow: inset 18px 0 28px -20px #17364d47;
+}
+#showcase-slide-2 button,
+#showcase-slide-2 button:hover,
+#showcase-slide-2 button:active {
+  border: 0; box-shadow: none; text-shadow: none; background: transparent; background-image: none;
+  -webkit-backdrop-filter: none; backdrop-filter: none; filter: none; transform: none;
+  transition: none; animation: none;
+}
+#showcase-slide-2 button::before, #showcase-slide-2 button::after { display: none; }
+#showcase-slide-2 .altitude-panel-nav { padding: 0; gap: 10px; background: none; border: 0; box-shadow: none; border-radius: 0; }
+#showcase-slide-2 .altitude-panel-nav button { min-height: 32px; color: #516a7b; font-size: 12px; border-radius: 0; }
+#showcase-slide-2 .altitude-panel-nav button[aria-current] { color: #056b76; box-shadow: inset 0 -2px 0 #247e87; background: none; font-weight: 600; }
+#showcase-slide-2 .altitude-flight-timing {
+  padding: 12px 12px 14px; border: 0; border-radius: 12px; flex-shrink: 0;
+  background: linear-gradient(145deg, #dce7efc4, #cbdde8a6);
+  box-shadow: 0 8px 20px -10px #23445b38;
+}
+#showcase-slide-2 .altitude-route-times { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 14px; }
+#showcase-slide-2 .altitude-route-times > div { min-width: 0; gap: 3px; }
+#showcase-slide-2 .altitude-route-times strong { font-size: 23px; line-height: 1.1; }
+#showcase-slide-2 .altitude-route-times span { max-width: 100%; white-space: normal; overflow-wrap: normal; font-size: 12px; line-height: 1.35; }
+#showcase-slide-2 .altitude-route-times .altitude-flight-date { color: #476c7e; margin-top: 3px; }
+#showcase-slide-2 .altitude-route-times time { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px; margin-top: 2px; font-size: 17px; line-height: 1.3; white-space: normal; }
+#showcase-slide-2 .altitude-route-times > div:last-child time { justify-content: flex-end; }
+#showcase-slide-2 .altitude-route-line { margin-top: 14px; margin-bottom: 9px; }
+#showcase-slide-2 .altitude-route-line > span { top: -2px; padding: 0 3px; background: #d3e2eb; border-radius: 0; }
+#showcase-slide-2 .altitude-route-line svg { width: 20px; height: 20px; transform: none; fill: currentColor; stroke: none; }
+#showcase-slide-2 .altitude-duration { flex-wrap: wrap; row-gap: 6px; }
+#showcase-slide-2 .altitude-flight-status { margin-top: 12px; padding-top: 10px; border-top: 1px solid #25495e18; }
+#showcase-slide-2 .altitude-flight-status strong { font-size: 13px; font-weight: 600; color: #235864; }
+#showcase-slide-2 .altitude-aircraft-viewer { margin-top: 6px; padding: 0; border: 0; box-shadow: none; background: none; border-radius: 0; gap: 10px; }
+#showcase-slide-2 .altitude-aircraft-display {
+  border: 0; border-radius: 10px;
+  background: radial-gradient(ellipse at var(--aircraft-reflection) 18%, #dce9f17a, transparent 62%),
+    linear-gradient(165deg, #91afc4, #c2d5e2 54%, #8caabd);
+  box-shadow: 0 10px 22px -7px #17364d38, inset 0 -12px 22px -16px #22455c40;
+}
+#showcase-slide-2 .altitude-exterior-view { inset: 0; }
+#showcase-slide-2 .altitude-aircraft-identity { padding: 3px 2px 0; }
+#showcase-slide-2 .altitude-aircraft-identity strong { font-size: 14px; }
+#showcase-slide-2 .altitude-globe-reset,
+#showcase-slide-2 .altitude-globe-reset:hover,
+#showcase-slide-2 .altitude-globe-reset:active { width: 34px; height: 34px; color: #deedf3; background: #183346; border: 0; border-radius: 8px; box-shadow: none; font-size: 20px; }
+#showcase-slide-2 .altitude-world-tools { justify-content: flex-end; }
+#showcase-slide-2 .altitude-journey-title { top: 20px; left: 20px; padding: 0; }
+#showcase-slide-2 .altitude-journey-title .altitude-eyebrow { font-size: 10px; letter-spacing: 3px; font-weight: 650; color: #b9d2de; }
+#showcase-slide-2 .altitude-journey-title h3 { margin-top: 10px; }
+#showcase-slide-2 .altitude-airport span { border: 0; box-shadow: none; background: #e1edf0e8; -webkit-backdrop-filter: none; backdrop-filter: none; }
+@media (min-width: 1001px) {
+  #showcase-slide-2 .altitude-content { grid-template-columns: minmax(0, 1.95fr) minmax(248px, 1fr); }
+}
+@media (min-width: 1001px) and (max-width: 1100px) {
+  #showcase-slide-2 .altitude-overview { padding: 12px; gap: 12px; }
+  #showcase-slide-2 .altitude-route-times strong { font-size: 21px; }
+  #showcase-slide-2 .altitude-route-times time { font-size: 16px; }
+}
+@media (max-width: 1000px) {
+  #showcase-slide-2 .altitude-world { margin: 0; border-radius: 0; }
+  #showcase-slide-2 .altitude-overview { padding: 16px; gap: 16px; }
+  #showcase-slide-2 .altitude-journey-title { top: 11px; left: 12px; }
+  #showcase-slide-2 .altitude-journey-title .altitude-eyebrow { font-size: 9px; letter-spacing: 2px; }
+  #showcase-slide-2 .altitude-journey-title h3 { margin-top: 5px; }
+}
+/* Remove the decorative frame only for ALTITUDE; retain keyboard focus feedback. */
+.hero-system-rotator.hero-showcase-shell:has(#showcase-slide-2.is-active) {
+  border: 0; background: #06131f; box-shadow: 0 45px 100px #0007;
+}
+.hero-system-rotator.hero-showcase-shell:has(#showcase-slide-2.is-active)::before { display: none; }
+.hero-system-rotator.hero-showcase-shell:has(#showcase-slide-2.is-active):focus:not(:focus-visible) { outline: none; }
+.hero-system-rotator.hero-showcase-shell:has(#showcase-slide-2.is-active) > .showcase-viewport {
+  border: 0; box-shadow: none;
+}

@@ -1,0 +1,63 @@
+.digital-ticket {
+  display: inline-block; vertical-align: top; position: relative;
+  width: 320px; max-width: 100%; border-radius: 22px; background: transparent;
+  color: #352b32; font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased; perspective: 1000px; touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+.digital-ticket, .digital-ticket * { box-sizing: border-box; }
+.digital-ticket .dt-flipper { display: grid; transform-style: preserve-3d; border-radius: inherit; }
+.digital-ticket .dt-face {
+  position: relative; grid-area: 1 / 1; min-width: 0; display: flex; flex-direction: column;
+  border-radius: 22px; overflow: hidden; background: #fcfaf6;
+  box-shadow: 0 20px 46px #23101d28, 0 3px 8px #23101d14;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+}
+.digital-ticket .dt-front { transform: translateZ(.2px); }
+.digital-ticket .dt-back { transform: rotateY(180deg) translateZ(.2px); background: linear-gradient(145deg, #fff, #f8f5f2); }
+.digital-ticket .dt-turn-control {
+  position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%;
+  border: 0; border-radius: inherit; padding: 0; background: transparent; cursor: pointer;
+}
+.digital-ticket .dt-turn-control:focus-visible { outline: 2px solid #ad7f92; outline-offset: -5px; }
+.digital-ticket .dt-art { height: 244px; flex-shrink: 0; position: relative; padding: 24px; overflow: hidden; background: #391521; }
+.digital-ticket .dt-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(#39112315 5%, #1e071ddd 100%); pointer-events: none; }
+.digital-ticket .dt-art > img, .digital-ticket .dt-art > video {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.65) brightness(.85);
+}
+.digital-ticket .dt-art h3 {
+  position: absolute; z-index: 1; bottom: 26px; left: 24px; right: 24px;
+  font-family: Georgia, serif; font-size: 42px; line-height: .93; font-weight: 400;
+  letter-spacing: -1.1px; color: #f6e5df; margin: 0;
+}
+.digital-ticket .dt-paper { flex: 1; display: flex; flex-direction: column; color: #352b32; background: #fcfaf6; }
+.digital-ticket .dt-perforation { height: 7px; flex-shrink: 0; background: radial-gradient(circle at 4px 0, #32131f 3px, transparent 3.5px) 0 0 / 10px 7px; }
+.digital-ticket .dt-info { display: grid; grid-template-columns: 1fr 1.3fr; gap: 18px; padding: 24px; }
+.digital-ticket .dt-info small, .digital-ticket .dt-stub small { display: block; color: #847278; font-size: 12px; font-weight: 500; margin-bottom: 8px; line-height: 1.3; }
+.digital-ticket .dt-info strong { display: block; font-size: 15px; font-weight: 650; line-height: 1.4; letter-spacing: -.2px; }
+.digital-ticket .dt-info span { display: block; font-size: 13px; color: #7d6c73; margin-top: 6px; line-height: 1.4; }
+.digital-ticket .dt-stub { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 21px 24px; border-top: 1px solid #e5dce0; }
+.digital-ticket .dt-stub strong { font-size: 20px; font-weight: 600; letter-spacing: -.6px; line-height: 1.3; }
+.digital-ticket .dt-flip-hint { display: flex; align-items: center; gap: 7px; color: #795261; font-size: 13px; font-weight: 500; }
+.digital-ticket .dt-credit { margin-top: auto; padding: 12px 20px; border-top: 1px solid #e9e2e5; text-align: center; color: #826575; font-size: 13px; line-height: 1.4; }
+.digital-ticket .dt-credit strong { color: #653c50; font-weight: 650; }
+.digital-ticket .dt-back-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 18px 22px 0; color: #613c4d; font-size: 14px; font-weight: 650; letter-spacing: .9px; line-height: 1.3; }
+.digital-ticket .dt-seat-pill { padding: 5px 8px; background: #f0e9ed; border: 1px solid #e7dce3; border-radius: 8px; font-size: 12px; font-weight: 550; white-space: nowrap; letter-spacing: 0; }
+.digital-ticket .dt-scan-paper { flex: 1; display: flex; flex-direction: column; padding: 22px 22px 0; text-align: center; }
+.digital-ticket .dt-scan-heading { display: flex; justify-content: center; }
+.digital-ticket .dt-scan-heading h3 { margin: 0; color: #382735; font-size: 25px; font-weight: 650; letter-spacing: -.9px; line-height: 1.2; }
+.digital-ticket .dt-scan-code {
+  position: relative; width: 204px; max-width: 100%; aspect-ratio: 1; margin: 18px auto 0; padding: 13px;
+  border: 1px solid #ece7ec; border-radius: 18px; background: #fff; overflow: hidden;
+  box-shadow: 0 7px 22px #4a2c4409, inset 0 1px 0 #fff;
+}
+.digital-ticket .dt-qr { width: 100%; height: 100%; display: block; }
+.digital-ticket .dt-scan-line { position: absolute; left: 13px; right: 13px; top: 14px; height: 2px; background: linear-gradient(90deg, transparent, #b48caa, #ecdaea, #b48caa, transparent); box-shadow: 0 0 10px #8d506126; pointer-events: none; }
+.digital-ticket .dt-demo-warning { margin: 10px 0 0; font-size: 12px; color: #7d6c73; line-height: 1.5; }
+.digital-ticket .dt-scan-status { min-height: 28px; margin: 10px 0 12px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13px; color: #826575; }
+.digital-ticket .dt-scan-status.complete { color: #653c50; font-weight: 500; }
+.digital-ticket .dt-scan-check { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #eee4ec; border: 1px solid #e4d7e1; }
+.digital-ticket .dt-scan-paper > .dt-credit { margin-left: -22px; margin-right: -22px; }
+@media (prefers-reduced-motion: reduce) {
+  .digital-ticket, .digital-ticket * { animation: none !important; transition: none !important; }
+}

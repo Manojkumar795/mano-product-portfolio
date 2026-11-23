@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import SlotGoStory from "./SlotGoStory";
+const inter = Inter({ subsets: ["latin"], variable: "--font-slotgo" });
 
-const title = "SlotGo — Customer Booking & Venue Operations UX | Manoj Kumar N";
+const title = "SlotGo | AI-Assisted Sports Booking Product Design | Manoj Kumar N";
 const description =
-  "A mobile product case study connecting sports discovery, court booking, live play and venue operations through one shared source of truth.";
+  "Sports discovery, court booking and venue operations. A product design case study using Figma Make and Codex, grounded in the original SlotGo screens.";
 
 export const metadata: Metadata = {
   title,
@@ -33,5 +35,5 @@ export const metadata: Metadata = {
 };
 
 export default function SlotGoPage() {
-  return <SlotGoStory />;
+  return <SlotGoStory fontClassName={inter.variable} />;
 }

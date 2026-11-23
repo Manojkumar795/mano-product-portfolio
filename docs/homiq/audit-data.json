@@ -1,0 +1,651 @@
+{
+  "audit_date": "2026-10-21",
+  "basis": "Manual inventory of 29 supplied 390 × 844 PNGs. Counts describe visible interface evidence, not user behavior.",
+  "definitions": {
+    "screen": "One unique supplied PNG; a journey includes its final confirmation where supplied.",
+    "field": "Editable named data field; verification code is one field. Locked email is excluded. Field requiredness is not established by screenshots; counts are task-form inputs, not validated required attributes.",
+    "action": "One visually distinct control, including each back control, close, navigation destination, selectable option, switch or continuous input. A whole row and its embedded arrow/checkbox count once. Editable fields are counted separately. Scan/NFC explanatory blocks and scan viewport are not counted as independent buttons. Hidden actions and behavior are not inferred.",
+    "decision_stage": "A non-result stage asking for a method, confirmation, selection or data entry; multiple options within one stage do not add stages.",
+    "depth": "Structural levels from a top-level tab: root 0, room appliance list 1, appliance detail 2. Home-category to appliance detail is a candidate depth-1 route, not a verified tap path.",
+    "feedback": "Dedicated named confirmation frames; no error, offline or permission-denial frames appear in the supplied set."
+  },
+  "screens": [
+    {
+      "id": "welcome",
+      "family": "entry",
+      "fields": [],
+      "actions": [
+        "Get started"
+      ],
+      "field_count": 0,
+      "action_count": 1
+    },
+    {
+      "id": "sign-in",
+      "family": "entry",
+      "fields": [
+        "Email",
+        "Password"
+      ],
+      "actions": [
+        "Back",
+        "Forgot password",
+        "Sign in",
+        "Google",
+        "Apple",
+        "Guest"
+      ],
+      "field_count": 2,
+      "action_count": 6
+    },
+    {
+      "id": "create-account",
+      "family": "entry",
+      "fields": [
+        "Name",
+        "Email",
+        "Password"
+      ],
+      "actions": [
+        "Back",
+        "Create account",
+        "Google",
+        "Apple",
+        "Guest"
+      ],
+      "field_count": 3,
+      "action_count": 5
+    },
+    {
+      "id": "recover-password",
+      "family": "entry",
+      "fields": [
+        "Email"
+      ],
+      "actions": [
+        "Back",
+        "Send code",
+        "Sign up"
+      ],
+      "field_count": 1,
+      "action_count": 3
+    },
+    {
+      "id": "verify-code",
+      "family": "entry",
+      "fields": [
+        "Verification code"
+      ],
+      "actions": [
+        "Back",
+        "Resend",
+        "Verify code"
+      ],
+      "field_count": 1,
+      "action_count": 3
+    },
+    {
+      "id": "change-password",
+      "family": "entry",
+      "fields": [
+        "New password",
+        "Confirm password"
+      ],
+      "actions": [
+        "Back",
+        "Save password"
+      ],
+      "field_count": 2,
+      "action_count": 2
+    },
+    {
+      "id": "my-home",
+      "family": "rooms",
+      "fields": [],
+      "actions": [
+        "Add",
+        "Category: TV",
+        "Category: Lights",
+        "Category: Purifier",
+        "Scene: Morning",
+        "Scene: Night",
+        "Frequent: TV",
+        "Frequent: Purifier",
+        "Frequent: Fans",
+        "Frequent: AC",
+        "Frequent: Lights",
+        "Tab: Home",
+        "Tab: Rooms",
+        "Tab: Profile"
+      ],
+      "field_count": 0,
+      "action_count": 14
+    },
+    {
+      "id": "my-rooms",
+      "family": "rooms",
+      "fields": [],
+      "actions": [
+        "Add",
+        "Room: Living room",
+        "Room: Lounge",
+        "Room: TV lounge",
+        "Tab: Home",
+        "Tab: Rooms",
+        "Tab: Profile"
+      ],
+      "field_count": 0,
+      "action_count": 7
+    },
+    {
+      "id": "room-name",
+      "family": "rooms",
+      "fields": [
+        "Room name"
+      ],
+      "actions": [
+        "Top back",
+        "Close",
+        "Continue",
+        "Bottom back"
+      ],
+      "field_count": 1,
+      "action_count": 4
+    },
+    {
+      "id": "room-choose-photo",
+      "family": "rooms",
+      "fields": [],
+      "actions": [
+        "Top back",
+        "Close",
+        "Photo: Living",
+        "Photo: Bedroom",
+        "Photo: Lounge",
+        "Photo: Reading",
+        "Photo: Dining",
+        "Photo: Night",
+        "Continue",
+        "Bottom back"
+      ],
+      "field_count": 0,
+      "action_count": 10
+    },
+    {
+      "id": "room-select-devices",
+      "family": "rooms",
+      "fields": [],
+      "actions": [
+        "Top back",
+        "Close",
+        "Checkbox: TV",
+        "Checkbox: Purifier",
+        "Checkbox: Fan",
+        "Checkbox: AC",
+        "Checkbox: Light 1",
+        "Checkbox: Light 2",
+        "Add room",
+        "Bottom back"
+      ],
+      "field_count": 0,
+      "action_count": 10
+    },
+    {
+      "id": "room-added",
+      "family": "rooms",
+      "fields": [],
+      "actions": [
+        "Done"
+      ],
+      "field_count": 0,
+      "action_count": 1
+    },
+    {
+      "id": "room-appliances",
+      "family": "rooms",
+      "fields": [],
+      "actions": [
+        "Back",
+        "Category: TV",
+        "Category: Purifier",
+        "Category: Fans",
+        "Category: AC",
+        "Category: Lights",
+        "Tab: Home",
+        "Tab: Rooms",
+        "Tab: Profile"
+      ],
+      "field_count": 0,
+      "action_count": 9
+    },
+    {
+      "id": "device-scan-or-nfc",
+      "family": "device",
+      "fields": [],
+      "actions": [
+        "Back",
+        "Close",
+        "Continue"
+      ],
+      "field_count": 0,
+      "action_count": 3
+    },
+    {
+      "id": "device-light-found",
+      "family": "device",
+      "fields": [],
+      "actions": [
+        "Back",
+        "Close",
+        "Connect light"
+      ],
+      "field_count": 0,
+      "action_count": 3
+    },
+    {
+      "id": "device-select-location",
+      "family": "device",
+      "fields": [],
+      "actions": [
+        "Back",
+        "Close",
+        "Room: Living room",
+        "Room: Dining room",
+        "Room: Kitchen",
+        "Room: Main bedroom",
+        "Room: Bedroom 1",
+        "Room: Bedroom 2",
+        "Room: Garage",
+        "Room: Lounge",
+        "Room: Bathroom",
+        "Continue"
+      ],
+      "field_count": 0,
+      "action_count": 12
+    },
+    {
+      "id": "device-name",
+      "family": "device",
+      "fields": [
+        "Light name"
+      ],
+      "actions": [
+        "Back",
+        "Close",
+        "Add device"
+      ],
+      "field_count": 1,
+      "action_count": 3
+    },
+    {
+      "id": "device-added",
+      "family": "device",
+      "fields": [],
+      "actions": [
+        "Done",
+        "View device"
+      ],
+      "field_count": 0,
+      "action_count": 2
+    },
+    {
+      "id": "air-conditioner",
+      "family": "controls",
+      "fields": [],
+      "actions": [
+        "Back",
+        "Power",
+        "Temperature dial",
+        "Vertical swing",
+        "Horizontal swing",
+        "Tab: Home",
+        "Tab: Rooms",
+        "Tab: Profile"
+      ],
+      "field_count": 0,
+      "action_count": 8
+    },
+    {
+      "id": "lamp",
+      "family": "controls",
+      "fields": [],
+      "actions": [
+        "Back",
+        "Power",
+        "Brightness arc",
+        "Tab: Home",
+        "Tab: Rooms",
+        "Tab: Profile"
+      ],
+      "field_count": 0,
+      "action_count": 6
+    },
+    {
+      "id": "tv-remote",
+      "family": "controls",
+      "fields": [],
+      "actions": [
+        "Back",
+        "Power",
+        "Up",
+        "Down",
+        "Left",
+        "Right",
+        "OK",
+        "Channel down",
+        "Channel up",
+        "Volume slider",
+        "Mute",
+        "Cast",
+        "Tab: Home",
+        "Tab: Rooms",
+        "Tab: Profile"
+      ],
+      "field_count": 0,
+      "action_count": 15
+    },
+    {
+      "id": "scene-choose",
+      "family": "scenes",
+      "fields": [],
+      "actions": [
+        "Back",
+        "Close",
+        "Morning scene",
+        "Night scene",
+        "Create your own scene"
+      ],
+      "field_count": 0,
+      "action_count": 5
+    },
+    {
+      "id": "scene-name",
+      "family": "scenes",
+      "fields": [
+        "Scene name"
+      ],
+      "actions": [
+        "Back",
+        "Close",
+        "Continue"
+      ],
+      "field_count": 1,
+      "action_count": 3
+    },
+    {
+      "id": "scene-select-devices",
+      "family": "scenes",
+      "fields": [],
+      "actions": [
+        "Top back",
+        "Close",
+        "Room chip: Main bedroom",
+        "Room chip: Living room",
+        "Room chip: Bedroom",
+        "Room chip: Kitchen",
+        "Checkbox: TV",
+        "Checkbox: Purifier",
+        "Checkbox: Fan",
+        "Checkbox: AC",
+        "Checkbox: Light 1",
+        "Checkbox: Light 2",
+        "Continue",
+        "Bottom back"
+      ],
+      "field_count": 0,
+      "action_count": 14
+    },
+    {
+      "id": "scene-set-device-states",
+      "family": "scenes",
+      "fields": [],
+      "actions": [
+        "Top back",
+        "Close",
+        "Switch: purifier",
+        "Switch: fan",
+        "Switch: AC",
+        "Switch: light",
+        "Create scene",
+        "Bottom back"
+      ],
+      "field_count": 0,
+      "action_count": 8
+    },
+    {
+      "id": "scene-added",
+      "family": "scenes",
+      "fields": [],
+      "actions": [
+        "Done"
+      ],
+      "field_count": 0,
+      "action_count": 1
+    },
+    {
+      "id": "profile",
+      "family": "account",
+      "fields": [],
+      "actions": [
+        "Profile details",
+        "Settings",
+        "Notifications",
+        "Support",
+        "Log out",
+        "Tab: Home",
+        "Tab: Rooms",
+        "Tab: Profile"
+      ],
+      "field_count": 0,
+      "action_count": 8
+    },
+    {
+      "id": "profile-details",
+      "family": "account",
+      "fields": [
+        "First name",
+        "Last name",
+        "Date of birth"
+      ],
+      "actions": [
+        "Back",
+        "Save changes",
+        "Tab: Home",
+        "Tab: Rooms",
+        "Tab: Profile"
+      ],
+      "field_count": 3,
+      "action_count": 5
+    },
+    {
+      "id": "push-notifications",
+      "family": "account",
+      "fields": [],
+      "actions": [
+        "Back",
+        "Notification switch",
+        "Tab: Home",
+        "Tab: Rooms",
+        "Tab: Profile"
+      ],
+      "field_count": 0,
+      "action_count": 5
+    }
+  ],
+  "flows": [
+    {
+      "name": "Device setup",
+      "screens": [
+        "device-scan-or-nfc",
+        "device-light-found",
+        "device-select-location",
+        "device-name",
+        "device-added"
+      ],
+      "screen_count": 5,
+      "decision_stages": 4,
+      "field_count": 1
+    },
+    {
+      "name": "Room creation",
+      "screens": [
+        "room-name",
+        "room-choose-photo",
+        "room-select-devices",
+        "room-added"
+      ],
+      "screen_count": 4,
+      "decision_stages": 3,
+      "field_count": 1
+    },
+    {
+      "name": "Scene creation",
+      "screens": [
+        "scene-choose",
+        "scene-name",
+        "scene-select-devices",
+        "scene-set-device-states",
+        "scene-added"
+      ],
+      "screen_count": 5,
+      "decision_stages": 4,
+      "field_count": 1
+    },
+    {
+      "name": "Account recovery",
+      "screens": [
+        "recover-password",
+        "verify-code",
+        "change-password"
+      ],
+      "screen_count": 3,
+      "decision_stages": 3,
+      "field_count": 4
+    }
+  ],
+  "patterns": {
+    "bottom_navigation": [
+      "my-home",
+      "my-rooms",
+      "room-appliances",
+      "air-conditioner",
+      "lamp",
+      "tv-remote",
+      "profile",
+      "profile-details",
+      "push-notifications"
+    ],
+    "segmented_progress": [
+      "room-name",
+      "room-choose-photo",
+      "room-select-devices",
+      "device-select-location",
+      "device-name",
+      "scene-name",
+      "scene-select-devices",
+      "scene-set-device-states"
+    ],
+    "named_confirmation": [
+      "room-added",
+      "device-added",
+      "scene-added"
+    ],
+    "error_frames": []
+  },
+  "heuristic": {
+    "name": "Visible control evidence",
+    "scale": "0 = absent from supplied frame; 1 = partial; 2 = explicit. Four criteria, maximum 8. This is an evidence coverage score, not a usability or compliance score.",
+    "criteria": [
+      {
+        "id": "identity",
+        "rubric": "2: room and appliance named; 1: only one named; 0: neither."
+      },
+      {
+        "id": "power",
+        "rubric": "2: power text plus switch; 1: only text or switch; 0: neither."
+      },
+      {
+        "id": "range",
+        "rubric": "2: current primary numeric value, unit and explicit bounds; 1: value and unit without bounds; 0: no numeric feedback."
+      },
+      {
+        "id": "alternative",
+        "rubric": "2: visible non-drag alternative for primary continuous value; 1: hint of alternative without visible control; 0: none visible."
+      }
+    ],
+    "scores": [
+      {
+        "screen": "air-conditioner",
+        "criteria": {
+          "identity": 2,
+          "power": 2,
+          "range": 2,
+          "alternative": 0
+        },
+        "total": 6
+      },
+      {
+        "screen": "lamp",
+        "criteria": {
+          "identity": 2,
+          "power": 2,
+          "range": 1,
+          "alternative": 0
+        },
+        "total": 5
+      },
+      {
+        "screen": "tv-remote",
+        "criteria": {
+          "identity": 2,
+          "power": 2,
+          "range": 1,
+          "alternative": 0
+        },
+        "total": 5
+      }
+    ]
+  },
+  "targets": [
+    {
+      "metric": "Device completion",
+      "target": "≥90%",
+      "measurement": "Independently add the correct light to the correct room; successful unassisted tasks / all device-task attempts."
+    },
+    {
+      "metric": "Device setup time",
+      "target": "≤90s median",
+      "measurement": "Discovery screen displayed to named confirmation; report successful-attempt median and failed attempts separately."
+    },
+    {
+      "metric": "Room completion",
+      "target": "≥95%",
+      "measurement": "Correct room name, selected photo and intended devices saved / all room-task attempts."
+    },
+    {
+      "metric": "Scene completion",
+      "target": "≥85%",
+      "measurement": "Correct scene membership AND all requested ON/OFF states saved / all scene-task attempts."
+    },
+    {
+      "metric": "Scene time",
+      "target": "≤120s median",
+      "measurement": "Choose-scene screen displayed to scene-added confirmation; successful-attempt median."
+    },
+    {
+      "metric": "Device control access",
+      "target": "1–2 taps",
+      "measurement": "From Home to the requested supported appliance control, excluding the adjustment itself. Verify category routing in an interactive prototype."
+    },
+    {
+      "metric": "Post-task confidence",
+      "target": "≥4.2/5 mean",
+      "measurement": "Immediately rate confidence that the intended change is correct, 1 not at all to 5 completely; report sample size and distribution."
+    },
+    {
+      "metric": "Setup abandonment",
+      "target": "≤10%",
+      "measurement": "Device setups explicitly cancelled or with no terminal success for 10 minutes / setup starts. Deduplicate resumed attempts by session ID; separate crashes and observed study failures."
+    }
+  ]
+}

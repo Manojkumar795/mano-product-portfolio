@@ -16,9 +16,6 @@ export const metadata: Metadata = {
   title: "Manoj Kumar N — Senior Product Designer",
   description:
     "Senior Product Designer with 8+ years of experience in enterprise SaaS, complex workflows, scalable design systems and AI-assisted product design.",
-  other: {
-    "codex-preview": "development",
-  },
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

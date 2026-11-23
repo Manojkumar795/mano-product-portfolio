@@ -1,0 +1,38 @@
+[
+  {
+    "original": "My Rooms.png",
+    "file": "rooms-before.png",
+    "topic": "rooms",
+    "width": 390,
+    "height": 844,
+    "sha256": "c66aef8f5c2a327fd71dce709aa0658c8a490defa4e4759cc32b11ea00670620",
+    "brandTreatment": "Chosen source frame has no app wordmark; displayed under Homiq labels. Source pixels unchanged."
+  },
+  {
+    "original": "Add Device.png",
+    "file": "discovery-before.png",
+    "topic": "discovery",
+    "width": 390,
+    "height": 844,
+    "sha256": "39186c38f1bc3a08cb6eef9942b5c03cd72903b2692bfe4197836cec9a0ad673",
+    "brandTreatment": "Chosen source frame has no app wordmark; displayed under Homiq labels. Source pixels unchanged."
+  },
+  {
+    "original": "Air conditioner.png",
+    "file": "climate-before.png",
+    "topic": "climate",
+    "width": 390,
+    "height": 844,
+    "sha256": "f1eba1d1e69e7e5add73461c436ddd6fafb3890018ad3a73bf59794298cdcc7d",
+    "brandTreatment": "Chosen source frame has no app wordmark; displayed under Homiq labels. Source pixels unchanged."
+  },
+  {
+    "original": "Add Device-9.png",
+    "file": "scenes-before.png",
+    "topic": "scenes",
+    "width": 390,
+    "height": 844,
+    "sha256": "0d51bbb4bb37dd78079e6eabc72be5f3c4e66f0dc6bea70dd56a3efbca298e9d",
+    "brandTreatment": "Chosen source frame has no app wordmark; displayed under Homiq labels. Source pixels unchanged."
+  }
+]

@@ -1,0 +1,286 @@
+[
+  {
+    "path": "app/components/mano-playground/CreatorCredit.css",
+    "sha256": "f7f11b4114bae823bbd46917f95d7c08228e315184410c75c44e124d0df65c39"
+  },
+  {
+    "path": "app/components/mano-playground/CreatorCredit.tsx",
+    "sha256": "0752525756440c54d9f8dca7b505daa1f65740a0871dc0153e73dc55dc8f6031"
+  },
+  {
+    "path": "app/components/mano-playground/DigitalTicket.css",
+    "sha256": "8be75c0a923d09099b6d339edc293d51af0406bee218d305ed9a5953f42e9adf"
+  },
+  {
+    "path": "app/components/mano-playground/DigitalTicket.tsx",
+    "sha256": "1e124d2a13d70ff7499e9122e536639cad825e5389fcb4b9b8b9909ab53a9f13"
+  },
+  {
+    "path": "app/components/mano-playground/MusicPlayer.css",
+    "sha256": "3c7fbdcf24f5873aa23c7a42d3ae564f0b74363515dec53ce0210d33be761384"
+  },
+  {
+    "path": "app/components/mano-playground/MusicPlayer.tsx",
+    "sha256": "c2921f52319f1768df3b6c3ec317631c2a3363c963263ed178dee0fc8748d27a"
+  },
+  {
+    "path": "app/components/mano-playground/assets.d.ts",
+    "sha256": "a1e11ea9c568f92e5ff3b72ce5f9a47575e0b3c390a8b318e71f413af9f1b1a8"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/BookCover.tsx",
+    "sha256": "f445d55c495a5bf41456d26c318aed70aed94ed60ac97654c3122e7a8f04c2b9"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/FirstPage.css",
+    "sha256": "af8f171f4e3247ca546b7b69ea58f83dacc3bff16bbf908032123d3b461aee10"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/FirstPage.tsx",
+    "sha256": "0e0215fe7b91c041ffd80aa3eea52554c33e2da306fbe146217269d4862c2bbe"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/PaperBook.tsx",
+    "sha256": "adb731aa7a25abbd90513fe63e6f75cd38048716897a365278d440462f123fcd"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/README.md",
+    "sha256": "3fe8d8166bacdaea18b329c12bb953276b15fd413cc9f1d8cdc480fd8f47d527"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/autoplay.ts",
+    "sha256": "a4c27dbf730ec575f3c64551e36877e42f41743f18b98492c5db07319ffe4650"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/books.ts",
+    "sha256": "78729b7834c03d5687e255a474aded388f3f175e674420d2817d5c1b009ae128"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/icons.tsx",
+    "sha256": "0b381030471120e3d0485a1192e786c68400ac31fbc2f17f9d3e0ab17e76ba44"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/index.ts",
+    "sha256": "0fc7f1716f1a4aae77c1e13def18a4919b0085ce7991437b4eb7e1b75df8311b"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/model.ts",
+    "sha256": "f74eb1da629277a11e676735933669c7749bb2efa1ef07e74129cc7c7a36252c"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/paper-renderer.ts",
+    "sha256": "026dc88c77948c3296f4bdc17d4a2fc124dcd4cf5c5cdf9f121ca7b40c8fbc10"
+  },
+  {
+    "path": "app/components/mano-playground/firstpage/paper.ts",
+    "sha256": "77c68fcdd3f8b3c17a6c5b35b5b81188c61aac59654e8a2859f5544d33ce7465"
+  },
+  {
+    "path": "app/components/mano-playground/index.ts",
+    "sha256": "f4feed25a482b92e44a5a73b7438693ab27e19a6ab66344100a9b67d6a2b43eb"
+  },
+  {
+    "path": "app/components/mano-playground/playground/OneTapCheckout.css",
+    "sha256": "986d000cca69d2d55e3787fd7c4f7a27fb1b3623c9f3d4f7782e11695f539f6f"
+  },
+  {
+    "path": "app/components/mano-playground/playground/OneTapCheckout.tsx",
+    "sha256": "04425e2554638aebf650dde3bfd8e9a6f14a99e828221ecbd46b13dfdc121131"
+  },
+  {
+    "path": "app/components/mano-playground/playground/PizzaBuilder.css",
+    "sha256": "c0b9ddd8935d1a4c8c1be84dcb4fffd4667e308d8d8c9bdd454b267b49ad8b79"
+  },
+  {
+    "path": "app/components/mano-playground/playground/PizzaBuilder.tsx",
+    "sha256": "ae0d34e345a733b67002cb096f1da0dc5ef88c2abc21e88041e305f5b3cf973f"
+  },
+  {
+    "path": "app/components/mano-playground/playground/index.ts",
+    "sha256": "18ea49d4cf5fec558f647709b534dd6c2cea31453e1fb8fee7189192c81859d9"
+  },
+  {
+    "path": "app/components/mano-playground/playground/playground.css",
+    "sha256": "891005b8b0ce2e775fa510a62f1c0659da4f8749ad0a661727400a18c5c88011"
+  },
+  {
+    "path": "app/components/mano-playground/playground/shared.tsx",
+    "sha256": "b2a56aae8b64563a2a6d066a07f4b21e72ba8dedfc15b444bb9fbeb193936580"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/DemoCursor.tsx",
+    "sha256": "ab7ef0b4e56e12c12f476081e046e42dff8405064775b1abf16420246e64f3c9"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/NightSky.tsx",
+    "sha256": "6c3dd9a2e6e9787655d1fe57c75135f5a11e6106c642d13f11bf4b89d01ac2cd"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/README.md",
+    "sha256": "2d987f4a8400d8564fdf46466006c2e323d9add7b1a32ea60b1f8a1ddeffa74c"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/Tonight.css",
+    "sha256": "4afd09a9bacccc8fd2b8fdab0db8039cc7403bbf1e35ec494da21da061083a56"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/Tonight.tsx",
+    "sha256": "c51a3119d05f17920158e0b8c24b01ee6566f2314c1c6a6c0c23698024673d09"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/autoplay.ts",
+    "sha256": "1ff282e4a94bf60f08a0341dcf1423ea05ca62a052de583d8de340ca1767a46e"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/credits.json",
+    "sha256": "22164dc5515c9675a649159ce6f5ba61d20db149069d34a78d8707cd4b4a9d3f"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/icons.tsx",
+    "sha256": "9e7bc723142299bd73eb189d8fc3dae543a59cbc836f7b70430f125a38271c87"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/index.ts",
+    "sha256": "90238752f1b4348b77a680d3298244cdd27b79c7ec688352e22890dc8fd54449"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/model.ts",
+    "sha256": "fe5c496b4bca5b756d06921aa439584af571eb2c17da70eb753e94ca3a75a611"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/movies.ts",
+    "sha256": "a47402d53359190611e5a9305b6aa3fb11991bca74bd1e4cccacf01d5347ea6b"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/posters.ts",
+    "sha256": "0825b3f7c89022502c6c781d768446e61fc6feba2cae35906057c210fc248f85"
+  },
+  {
+    "path": "app/components/mano-playground/tonight/preview.css",
+    "sha256": "530a83646b4a2e7b0a2443f7e3da6ad3336775a8b37b909ad3cfa1aa0b17e7e8"
+  },
+  {
+    "path": "public/artwork/dive.svg",
+    "sha256": "e497980d61fe66ff5cda6b820f1ce1c0ec8a030582fe33ba03d4f4854d2192d4"
+  },
+  {
+    "path": "public/artwork/immunity.svg",
+    "sha256": "e49e98f242078e2f2c70aa83e2ab41e13ba19d91eb316b0b9e93a0042b7d13b3"
+  },
+  {
+    "path": "public/artwork/weightless.svg",
+    "sha256": "d21ccfe12bd258812c7f854ef86a076227375845557dcf3fbeb4ae056416c7bc"
+  },
+  {
+    "path": "public/firstpage/artwork-prompts.json",
+    "sha256": "19bcc5e8c229b2dc799e66aa8220315752dc88293d648dc40c10f17c2c4ec04a"
+  },
+  {
+    "path": "public/firstpage/house.webp",
+    "sha256": "2a4464653500eed51c61955cb5dd32bc6c58a1b43a1bdebf787bb6a78ef2fb64"
+  },
+  {
+    "path": "public/firstpage/inventory.webp",
+    "sha256": "11c358a1b22450e837b4bc7f4d8302e986f258e5c3b920bd0c86010e0ec1e397"
+  },
+  {
+    "path": "public/firstpage/letters.webp",
+    "sha256": "557534eaec282377f3d25c41141bcd550ee864d2c6294359329c6dfc5e913311"
+  },
+  {
+    "path": "public/firstpage/orchard.webp",
+    "sha256": "eff6ab619140cc90da32bb7ceba7acab4541e44a181beb545ba76c275586d84a"
+  },
+  {
+    "path": "public/firstpage/river.webp",
+    "sha256": "9661fc09b15c83ba16b7cbacfc8b8c870cf18301e69903b0e17af8ef7d5b1c0c"
+  },
+  {
+    "path": "public/firstpage/stars.webp",
+    "sha256": "f9bbf45d264a0e57768683bead2e77b625bee69b95f7ec2be775bd698ee81a93"
+  },
+  {
+    "path": "public/playground/checkout-reference.png",
+    "sha256": "c9ced1ba3c29eda2d22c1c74e85d572b3ce704f38fb7b8c4915f11678725c6ad"
+  },
+  {
+    "path": "public/playground/concert-banner.mp4",
+    "sha256": "46d12daa66517988b3f864757f52c443d57d09410a74ffd21d6d940618e79a55"
+  },
+  {
+    "path": "public/playground/concert.jpg",
+    "sha256": "8fdae830c67f6772dd3e3293da263dc4747d17d3187a800e3a6eb2dcceeb42f4"
+  },
+  {
+    "path": "public/playground/pizza-cheese-base.jpg",
+    "sha256": "3c45ee51358b2f98a9217a0455c72c0f0e57cffc3bbe8d190dba6f256ed0fd39"
+  },
+  {
+    "path": "public/playground/pizza-cheese.png",
+    "sha256": "5cd8733c6595b91735f0c7b978b9383e16fc53757a376ec5e422b7fbadb11b6e"
+  },
+  {
+    "path": "public/playground/pizza-mushroom.png",
+    "sha256": "496250d54b010c3d7e7e681b06f8e86c7943e73056be851fedffe547ad86efc7"
+  },
+  {
+    "path": "public/playground/pizza-olive.png",
+    "sha256": "fb4a80fd75ac5590de766db42bf3dc8650b42d50cbcef4fc2d47aff8dab787c8"
+  },
+  {
+    "path": "public/playground/pizza.jpg",
+    "sha256": "d513c6ae4fcc719815ed1dfd3d7075a9ce06a71e8ec8ff2b78510fe5459294b8"
+  },
+  {
+    "path": "public/playground/sneaker.jpg",
+    "sha256": "a4d1e4a72fce068d5c0d4d8e49290c2d2a7142e87eafd536b971477a67f1a390"
+  },
+  {
+    "path": "public/tonight/about-time.jpg",
+    "sha256": "a714cdbdafe69f6ec310ef920b63da14bb1e4f2c8cd6783bbbe316daf90ce299"
+  },
+  {
+    "path": "public/tonight/chef.jpg",
+    "sha256": "9addd71f734b14669758e133734e0aab1b7b06ebdae687d05c66b9bca031cac1"
+  },
+  {
+    "path": "public/tonight/dune.jpg",
+    "sha256": "021bd5ab1f2fbfe61fa66def796dd909a3fc868d04f29753968a686804818b46"
+  },
+  {
+    "path": "public/tonight/grand-budapest.jpg",
+    "sha256": "410bf84daea5b2e13754b0499d1ee4e5ea81fa372849056a834c959e60c06156"
+  },
+  {
+    "path": "public/tonight/inception.jpg",
+    "sha256": "cebccba918e6c5dd2e91c367611a3bff8cc0cfc9dab4fe260daea040edfea463"
+  },
+  {
+    "path": "public/tonight/knives-out.jpg",
+    "sha256": "f445cb2d6db15c33d4294eb5ff778adf9d1bae4a192ca77c7dbc9986c560e0af"
+  },
+  {
+    "path": "public/tonight/paddington-2.jpg",
+    "sha256": "e7df4cf6649f95cebdcfe40061b97906d22f04d34bb6eacd4daa9e1abed9dd33"
+  },
+  {
+    "path": "public/tonight/soul.jpg",
+    "sha256": "d0b0315607d72375b927d0188beca7fd78247958f4fc528c40323b09f993b5c6"
+  },
+  {
+    "path": "public/tonight/spirited-away.jpg",
+    "sha256": "5670f22e05568b8e3cb78d9969db693d1c11a10764258a31d1936de655bb2de8"
+  },
+  {
+    "path": "public/tonight/the-martian.jpg",
+    "sha256": "897466a599e98cec82a34d708af8407fedff69f52b310cae5b1b5b44ae298864"
+  },
+  {
+    "path": "public/tonight/wall-e.jpg",
+    "sha256": "178b8506849850a6465b6b6c5ee89921ed33dd9e14aff6c40d506f193782ebc5"
+  },
+  {
+    "path": "public/tonight/walter-mitty.jpg",
+    "sha256": "dd03094ec15575016fe317091384f2adfb312aa95d5e316679ef03a925e00948"
+  }
+]

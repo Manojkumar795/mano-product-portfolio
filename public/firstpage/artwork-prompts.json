@@ -1,0 +1,31 @@
+{
+  "method": "built-in image_gen.imagegen",
+  "reference": "User-supplied image(20261018-122337).png",
+  "common": "Use case: illustration-story. Asset type: one flat portrait book-jacket background illustration for an interactive reading component. Reference is STYLE REFERENCE ONLY. Single full-bleed 2:3 portrait artwork, not an interface or book mockup. No border, lettering, title, or watermark. Detailed scene in bottom two-thirds; low-detail sky in upper third for HTML typography. Premium atmospheric realistic painted illustration, rich subtle texture, restrained lighting, natural human proportions.",
+  "assets": [
+    {
+      "file": "public/firstpage/house.webp",
+      "scene": "Mysterious narrow old European city street at night; solitary man in long coat; amber Victorian gas lamps; fog; rainy cobblestone reflections; blue-black gothic buildings and distant spire."
+    },
+    {
+      "file": "public/firstpage/stars.webp",
+      "scene": "Lone human facing huge luminous circular cyan portal; starry cosmic sky; halo reflected in water; midnight blue cinematic science fiction."
+    },
+    {
+      "file": "public/firstpage/letters.webp",
+      "scene": "Two lovers in silhouette under purple, rose, orange sunset; distant mountains and quiet lake; romantic painted illustration."
+    },
+    {
+      "file": "public/firstpage/inventory.webp",
+      "scene": "Broad leafless oak on gentle hill beside a river; golden morning mist; parchment, sepia and sage literary landscape."
+    },
+    {
+      "file": "public/firstpage/orchard.webp",
+      "scene": "Gothic fantasy castle, elegant spires and fiery amber windows; mountains, pines, navy storm sky and ember-orange valley."
+    },
+    {
+      "file": "public/firstpage/river.webp",
+      "scene": "Jagged alpine peaks, misty valley, winding river, tiny traveler; slate blue, mist white and warm light; adventure watercolor."
+    }
+  ]
+}

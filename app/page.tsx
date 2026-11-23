@@ -32,6 +32,9 @@ import HeroSystemShowcase from "./HeroSystemShowcase";
 import VisualWorkShowcase from "./VisualWorkShowcase";
 import ColourfulText from "./ColourfulText";
 import HeroMockups from "./slotgo/HeroMockups";
+import AboutLanyard from "./AboutLanyard";
+import ProjectShowcaseGrid from "./ProjectShowcaseGrid";
+import ComponentPlayground from "./ComponentPlayground";
 
 function CanvaLogo() {
   return (
@@ -91,185 +94,6 @@ type Project = {
   outcome: string;
   note: string;
 };
-
-const projects: Project[] = [
-  {
-    id: "program",
-    visual: "program",
-    index: "01",
-    title: "Program+",
-    eyebrow: "Program Lifecycle Management Platform",
-    description:
-      "A high-signal operating system for master timing, open issues, work queues and live program health.",
-    role: "Lead Product Designer",
-    showcase: "Case study",
-    tags: ["Program operations", "Data UX", "Enterprise SaaS"],
-    className: "project-program",
-    challenge:
-      "Program teams needed to scan timing, issues and work status quickly without losing access to operational detail.",
-    move:
-      "I reorganized the experience around a focused work queue, concise KPI signals and progressive access to program data.",
-    outcome:
-      "A calmer operational view that makes priorities and exceptions visible while keeping complex program data accessible.",
-    note: "Selected details are adapted to respect client confidentiality.",
-  },
-  {
-    id: "quote",
-    visual: "quote",
-    index: "02",
-    title: "Quote+",
-    eyebrow: "Enterprise Quotation Management Platform",
-    description:
-      "A connected RFQ-to-award workspace for quotation setup, scenarios, participants, audit history and Go/No-Go decisions.",
-    role: "Lead Product Designer",
-    showcase: "Case study",
-    tags: ["Enterprise UX", "RFQ workflow", "Decision systems"],
-    className: "project-quote",
-    challenge:
-      "Pricing teams were moving between dense forms, spreadsheets and disconnected approval steps during time-sensitive quotation work.",
-    move:
-      "I shaped a section-based workspace, a clearer information hierarchy, role-aware collaboration and a visual decision path from RFQ intake to Go/No-Go.",
-    outcome:
-      "A more understandable and traceable quotation flow that gives teams one shared view of quote status, inputs and decisions.",
-    note: "Selected details are adapted to respect client confidentiality.",
-  },
-  {
-    id: "profit",
-    visual: "profit",
-    index: "03",
-    title: "Profit+",
-    eyebrow: "Enterprise Configuration & Workflow Platform",
-    description:
-      "A system-aware authoring workspace for fields, sections, pages, levels, flows and rules.",
-    role: "Senior Product Designer",
-    showcase: "Case study",
-    tags: ["Configuration UX", "Information architecture", "Enterprise SaaS"],
-    className: "project-profit",
-    challenge:
-      "Administrators could create individual objects, but the product hid how fields, sections, pages and workflow rules related to one another.",
-    move:
-      "I evolved the experience level by level, making hierarchy visible while keeping frequent authoring tasks focused and predictable.",
-    outcome:
-      "A scalable Configuration Studio that supports complex system relationships without turning everyday administration into system mapping.",
-    note: "Selected details are adapted to respect client confidentiality.",
-  },
-  {
-    id: "sustain",
-    visual: "sustain",
-    index: "04",
-    title: "Sustain+",
-    eyebrow: "Sustainability & ESG Management Platform",
-    description:
-      "An ESG workspace for emissions, targets, initiatives, evidence and sustainability performance.",
-    role: "Senior Product Designer",
-    showcase: "Case study",
-    tags: ["ESG workflows", "Data visualization", "Reporting"],
-    className: "project-sustain",
-    challenge:
-      "Sustainability teams needed to connect targets, operational evidence and performance data without losing reporting context.",
-    move:
-      "I organized the product around measurable ESG pillars, clear ownership, evidence status and progressive disclosure for dense metrics.",
-    outcome:
-      "A more legible sustainability workflow that connects strategic targets with the operational data used to support them.",
-    note: "Selected details are adapted to respect client confidentiality.",
-  },
-  {
-    id: "delivery",
-    visual: "delivery",
-    index: "05",
-    title: "Modern Product Delivery",
-    eyebrow: "Technical Showcase",
-    description:
-      "From Enterprise Design Systems to Production Applications",
-    role: "Design Systems + AI Delivery",
-    showcase: "Technical showcase",
-    tags: [
-      "Syncfusion UI Kit",
-      "Product Design System",
-      "Figma Components",
-      "Design Tokens",
-      "Motion",
-      "AI Workflow",
-      "MCP",
-      "Claude Code",
-      "React",
-      "Production",
-    ],
-    className: "project-delivery",
-    challenge:
-      "Enterprise UI work loses consistency when components, tokens, motion and engineering implementation are treated as separate handoffs.",
-    move:
-      "One end-to-end story: Syncfusion UI Kit → product design system → Figma components and tokens → motion → AI workflow → MCP and Claude Code → React → production.",
-    outcome:
-      "A connected delivery model that keeps design intent traceable from the component library to a running application.",
-    note: "Presented as one continuous technical story—not separate chapters.",
-  },
-  {
-    id: "research",
-    visual: "research",
-    index: "06",
-    title: "F-35 Helmet UX",
-    eyebrow: "UX / Human Factors Research",
-    description:
-      "Designing clarity for extreme human–machine interaction.",
-    role: "Independent UX Research",
-    showcase: "Research showcase",
-    tags: [
-      "Information hierarchy",
-      "Cognitive load",
-      "Situational awareness",
-      "Mission-critical interface design",
-      "Enterprise dashboard principles",
-    ],
-    className: "project-research",
-    challenge:
-      "Mission-critical displays must compress complex information without hiding priority, state or consequence.",
-    move:
-      "I studied information hierarchy, cognitive load, situational awareness and alert behavior, then translated the principles—not the cockpit styling—into enterprise UX guidance.",
-    outcome:
-      "A reusable set of dashboard principles for prioritization, scanning, escalation and decision confidence in complex products.",
-    note: "Independent UX research. No affiliation with Lockheed Martin or the F-35 program.",
-  },
-  {
-    id: "slotgo",
-    visual: "slotgo",
-    index: "07",
-    title: "SlotGo",
-    eyebrow: "Sports Booking & Venue Operations",
-    description:
-      "Product design across a player booking app and the venue operations app managing the same court inventory.",
-    role: "Product Designer",
-    showcase: "Client product case study",
-    tags: ["Mobile product", "Booking flow", "Venue operations", "Design system"],
-    className: "project-slotgo",
-    challenge:
-      "Players needed a quick way to find and reserve courts while venue teams needed reliable control over availability, payments and schedules.",
-    move:
-      "I designed the two apps around a shared booking state, then clarified the customer flow, operational calendar and status language.",
-    outcome:
-      "A coherent product model connecting discovery, payment, court availability and venue follow-up.",
-    note: "Selected details are adapted to respect client confidentiality.",
-  },
-];
-
-const approachSteps = [
-  {
-    title: "Map the reality",
-    text: "Users, business rules, exceptions, technical constraints and the workarounds nobody wrote down.",
-  },
-  {
-    title: "Find the system",
-    text: "Turn scattered requirements into a clear product model, information architecture and set of design principles.",
-  },
-  {
-    title: "Prototype the decisions",
-    text: "Test the risky moments first: handoffs, permission changes, exceptions, dense data and irreversible actions.",
-  },
-  {
-    title: "Build for scale",
-    text: "Connect the experience to tokens, reusable patterns, edge cases and code-aware engineering guidance.",
-  },
-];
 
 const workflowStack = [
   {
@@ -898,60 +722,6 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const hero = document.querySelector<HTMLElement>(".hero-modern");
-    const dashboard = hero?.querySelector<HTMLElement>(".hero-art");
-    const content = hero?.querySelector<HTMLElement>(".hero-bottom");
-    const heading = hero?.querySelector<HTMLElement>(".hero-title h1");
-
-    if (!hero || !dashboard || !content) return;
-
-    const topWithinHero = (element: HTMLElement) => {
-      let top = 0;
-      let current: HTMLElement | null = element;
-
-      while (current && current !== hero) {
-        top += current.offsetTop;
-        current = current.offsetParent as HTMLElement | null;
-      }
-
-      return top;
-    };
-
-    const bottomWithinHero = (element: HTMLElement) =>
-      topWithinHero(element) + element.offsetHeight;
-
-    const alignHeroContent = () => {
-      if (window.innerWidth <= 760) {
-        content.style.removeProperty("--hero-bottom-align-y");
-        return;
-      }
-
-      const dashboardOffset =
-        bottomWithinHero(dashboard) - bottomWithinHero(content);
-      const minimumOffset = heading
-        ? bottomWithinHero(heading) + 32 - topWithinHero(content)
-        : dashboardOffset;
-      const offset = Math.max(dashboardOffset, minimumOffset);
-
-      content.style.setProperty("--hero-bottom-align-y", `${Math.round(offset)}px`);
-    };
-
-    alignHeroContent();
-
-    const resizeObserver = new ResizeObserver(alignHeroContent);
-    resizeObserver.observe(hero);
-    resizeObserver.observe(dashboard);
-    resizeObserver.observe(content);
-    if (heading) resizeObserver.observe(heading);
-    window.addEventListener("resize", alignHeroContent);
-
-    return () => {
-      resizeObserver.disconnect();
-      window.removeEventListener("resize", alignHeroContent);
-    };
-  }, []);
-
   const moveSpotlight = (event: ReactPointerEvent<HTMLElement>) => {
     const bounds = event.currentTarget.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / bounds.width;
@@ -978,16 +748,16 @@ export default function Home() {
 
   return (
     <main>
+      <link rel="preload" href="/fonts/orbitron-name.woff" as="font" type="font/woff" crossOrigin="anonymous" />
       <header className="nav-wrap">
         <a className="nav-brand" href="#top" aria-label="Manoj Kumar N, home">
           <span>MK</span>
-          <strong>Manoj Kumar N</strong>
         </a>
         <nav aria-label="Primary navigation">
           <a href="#work">Work</a>
           <a href="#visual-work">Visuals</a>
-          <a href="#approach">Approach</a>
           <a href="#about">About</a>
+          <a href="#approach">Approach</a>
         </nav>
         <a className="nav-cta" href="#contact">
           Let&apos;s talk <Arrow />
@@ -1005,204 +775,58 @@ export default function Home() {
           <small>Coimbatore · Bengaluru · Chennai · Remote</small>
         </div>
 
-        <div className="hero-title">
-          <p>Enterprise UX · Design Systems · AI Workflows</p>
-          <h1>
-            <span>Complex.</span>
-            <span className="hero-outline">Made <ColourfulText text="clear." /></span>
-          </h1>
-        </div>
-
-        <HeroSystemShowcase />
-
-        <div className="hero-bottom">
-          <p>
-            I simplify complex enterprise workflows, build design systems that
-            scale, and connect Figma to AI-assisted development.
-          </p>
-          <div className="hero-actions">
-            <a className="action-primary" href="#work">
-              View Case Studies <Arrow down />
-            </a>
-            <a
-              className="action-quiet"
-              href="/Manojkumar_N_Premium_Product_Designer_CV.pdf"
-              download
-            >
-              Download Résumé <Arrow />
-            </a>
-          </div>
-        </div>
-
-        <div className="hero-metrics">
-          <div>
-            <strong>8+</strong>
-            <span>Years building enterprise products</span>
-          </div>
-          <div>
-            <strong>40+</strong>
-            <span>Features designed &amp; delivered</span>
-          </div>
-          <div>
-            <strong className="hero-metric-label">Design Systems</strong>
-            <span>
-              AI Workflows ·<br />
-              Production Ready
+        <p className="hero-identity">
+          <span className="hero-identity-accessible">Manoj Kumar N</span>
+          {["MANOJ", "KUMAR", "N"].map((word, wordIndex) => (
+            <span className="hero-identity-word" aria-hidden="true" key={word}>
+              {Array.from(word).map((letter, letterIndex) => (
+                <span className="hero-identity-letter" key={letterIndex} style={{ "--name-letter": wordIndex * 5 + letterIndex } as CSSProperties}>{letter}</span>
+              ))}
             </span>
-          </div>
-        </div>
-      </section>
-
-      <section className="work-modern" id="work">
-        <div className="work-intro" data-reveal>
-          <div>
-            <h2>Seven stories.<br />One obsession: <ColourfulText text="clarity." /></h2>
-          </div>
-          <p>
-            Not isolated screens. End-to-end product systems designed around
-            real decisions, constraints and the people doing the work.
-          </p>
-        </div>
-
-        <div className="project-bento">
-          {projects.map((project) => (
-            <article
-              className={`modern-project ${project.className}`}
-              data-reveal
-              key={project.id}
-            >
-              <div className="project-layout">
-                <div className="project-copy">
-                  <p>{project.eyebrow}</p>
-                  <span className="project-index" aria-hidden="true">{project.index}</span>
-                  <h3>
-                    {project.title.endsWith("+") ? (
-                      <>
-                        {project.title.slice(0, -1)}
-                        <span className="project-title-plus">+</span>
-                      </>
-                    ) : (
-                      project.title
-                    )}
-                  </h3>
-                  <p>{project.description}</p>
-                  {project.id === "slotgo" ||
-                  project.id === "quote" ||
-                  project.id === "program" ||
-                  project.id === "profit" ||
-                  project.id === "sustain" ||
-                  project.id === "delivery" ||
-                  project.id === "research" ? (
-                    <a
-                      className="project-open"
-                      href={
-                        project.id === "slotgo"
-                          ? "/slotgo"
-                          : project.id === "quote"
-                            ? "/quote-plus"
-                            : project.id === "program"
-                              ? "/program-plus"
-                              : project.id === "profit"
-                                ? "/profit-plus"
-                                : project.id === "sustain"
-                                  ? "/sustain-plus"
-                                  : project.id === "delivery"
-                                    ? "/modern-product-delivery"
-                                    : "/f35-helmet-ux"
-                      }
-                      aria-label={`Explore the full ${project.title} story`}
-                    >
-                      {project.id === "delivery"
-                        ? "Explore delivery story"
-                        : project.id === "research"
-                          ? "Explore research story"
-                          : "Explore case study"} <Arrow />
-                    </a>
-                  ) : (
-                    <button
-                      className="project-open"
-                      type="button"
-                      onClick={() => setSelectedProject(project)}
-                      aria-label={`Open ${project.title} case study`}
-                    >
-                      View project <Arrow />
-                    </button>
-                  )}
-                </div>
-                <div className="project-visual">
-                  <ProductMockup type={project.visual} />
-                </div>
-              </div>
-            </article>
           ))}
+        </p>
+
+        <div className="hero-composition">
+          <div className="hero-copy-column">
+            <div className="hero-title">
+              <p>Enterprise UX · Design Systems · AI Workflows</p>
+              <h1>
+                <span>Complex.</span>
+                <span className="hero-outline">Made <ColourfulText text="clear." /></span>
+              </h1>
+            </div>
+
+            <div className="hero-bottom">
+              <p>
+                I simplify complex enterprise workflows, build design systems that
+                scale, and connect Figma to AI-assisted development.
+              </p>
+              <div className="hero-actions">
+                <a className="action-primary" href="#work">
+                  View Case Studies <Arrow down />
+                </a>
+                <a
+                  className="action-quiet"
+                  href="/Manojkumar_N_Premium_Product_Designer_CV.pdf"
+                  download
+                >
+                  Download Résumé <Arrow />
+                </a>
+              </div>
+            </div>
+          </div>
+          <HeroSystemShowcase />
         </div>
+
       </section>
 
-      <section className="first-contact">
-        <p>More than a portfolio. A working view of how I think.</p>
-        <a
-          href="https://www.behance.net/gallery/163184803/Manoj_Workspace"
-          target="_blank"
-          rel="noreferrer"
-        >
-          View Behance <Arrow />
-        </a>
+      <section className="work-modern" id="work" aria-labelledby="projects-title">
+        <ProjectShowcaseGrid />
       </section>
+
+      <ComponentPlayground />
 
       <VisualWorkShowcase />
-
-      <section className="approach-modern" id="approach">
-        <div className="approach-sticky" data-reveal>
-          <h2>I don&apos;t decorate complexity. I <ColourfulText text="model it." /></h2>
-          <span>
-            The goal is not fewer details. It is the right details, in the right
-            order, for the right person.
-          </span>
-        </div>
-        <div className="approach-stack">
-          {approachSteps.map((step) => (
-            <article data-reveal key={step.title}>
-              <div aria-hidden="true">
-                <i />
-              </div>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="ai-lab" data-reveal>
-        <div className="ai-lab-copy">
-          <h2>Faster exploration. Same <ColourfulText text="design judgment." /></h2>
-          <span>
-            I connect product context, Figma systems and code-aware AI tools to
-            explore, validate and communicate solutions faster—without
-            outsourcing the product decision.
-          </span>
-        </div>
-        <div className="ai-pipeline" aria-label="AI-assisted design workflow">
-          <div>
-            <strong>Product context</strong>
-            <small>Users, rules and constraints</small>
-          </div>
-          <i>→</i>
-          <div>
-            <strong>Design system</strong>
-            <small>Tokens, patterns and behavior</small>
-          </div>
-          <i>→</i>
-          <div>
-            <strong>AI collaboration</strong>
-            <small>Explore, critique and document</small>
-          </div>
-          <i>→</i>
-          <div>
-            <strong>Engineering flow</strong>
-            <small>Figma, code and Storybook</small>
-          </div>
-        </div>
-      </section>
 
       <section className="workflow-stack" aria-labelledby="workflow-stack-title">
         <div className="workflow-stack-color-wave" aria-hidden="true" />
@@ -1233,8 +857,38 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="about-modern" id="about">
+        <div className="about-statement" data-reveal>
+          <h2>
+            Systems thinker.
+            <br />
+            Detail obsessive.
+            <br />
+            Business <ColourfulText text="aware." />
+          </h2>
+        </div>
+        <div className="about-copy" data-reveal>
+          <p>
+            I&apos;m Manoj Kumar N, a Senior Product Designer with 8+ years of
+            experience across enterprise SaaS, complex B2B workflows, RFQ
+            platforms, dashboards and scalable design systems.
+          </p>
+          <p>
+            I work at the intersection of product strategy, interaction design
+            and engineering—especially where the product has many users, rules,
+            states and consequences.
+          </p>
+          <blockquote>
+            “Clarity is not removing complexity. It is helping people move
+            through it with confidence.”
+          </blockquote>
+        </div>
+        <AboutLanyard />
+      </section>
+
       <section
         className="leadership-principles"
+        id="approach"
         aria-labelledby="leadership-principles-title"
       >
         <div className="leadership-principles-heading" data-reveal>
@@ -1304,33 +958,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="about-modern" id="about">
-        <div className="about-statement" data-reveal>
-          <h2>
-            Systems thinker.
-            <br />
-            Detail obsessive.
-            <br />
-            Business <ColourfulText text="aware." />
-          </h2>
-        </div>
-        <div className="about-copy" data-reveal>
-          <p>
-            I&apos;m Manoj Kumar N, a Senior Product Designer with 8+ years of
-            experience across enterprise SaaS, complex B2B workflows, RFQ
-            platforms, dashboards and scalable design systems.
-          </p>
-          <p>
-            I work at the intersection of product strategy, interaction design
-            and engineering—especially where the product has many users, rules,
-            states and consequences.
-          </p>
-          <blockquote>
-            “Clarity is not removing complexity. It is helping people move
-            through it with confidence.”
-          </blockquote>
-        </div>
-      </section>
 
       <section className="contact-modern" id="contact">
         <div className="contact-orb" aria-hidden="true">

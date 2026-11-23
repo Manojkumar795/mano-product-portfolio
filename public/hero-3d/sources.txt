@@ -1,0 +1,16 @@
+Local GLB geometry and fallback thumbnails from 3DAssets.dev, CC0 1.0 Universal.
+Licence: https://creativecommons.org/publicdomain/zero/1.0/
+
+apex-car.glb / apex-car.webp
+Current ground-effect racer (Formula Race Cars and Grand Prix Circuit)
+https://3dassets.dev/assets/grand-prix-circuit-and-open-wheel-ground-effect-racer-02c3b491
+https://cdn.3dassets.dev/assets/15179/v1/model.glb
+Original generic open-wheel car; PBR paint modified in APEX. Not an official team model.
+
+flight-aircraft.glb / flight-aircraft.webp
+Narrow Body Twinjet In Flight (Aircraft Fleet and Airfield)
+https://3dassets.dev/assets/aircraft-fleet-and-airfield-narrowbody-twinjet-in-flig-99819439
+https://cdn.3dassets.dev/assets/32602/v1/model.glb
+Original generic airliner, no operator or manufacturer claims.
+
+Both publishers report AI-assisted asset construction. All app data is illustrative.

@@ -14,7 +14,6 @@ import {
 type VisualWork = {
   id: string;
   title: string;
-  description: string;
   src: string;
   width: number;
   height: number;
@@ -27,8 +26,6 @@ const visualWorks: VisualWork[] = [
   {
     id: "n52",
     title: "N52",
-    description:
-      "A monochrome fragrance story built through product compositing, contrast and editorial pacing.",
     src: "/visual-work/n52.webp",
     width: 662,
     height: 1680,
@@ -39,8 +36,6 @@ const visualWorks: VisualWork[] = [
   {
     id: "eye-of-love",
     title: "Eye of Love",
-    description:
-      "A bold campaign page balancing product variety, lifestyle imagery and a high-energy visual system.",
     src: "/visual-work/eye-of-love.webp",
     width: 552,
     height: 2048,
@@ -51,8 +46,6 @@ const visualWorks: VisualWork[] = [
   {
     id: "bloom-lilac",
     title: "Bloom Lilac",
-    description:
-      "A softer fragrance direction using lilac colour, product styling and lifestyle imagery as one continuous story.",
     src: "/visual-work/bloom-lilac.webp",
     width: 827,
     height: 2048,
@@ -63,8 +56,6 @@ const visualWorks: VisualWork[] = [
   {
     id: "beard-oil",
     title: "Natural Beard Oil",
-    description:
-      "A nature-led product page combining benefit communication, grooming imagery and strong shelf presence.",
     src: "/visual-work/beard-oil.webp",
     width: 662,
     height: 1680,
@@ -75,8 +66,6 @@ const visualWorks: VisualWork[] = [
   {
     id: "k9-nutravie",
     title: "K9 Nutravie",
-    description:
-      "A product education page that turns ingredients, dosage and benefits into a calmer information hierarchy.",
     src: "/visual-work/k9-nutravie.webp",
     width: 828,
     height: 2048,
@@ -231,7 +220,8 @@ export default function VisualWorkShowcase() {
 
     const sectionTop = window.scrollY + section.getBoundingClientRect().top;
     const travel = Math.max(1, section.offsetHeight - window.innerHeight);
-    const target = sectionTop + travel * ((index + 0.04) / visualWorks.length);
+    const target =
+      sectionTop + travel * ((index + 0.04) / visualWorks.length);
 
     window.scrollTo({
       top: target,
@@ -263,7 +253,7 @@ export default function VisualWorkShowcase() {
       className={`visual-cinema${selectedWork ? " is-viewing" : ""}`}
       id="visual-work"
       ref={sectionRef}
-      style={{ height: `${visualWorks.length * 210}svh` }}
+      style={{ height: `${visualWorks.length * 175}svh` }}
       aria-labelledby="visual-work-title"
     >
       <div
@@ -271,23 +261,51 @@ export default function VisualWorkShowcase() {
         style={stageStyle}
       >
         <div className="visual-cinema-ambient" key={activeWork.id} aria-hidden="true" />
-        <div className="visual-color-wave" aria-hidden="true" />
+        <div className="visual-story-rail">
+          <header className="visual-brief">
+            <div className="visual-brief-inner">
+              <p className="visual-brief-kicker">B2C · ECOMMERCE · AMAZON A+ CONTENT</p>
+              <h2 id="visual-work-title">
+                <span>Better product pages.</span>
+                <span className="visual-brief-second-line"><ColourfulText text="Better buying decisions." tone="visual" /></span>
+              </h2>
+              <ol className="visual-brief-copy" role="list">
+                <li>
+                  <div>
+                    <strong>Customer Problem</strong>
+                    <p>Customers were discovering products but lacked clear information about their benefits, differences, and value—creating hesitation before purchase.</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <strong>Design Strategy</strong>
+                    <p>I transformed product information into a guided buying journey using Amazon Premium A+—combining visual storytelling, benefit-led content, product comparisons, and consistent branding.</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <strong>Business Objective</strong>
+                    <p>My goal was to build customer trust, improve purchase confidence, increase conversions, and reduce returns caused by unclear product expectations.</p>
+                  </div>
+                </li>
+                <li>
+                  <div>
+                    <strong>Outcome</strong>
+                    <p>The result was a cohesive Premium A+ experience with clearer product differentiation, stronger brand storytelling, and more intuitive product comparisons—designed to turn product interest into confident buying decisions.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </header>
 
-        <header className="visual-cinema-heading">
-          <h2 id="visual-work-title">Selected <ColourfulText text="visual work." tone="visual" /></h2>
-          <p>
-            Campaign pages and product stories created across beauty, wellness
-            and retail.
-          </p>
-        </header>
-
-        <div className="visual-work-caption" key={`caption-${activeWork.id}`}>
-          <h3>{activeWork.title}</h3>
-          <p>{activeWork.description}</p>
-          <button type="button" onClick={() => openViewer(activeWork)}>
-            View full artwork <span aria-hidden="true">↗</span>
-          </button>
+          <div className="visual-work-caption" key={`caption-${activeWork.id}`}>
+            <h3>{activeWork.title}</h3>
+            <button type="button" onClick={() => openViewer(activeWork)}>
+              View full artwork <span aria-hidden="true">↗</span>
+            </button>
+          </div>
         </div>
+        <div className="visual-color-wave" aria-hidden="true" />
 
         <div className="visual-artwork-stack">
           {visualWorks.map((work, index) => {

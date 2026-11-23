@@ -1,0 +1,458 @@
+[
+  {
+    "section": 919,
+    "slot": "imgImage",
+    "kind": "hero",
+    "title": "HOMIQ — intelligent living",
+    "qualification": "Actual supplied welcome screen. Designer: Manoj Kumar N. No product UI altered.",
+    "asset": "/homiq/artifacts/919-imgImage.svg"
+  },
+  {
+    "section": 902,
+    "slot": "imgImage",
+    "kind": "cards",
+    "title": "A household, several mental models",
+    "qualification": "Published research + HOMIQ audit implications",
+    "asset": "/homiq/artifacts/902-imgImage.svg"
+  },
+  {
+    "section": 904,
+    "slot": "imgImage",
+    "kind": "blank",
+    "title": "",
+    "qualification": "",
+    "asset": "/homiq/artifacts/904-imgImage.svg"
+  },
+  {
+    "section": 904,
+    "slot": "imgImage1",
+    "kind": "context",
+    "title": "Room context as the anchor",
+    "qualification": "Experience principle: room → device → state → action",
+    "asset": "/homiq/artifacts/904-imgImage1.svg"
+  },
+  {
+    "section": 328,
+    "slot": "imgImage",
+    "kind": "competitors",
+    "title": "Smart-home patterns, documented",
+    "qualification": "Official product documentation · reviewed 21 Oct 2026",
+    "asset": "/homiq/artifacts/328-imgImage.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage",
+    "kind": "chart",
+    "title": "Journey length",
+    "qualification": "HOMIQ screen audit · 21 Oct 2026",
+    "asset": "/homiq/artifacts/342-imgImage.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage1",
+    "kind": "chart",
+    "title": "Editable fields by task",
+    "qualification": "HOMIQ screen audit · 21 Oct 2026",
+    "asset": "/homiq/artifacts/342-imgImage1.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage2",
+    "kind": "chart",
+    "title": "Repeated components",
+    "qualification": "HOMIQ screen audit · 21 Oct 2026",
+    "asset": "/homiq/artifacts/342-imgImage2.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage3",
+    "kind": "chart",
+    "title": "Product coverage",
+    "qualification": "HOMIQ screen audit · 21 Oct 2026",
+    "asset": "/homiq/artifacts/342-imgImage3.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage4",
+    "kind": "chart",
+    "title": "Control evidence score",
+    "qualification": "HOMIQ screen audit · 21 Oct 2026",
+    "asset": "/homiq/artifacts/342-imgImage4.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage5",
+    "kind": "chart",
+    "title": "Visible controls by screen",
+    "qualification": "HOMIQ screen audit · 21 Oct 2026",
+    "asset": "/homiq/artifacts/342-imgImage5.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage6",
+    "kind": "mini",
+    "title": "AUDIT / COVERAGE",
+    "qualification": "29 original screens",
+    "asset": "/homiq/artifacts/342-imgImage6.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage7",
+    "kind": "mini",
+    "title": "AUDIT / NAVIGATION",
+    "qualification": "Structural depth, not tested taps",
+    "asset": "/homiq/artifacts/342-imgImage7.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage8",
+    "kind": "mini",
+    "title": "AUDIT / FEEDBACK",
+    "qualification": "Supplied frame inventory",
+    "asset": "/homiq/artifacts/342-imgImage8.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage9",
+    "kind": "research",
+    "title": "How the audit becomes a product decision",
+    "qualification": "Manual counts · original PNGs · rubric and proposed targets",
+    "asset": "/homiq/artifacts/342-imgImage9.svg"
+  },
+  {
+    "section": 342,
+    "slot": "imgImage10",
+    "kind": "donut",
+    "title": "Screen coverage by family",
+    "qualification": "Audit distribution · not respondents",
+    "asset": "/homiq/artifacts/342-imgImage10.svg"
+  },
+  {
+    "section": 367,
+    "slot": "imgImage",
+    "kind": "avatar",
+    "title": "Everyday controller",
+    "qualification": "Problem-space archetype",
+    "asset": "/homiq/artifacts/367-imgImage.svg"
+  },
+  {
+    "section": 470,
+    "slot": "imgImage",
+    "kind": "avatar",
+    "title": "Household organizer",
+    "qualification": "Task responsibility archetype",
+    "asset": "/homiq/artifacts/470-imgImage.svg"
+  },
+  {
+    "section": 470,
+    "slot": "imgIcon",
+    "kind": "journey",
+    "title": "Visible controls at setup checkpoints",
+    "qualification": "Audit counts · discovery 3, location 12, naming 3, confirmation 2",
+    "asset": "/homiq/artifacts/470-imgIcon.svg"
+  },
+  {
+    "section": 530,
+    "slot": "imgImage",
+    "kind": "ia",
+    "title": "HOMIQ information architecture & task paths",
+    "qualification": "Screenshot-derived structure · inferred navigation is qualified below",
+    "asset": "/homiq/artifacts/530-imgImage.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage",
+    "kind": "mini",
+    "title": "Setup confidence",
+    "qualification": "Audit synthesis · product implication",
+    "asset": "/homiq/artifacts/565-imgImage.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage1",
+    "kind": "mini",
+    "title": "Daily control",
+    "qualification": "Audit synthesis · product implication",
+    "asset": "/homiq/artifacts/565-imgImage1.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage2",
+    "kind": "identity",
+    "title": "HOMIQ identity",
+    "qualification": "Sampled from the supplied application",
+    "asset": "/homiq/artifacts/565-imgImage2.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage3",
+    "kind": "wordmark",
+    "title": "",
+    "qualification": "",
+    "asset": "/homiq/artifacts/565-imgImage3.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage4",
+    "kind": "mini",
+    "title": "Room recognition",
+    "qualification": "Audit synthesis · product implication",
+    "asset": "/homiq/artifacts/565-imgImage4.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage5",
+    "kind": "mini",
+    "title": "Scene intent",
+    "qualification": "Audit synthesis · product implication",
+    "asset": "/homiq/artifacts/565-imgImage5.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage6",
+    "kind": "mini",
+    "title": "Recovery & trust",
+    "qualification": "Audit synthesis · product implication",
+    "asset": "/homiq/artifacts/565-imgImage6.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage7",
+    "kind": "matrix",
+    "title": "Access model decision matrix",
+    "qualification": "Criteria: recognition, access depth, density, recovery",
+    "asset": "/homiq/artifacts/565-imgImage7.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage8",
+    "kind": "actual",
+    "title": "Room-first hierarchy",
+    "qualification": "Actual UI",
+    "asset": "/homiq/artifacts/565-imgImage8.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage9",
+    "kind": "actual",
+    "title": "Category-first access",
+    "qualification": "Actual UI",
+    "asset": "/homiq/artifacts/565-imgImage9.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage10",
+    "kind": "actual",
+    "title": "",
+    "qualification": "",
+    "asset": "/homiq/artifacts/565-imgImage10.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage11",
+    "kind": "actual",
+    "title": "",
+    "qualification": "",
+    "asset": "/homiq/artifacts/565-imgImage11.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage12",
+    "kind": "actual",
+    "title": "",
+    "qualification": "",
+    "asset": "/homiq/artifacts/565-imgImage12.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage13",
+    "kind": "mini",
+    "title": "Account audit",
+    "qualification": "Observation → question",
+    "asset": "/homiq/artifacts/565-imgImage13.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage14",
+    "kind": "mini",
+    "title": "Profile audit",
+    "qualification": "Observation → question",
+    "asset": "/homiq/artifacts/565-imgImage14.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage15",
+    "kind": "principles",
+    "title": "Room → Device → State → Action",
+    "qualification": "A shared context model for control",
+    "asset": "/homiq/artifacts/565-imgImage15.svg"
+  },
+  {
+    "section": 565,
+    "slot": "imgImage16",
+    "kind": "state",
+    "title": "Prioritize confidence before complexity",
+    "qualification": "Decision framework · validate with tasks",
+    "asset": "/homiq/artifacts/565-imgImage16.svg"
+  },
+  {
+    "section": 639,
+    "slot": "imgImage",
+    "kind": "wire",
+    "title": "Discover",
+    "qualification": "Task-structure exploration",
+    "asset": "/homiq/artifacts/639-imgImage.svg"
+  },
+  {
+    "section": 639,
+    "slot": "imgImage1",
+    "kind": "wire",
+    "title": "Organize",
+    "qualification": "Task-structure exploration",
+    "asset": "/homiq/artifacts/639-imgImage1.svg"
+  },
+  {
+    "section": 639,
+    "slot": "imgImage2",
+    "kind": "wire",
+    "title": "Control",
+    "qualification": "Task-structure exploration",
+    "asset": "/homiq/artifacts/639-imgImage2.svg"
+  },
+  {
+    "section": 639,
+    "slot": "imgImage3",
+    "kind": "flow",
+    "title": "Device onboarding",
+    "qualification": "5 supplied frames · 4 decision stages",
+    "asset": "/homiq/artifacts/639-imgImage3.svg"
+  },
+  {
+    "section": 639,
+    "slot": "imgImage4",
+    "kind": "flow",
+    "title": "Scene creation",
+    "qualification": "5 supplied frames · 4 decision stages",
+    "asset": "/homiq/artifacts/639-imgImage4.svg"
+  },
+  {
+    "section": 657,
+    "slot": "imgImage",
+    "kind": "roomboard",
+    "title": "Rooms: hierarchy & personalization",
+    "qualification": "Hierarchy exploration above; original room sequence below",
+    "asset": "/homiq/artifacts/657-imgImage.svg"
+  },
+  {
+    "section": 657,
+    "slot": "imgImage1",
+    "kind": "accountboard",
+    "title": "Entry, recovery & account management",
+    "qualification": "9 original screens · profile data is a sample account",
+    "asset": "/homiq/artifacts/657-imgImage1.svg"
+  },
+  {
+    "section": 720,
+    "slot": "imgImage",
+    "kind": "gallery",
+    "title": "One navigation shell. Appliance-specific controls.",
+    "qualification": "Original HOMIQ screens · identity, power and value visible",
+    "asset": "/homiq/artifacts/720-imgImage.svg"
+  },
+  {
+    "section": 733,
+    "slot": "imgImage",
+    "kind": "beforeafter",
+    "title": "Room identity",
+    "qualification": "HOMIQ / 01",
+    "asset": "/homiq/artifacts/733-imgImage.svg"
+  },
+  {
+    "section": 733,
+    "slot": "discovery",
+    "kind": "beforeafter",
+    "title": "Device discovery",
+    "qualification": "HOMIQ / 02",
+    "asset": "/homiq/artifacts/733-discovery.svg"
+  },
+  {
+    "section": 733,
+    "slot": "climate",
+    "kind": "beforeafter",
+    "title": "Appliance control",
+    "qualification": "HOMIQ / 03",
+    "asset": "/homiq/artifacts/733-climate.svg"
+  },
+  {
+    "section": 733,
+    "slot": "scenes",
+    "kind": "beforeafter",
+    "title": "Scene intent",
+    "qualification": "HOMIQ / 04",
+    "asset": "/homiq/artifacts/733-scenes.svg"
+  },
+  {
+    "section": 798,
+    "slot": "imgImage",
+    "kind": "palette",
+    "title": "HOMIQ application palette",
+    "qualification": "Screenshot-derived samples · distinct from the website editorial colors",
+    "asset": "/homiq/artifacts/798-imgImage.svg"
+  },
+  {
+    "section": 774,
+    "slot": "imgImage",
+    "kind": "recovery",
+    "title": "A recoverable path, beyond success",
+    "qualification": "Proposed state framework · not implemented UI",
+    "asset": "/homiq/artifacts/774-imgImage.svg"
+  },
+  {
+    "section": 807,
+    "slot": "imgImage",
+    "kind": "components",
+    "title": "Components & state grammar",
+    "qualification": "Observed consistency across 29 screens",
+    "asset": "/homiq/artifacts/807-imgImage.svg"
+  },
+  {
+    "section": 807,
+    "slot": "imgImage1",
+    "kind": "type",
+    "title": "Type, spacing & accessibility",
+    "qualification": "Raster estimates · W3C WCAG 2.2, Dec 2024",
+    "asset": "/homiq/artifacts/807-imgImage1.svg"
+  },
+  {
+    "section": 807,
+    "slot": "imgImage2",
+    "kind": "foundation",
+    "title": "Foundations & hierarchy",
+    "qualification": "Observed patterns · implementation checks below",
+    "asset": "/homiq/artifacts/807-imgImage2.svg"
+  },
+  {
+    "section": 823,
+    "slot": "imgImage",
+    "kind": "sequences",
+    "title": "Device setup & multi-device scenes",
+    "qualification": "5 frames each · manual scenes; trigger editing outside supplied scope",
+    "asset": "/homiq/artifacts/823-imgImage.svg"
+  },
+  {
+    "section": 833,
+    "slot": "imgImage",
+    "kind": "actual",
+    "title": "",
+    "qualification": "",
+    "asset": "/homiq/artifacts/833-imgImage.svg"
+  },
+  {
+    "section": 833,
+    "slot": "imgImage1",
+    "kind": "frame",
+    "title": "",
+    "qualification": "",
+    "asset": "/homiq/artifacts/833-imgImage1.svg"
+  }
+]

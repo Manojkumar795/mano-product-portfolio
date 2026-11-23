@@ -1,0 +1,44 @@
+ALTITUDE — interactive portfolio concept. Journey and arrival data are illustrative.
+
+Earth imagery: NASA Earth Observatory, Blue Marble: Next Generation, August 2004.
+Credit: Reto Stöckli / NASA Earth Observatory. Local 4096 x 2048 WebP, colour graded in a shader.
+https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/
+https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/august/world.topo.bathy.200408.3x5400x2700.jpg
+
+Land elevation and bathymetry: NASA Earth Observatory / GEBCO.
+Credit: Jesse Allen, NASA Earth Observatory. Used for coastline, seafloor and terrain relief.
+https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/topography-bathymetry-maps/
+https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/topography/gebco_08_rev_elev_5400x2700.jpg
+https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bathymetry/gebco_08_rev_bath_5400x2700.jpg
+NASA imagery is generally not copyrighted in the United States. No NASA endorsement implied.
+
+Cloud density: NASA Blue Marble cloud composite, Reto Stöckli / NASA Goddard.
+https://eoimages.gsfc.nasa.gov/images/imagerecords/57000/57747/cloud_combined_2048.jpg
+Night lights: NASA Black Marble 2016 grayscale composite, NASA Earth Observatory.
+https://science.nasa.gov/earth/earth-observatory/earth-at-night/maps/
+https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/144000/144897/BlackMarble_2016_01deg_gray.jpg
+Both are locally compressed 2048 x 1024 WebP layers with aligned equirectangular UVs.
+Clouds and night lights are historical composites used for visual storytelling, not live data.
+
+Boeing 777-300ER aircraft: Franck VMD and the FlightGear 777 contributors.
+Copyright the authors listed in the accompanying AUTHORS file. Model licensed under GNU GPL version 2.
+https://github.com/franck-vmd/Boeing-777-Flightgear
+Original file: 777-VMD/Models/Liveries-300ER/777-300.ac
+Modified 8 October 2026: exterior geometry selection, glTF conversion, white and teal materials,
+window and cockpit glazing, engine interior material, batched materials for real-time performance.
+The preview image is a render of the same Boeing 777 GLB used in the interactive scene.
+Complete corresponding model source, conversion script, author credits and GPL licence:
+/altitude/boeing-777-source.zip
+
+Coordinates: LAX 33.9416 N, 118.4085 W; HND 35.5494 N, 139.7798 E.
+Illustrative shortest great-circle route, raised above the globe for legibility.
+Not an actual flight track or navigation product. Boeing/airline endorsement is not implied.
+
+Aircraft 360-degree preview: 720 local renders of the existing FlightGear-derived exterior at half-degree increments. Exactly one opaque angle is drawn per update. No additional runtime 3D model; the complete WebP atlas is fetched only while ALTITUDE is visible. Reproducible render script: scripts/assets/render-aircraft-sprites.py in the portfolio source.
+Cabin reference image: Boeing 777 Design Highlights, cabin inspiration rather than a specific airline configuration.
+https://www.boeing.com/commercial/777/design-highlights
+https://www.boeing.com/content/dam/boeing/v2/products/777/interior_777-interior-features.jpg
+Aircraft dimensions and engines: Boeing 777 Design Highlights.
+Fixed demonstration itinerary: 8 October 2026, 11:40 PDT (18:40 UTC), 12-hour journey, arriving 9 October 2026 at 15:40 JST (06:40 UTC). Times use America/Los_Angeles and Asia/Tokyo time zones. Remaining time is calculated from the same progress state as the globe. No live airline data.
+
+Final refinement: bottom scrubber and reset controls removed; slide labels restart animations without remounting scenes. The geographic camera turns faster initially, easing into a slow orbit independent of demo playback. The itinerary, elapsed time, remaining time, phase and aircraft route position share one progress state.
