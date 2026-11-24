@@ -25,10 +25,10 @@ const competitors = [
   },
 ];
 
-export function CompetitorComparison() {
-  return <div className="homiq-competitors">{competitors.map(competitor =>
+export function CompetitorComparison({ entries = competitors, imageBase = "/homiq/competitors" }: { entries?: typeof competitors; imageBase?: string } = {}) {
+  return <div className="homiq-competitors">{entries.map(competitor =>
     <figure key={competitor.name}>
-      <div className={`homiq-competitor-visual ${competitor.className}`}><img src={`/homiq/competitors/${competitor.image}`} alt={competitor.alt} loading="lazy" decoding="async" /></div>
+      <div className={`homiq-competitor-visual ${competitor.className}`}><img src={`${imageBase}/${competitor.image}`} alt={competitor.alt} loading="lazy" decoding="async" /></div>
       <figcaption><a href={competitor.source} target="_blank" rel="noreferrer">{competitor.name}</a><p>{competitor.takeaway}</p></figcaption>
     </figure>
   )}</div>;

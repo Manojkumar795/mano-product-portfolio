@@ -30,12 +30,5 @@
     ".next/dev/types/**/*.ts",
     "**/*.mts"
   ],
-  "exclude": [
-    "node_modules",
-    "build/**/*.ts",
-    "db/**/*.ts",
-    "examples/**/*.ts",
-    "worker/**/*.ts",
-    "vite.config.ts"
-  ]
+  "exclude": ["node_modules", "db", "worker", "examples", "dist", "build", "public/playground-embeds"]
 }

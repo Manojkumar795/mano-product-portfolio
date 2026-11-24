@@ -25,4 +25,9 @@ timeout \
   "${SITES_BUILD_TIMEOUT:-3m}" \
   "${vinext}" build
 
+echo "Building isolated original-component canvases..."
+timeout --signal=TERM --kill-after=10s 1m \
+  "${SITES_PROJECT_ROOT}/node_modules/.bin/vite" build \
+  --config "${SITES_PROJECT_ROOT}/playground-embeds/vite.config.ts"
+
 "${script_dir}/validate-artifact.sh"

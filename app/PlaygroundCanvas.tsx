@@ -13,7 +13,10 @@ export default function PlaygroundCanvas({ component, onMeasure }: { component: 
   const [available, setAvailable] = useState(0);
   const [compact, setCompact] = useState(false);
   const [height, setHeight] = useState<number>(spec.initialHeight + EMBED_GUTTER * 2);
-  const [ready, setReady] = useState(false);
+  const [loadedSource, setLoadedSource] = useState<string>();
+  const [failed, setFailed] = useState(false);
+  const [attempt, setAttempt] = useState(0);
+  const loadTimeout = useRef<number | undefined>(undefined);
   const [bounds, setBounds] = useState<EmbedBounds | null>(null);
 
   useEffect(() => {
@@ -25,6 +28,8 @@ export default function PlaygroundCanvas({ component, onMeasure }: { component: 
 
   const canvasWidth = compact && available ? Math.min(spec.width, Math.max(240, Math.round(available))) : spec.width;
   const width = canvasWidth + EMBED_GUTTER * 2;
+  const source = `/playground-embeds/index.html?component=${component}${compact ? `&width=${canvasWidth}` : ""}`;
+  const ready = loadedSource === source;
 
   useLayoutEffect(() => {
     const element = viewport.current;
@@ -36,13 +41,20 @@ export default function PlaygroundCanvas({ component, onMeasure }: { component: 
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => () => window.clearTimeout(loadTimeout.current), []);
+
   function requestSize() {
+    window.clearTimeout(loadTimeout.current);
+    if (!ready) loadTimeout.current = window.setTimeout(() => setFailed(true), 15000);
     frame.current?.contentWindow?.postMessage({ channel: EMBED_CHANNEL, event: "measure", component }, window.location.origin);
   }
   useEffect(() => {
     const receive = (event: MessageEvent) => {
       if (event.origin !== window.location.origin || event.source !== frame.current?.contentWindow || !validEmbedSize(event.data, component, width)) return;
-      setHeight(Math.ceil(event.data.height)); setReady(true);
+      window.clearTimeout(loadTimeout.current);
+      setHeight(Math.ceil(event.data.height));
+      setLoadedSource(source);
+      setFailed(false);
       const measured = validEmbedBounds(event.data.bounds, width, event.data.height) ? event.data.bounds : null;
       setBounds(measured);
       onMeasure?.(component, measured?.height ?? Math.ceil(event.data.height) - EMBED_GUTTER * 2, measured?.width ?? canvasWidth);
@@ -50,7 +62,7 @@ export default function PlaygroundCanvas({ component, onMeasure }: { component: 
     window.addEventListener("message", receive);
     frame.current?.contentWindow?.postMessage({ channel: EMBED_CHANNEL, event: "measure", component }, window.location.origin);
     return () => window.removeEventListener("message", receive);
-  }, [component, width, onMeasure]);
+  }, [component, width, onMeasure, canvasWidth, source]);
 
   const crop = bounds ?? { x: EMBED_GUTTER, y: EMBED_GUTTER, width: canvasWidth, height: Math.max(1, height - EMBED_GUTTER * 2) };
   const fit = fitPlaygroundCanvas(available, crop.width, crop.height, component === "ticket" || bounds !== null);
@@ -61,9 +73,14 @@ export default function PlaygroundCanvas({ component, onMeasure }: { component: 
   const scale = fit.scale * previewSize;
   const visibleWidth = crop.width * scale;
   return <div ref={viewport} style={{ width: "100%" }}>
-    <div className="mano-playground-viewport" style={{ width: available ? visibleWidth : "100%", marginInline: "auto", height: available ? fit.height * previewSize : undefined, aspectRatio: `${crop.width} / ${crop.height}` }} aria-busy={!ready}>
-    {!ready && <span className="mano-playground-loading" role="status">Loading {spec.label}…</span>}
-    <iframe ref={frame} className="mano-playground-frame" title={`${spec.label} — interactive component`} src={`/playground-embeds/?component=${component}${compact ? `&width=${canvasWidth}` : ""}`} loading="lazy" allow="autoplay" onLoad={requestSize} style={{ width: compact ? width : Math.max(EMBED_VIEWPORT_MIN, width), height, top: -crop.y * scale, left: -crop.x * scale, transform: `scale(${scale})`, opacity: ready && available ? 1 : 0 }} />
+    <div className="mano-playground-viewport" style={{ width: available ? visibleWidth : "100%", marginInline: "auto", height: available ? fit.height * previewSize : undefined, aspectRatio: `${crop.width} / ${crop.height}` }} aria-busy={!ready && !failed}>
+    {!ready && (failed
+      ? <div className="mano-playground-loading mano-playground-error"><span role="status">{spec.label} could not load.</span><button type="button" onClick={() => {
+          setFailed(false);
+          setAttempt(previous => previous + 1);
+        }}>Try again</button></div>
+      : <span className="mano-playground-loading" role="status">Loading {spec.label}…</span>)}
+    <iframe key={attempt} ref={frame} className="mano-playground-frame" title={`${spec.label} — interactive component`} src={source} loading="lazy" allow="autoplay" onLoad={requestSize} style={{ width: compact ? width : Math.max(EMBED_VIEWPORT_MIN, width), height, top: -crop.y * scale, left: -crop.x * scale, transform: `scale(${scale})`, opacity: ready && available ? 1 : 0 }} />
     </div>
   </div>;
 }

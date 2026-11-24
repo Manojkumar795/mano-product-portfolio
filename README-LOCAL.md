@@ -1,29 +1,43 @@
-# Mano — Senior Product Designer Portfolio
+# Mano Portfolio — local editing
 
-Full source export of published ChatGPT Sites version 303, commit
-`865e6f208d8887fc448fc57242b16b930298d215`.
-The export includes a Next.js build setup for Vercel and all original portfolio
-routes, case studies, media, and playground source.
+## Open in VS Code
+1. Extract this ZIP into your chosen local folder.
+2. In VS Code choose File > Open Folder and select Mano-Portfolio (the folder containing package.json).
+3. Install Node.js 22.13 or newer if needed, then restart VS Code.
+4. Open Terminal > New Terminal and run:
 
-## Deploy from GitHub
+    npm ci
+    npm run build:embeds
+    npm run dev:local
 
-1. Extract the ZIP. Put the extracted files in the root of your GitHub
-   repository so that `package.json` is at the repo root.
-2. In Vercel, import that repository as a Next.js project.
-3. Use Node.js 24.x. Leave the output directory at its Next.js default.
-   The included `vercel.json` sets the build command to `npm run build`.
+5. Open the localhost address printed in the terminal.
+6. Keep the terminal running while editing. Changes refresh automatically. Stop with Ctrl+C.
 
-`npm run build` generates the interactive playground bundle and then builds
-the Next.js site. Dependencies are restored from `package-lock.json`.
+For the standalone production build used by Vercel, run:
 
-## Run locally
+    npm ci
+    npm run build
+    npm run start
 
-```sh
-npm ci
-npm run dev
-```
+The production build generates the six interactive Playground canvases in
+`public/playground-embeds` before Next.js builds the site. Build from the
+repository root. The generated files are recreated on every build. On Vercel,
+use the Next.js framework preset and the repository's `npm run build` command
+from `vercel.json`.
 
-Open the local URL printed by Next.js. For the production version, use
-`npm run build` followed by `npm start`.
+To edit with the Vinext development server, first build the canvases with
+`npm run build:embeds`, then run `npm run dev:local`. Rebuild the canvases
+after changing their source. Sites builds use `npm run build:sites`.
 
-The original Sites worker build is available as `npm run build:sites`.
+## Where to edit
+- app/page.tsx: home page sections.
+- app/ProjectShowcaseGrid.tsx and app/project-showcase.module.css: Work & Research grid and screen scrolling.
+- app/projectShowcaseData.ts: project titles, links, and preview assets.
+- app/ComponentPlayground.tsx and app/component-playground.css: component arrangement and spacing.
+- app/components/mano-playground/: interactive components, including FirstPage.
+- playground-embeds/embed.css: embedded component styling overrides.
+- public/: images, book covers, 3D assets, and other local media.
+
+This project uses React/TypeScript with Vinext/Vite. Run it with the development server, rather than opening a TSX or HTML file directly.
+All tracked source and local assets are included. Dependencies and build output are intentionally excluded; npm ci recreates dependencies.
+Local edits do not automatically update the live website. Publishing is a separate step.

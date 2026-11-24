@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const frames = [
+const homiqFrames = [
   { screen: "my-home", title: "Home", detail: "Your everyday devices, together." },
   { screen: "my-rooms", title: "Rooms", detail: "Start with a place you recognize." },
   { screen: "lamp", title: "Lighting", detail: "See the state. Adjust the brightness." },
@@ -11,7 +11,24 @@ const frames = [
 ];
 
 /** A timed presentation of original screens, rather than a simulated working app. */
-export default function ProductFilm() {
+type FilmProps = {
+  project?: string;
+  base?: string;
+  extension?: string;
+  left?: string;
+  right?: string;
+  frames?: typeof homiqFrames;
+};
+
+export default function ProductFilm({
+  project = "HOMIQ",
+  base = "/homiq/screens",
+  extension = "png",
+  left = "welcome",
+  right = "scene-set-device-states",
+  frames = homiqFrames,
+}: FilmProps = {}) {
+  const source = (screen: string) => `${base}/${screen}.${extension}`;
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(true);
@@ -33,14 +50,14 @@ export default function ProductFilm() {
     if (!playing) return;
     const timer = window.setInterval(() => setActive(index => (index + 1) % frames.length), 4500);
     return () => window.clearInterval(timer);
-  }, [playing]);
+  }, [playing, frames.length]);
 
-  return <div ref={stage} className={`homiq-product-film${playing ? " is-playing" : ""}`} aria-label="HOMIQ product walkthrough">
+  return <div ref={stage} className={`homiq-product-film${playing ? " is-playing" : ""}`} aria-label={`${project} product walkthrough`}>
     <div className="homiq-phone-stage">
-      <div className="homiq-phone homiq-phone-back homiq-phone-left" aria-hidden="true"><img src="/homiq/screens/welcome.png" width="390" height="844" alt="" decoding="async" /></div>
-      <div className="homiq-phone homiq-phone-back homiq-phone-right" aria-hidden="true"><img src="/homiq/screens/scene-set-device-states.png" width="390" height="844" alt="" decoding="async" /></div>
+      <div className="homiq-phone homiq-phone-back homiq-phone-left" aria-hidden="true"><img src={source(left)} width="390" height="844" alt="" decoding="async" /></div>
+      <div className="homiq-phone homiq-phone-back homiq-phone-right" aria-hidden="true"><img src={source(right)} width="390" height="844" alt="" decoding="async" /></div>
       <div className="homiq-phone homiq-phone-main">
-        {frames.map((frame, index) => <img key={frame.screen} src={`/homiq/screens/${frame.screen}.png`} width="390" height="844" alt={index === active ? `HOMIQ ${frame.title} screen` : ""} aria-hidden={index !== active} className={index === active ? "is-active" : ""} decoding="async" fetchPriority={index === 0 ? "high" : "auto"} />)}
+        {frames.map((frame, index) => <img key={frame.screen} src={source(frame.screen)} width="390" height="844" alt={index === active ? `${project} ${frame.title} screen` : ""} aria-hidden={index !== active} className={index === active ? "is-active" : ""} decoding="async" fetchPriority={index === 0 ? "high" : "auto"} />)}
       </div>
       <div className="homiq-film-caption"><span>{frames[active].title}</span><p>{frames[active].detail}</p></div>
     </div>

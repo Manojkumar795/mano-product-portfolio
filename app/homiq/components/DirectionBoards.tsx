@@ -32,16 +32,16 @@ const clusters = [
   { title: "Recovery", tone: "pink", observations: ["Device confirmation names the light and room.", "Room creation ends with a named result.", "Scene creation has a confirmation screen.", "Account recovery uses email, code and password.", "No connection-retry screen is supplied.", "No offline screen is supplied."], decision: "Preserve input and provide a safe retry." },
 ];
 
-export function AffinityThemeBoard() {
-  return <section className="homiq-craft-panel homiq-affinity-map" aria-label="Affinity map of HOMIQ screen-audit observations and design priorities">
+export function AffinityThemeBoard({ project = "HOMIQ", themes = clusters, basis }: { project?: string; themes?: typeof clusters; basis?: string } = {}) {
+  return <section className="homiq-craft-panel homiq-affinity-map" aria-label={`Affinity map of ${project} ${basis ? "observations" : "screen-audit observations"} and design priorities`}>
     <h3>Affinity mapping</h3>
-    <p className="homiq-affinity-basis">Observations from the HOMIQ screen audit, grouped into recurring themes.</p>
-    <div className="homiq-affinity-wall">{clusters.map(cluster =>
+    <p className="homiq-affinity-basis">{basis ?? <>Observations from the {project} screen audit, grouped into recurring themes.</>}</p>
+    <div className="homiq-affinity-wall">{themes.map(cluster =>
       <section className={`homiq-affinity-cluster homiq-affinity-${cluster.tone}`} key={cluster.title}>
         <h4>{cluster.title}</h4>
         <ul>{cluster.observations.map(observation => <li key={observation}>{observation}</li>)}</ul>
       </section>
     )}</div>
-    <div className="homiq-affinity-priorities"><h4>Design priorities</h4><div>{clusters.map(cluster => <p className={`homiq-affinity-${cluster.tone}`} key={cluster.title}><span>{cluster.title}</span>{cluster.decision}</p>)}</div></div>
+    <div className="homiq-affinity-priorities"><h4>Design priorities</h4><div>{themes.map(cluster => <p className={`homiq-affinity-${cluster.tone}`} key={cluster.title}><span>{cluster.title}</span>{cluster.decision}</p>)}</div></div>
   </section>;
 }

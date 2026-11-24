@@ -5,7 +5,7 @@ import test from "node:test";
 const developmentPreviewMeta =
   /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
 
-test("renders development preview metadata", async () => {
+test("renders the homepage without development preview metadata", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
@@ -31,72 +31,69 @@ test("renders development preview metadata", async () => {
     /^text\/html\b/i,
   );
   const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /research-target-lock/);
+  assert.doesNotMatch(html, developmentPreviewMeta);
+  const showcaseCards = [...html.matchAll(/data-project-showcase="([^"]+)"/g)].map(match => match[1]);
+  assert.deepEqual(showcaseCards, ["program", "quote", "sustain", "delivery", "research", "slotgo", "profit", "homiq"]);
+  assert.equal([...html.matchAll(/src="\/project-showcase\//g)].length, 16);
+  for (const route of ["program-plus", "profit-plus", "quote-plus", "sustain-plus", "modern-product-delivery", "f35-helmet-ux", "slotgo", "homiq"]) {
+    assert.ok(html.includes(`href="/${route}"`));
+  }
+  assert.match(html, /Aviation Interface Design/);
+  assert.match(html, /AVIATION HMI/);
+  assert.match(html, /<h2[^>]*id="projects-title"[^>]*>Work &amp; Research<\/h2>/);
+  assert.match(html, /B2C · ECOMMERCE · AMAZON A\+ CONTENT/);
+  assert.match(html, /Better product pages\./);
+  for (const label of ["Customer Problem", "Design Strategy", "Business Objective", "Outcome"]) {
+    assert.ok(html.includes(label));
+  }
+  assert.match(html, /Customers were discovering products but lacked clear information/);
+  assert.match(html, /I transformed product information into a guided buying journey using Amazon Premium A\+/);
+  assert.match(html, /My goal was to build customer trust, improve purchase confidence/);
+  assert.match(html, /The result was a cohesive Premium A\+ experience/);
+  assert.doesNotMatch(html, /Pass by BuiltByKern|decorate complexity/);
+  assert.ok(html.indexOf('id="about"') < html.indexOf('id="approach"'));
+  assert.doesNotMatch(html, /Campaign pages and product stories created across beauty/);
+  assert.doesNotMatch(html, /More than a portfolio\. A working view of how I think\.|View Behance/);
+  assert.doesNotMatch(html, /Faster exploration\. Same/);
+  assert.match(html, /Illustrative aircraft tracking with contextual direction and distance/);
   assert.match(html, /Aircraft ahead/);
-  assert.match(html, /16° right · 18\.4 NM/);
+  assert.match(html, /preserveAspectRatio="xMidYMid meet"/);
   assert.doesNotMatch(html, /experience-modern|8\+ years inside real|Kyyba Tech|BigCommerce|RKK Enterprise/);
-  assert.match(html, /slotgo-card-artwork/);
-  assert.match(html, /\/slotgo\/hero-phones\.png/);
-  assert.match(html, /\/slotgo\/hero-court\.png/);
+  assert.doesNotMatch(html, /slotgo-card-artwork/);
+  assert.match(html, /\/slotgo\/customer-home\.png/);
+  assert.match(html, /\/slotgo\/venue-home\.png/);
+  assert.match(html, /\/slotgo\/customer-discover\.png/);
   assert.doesNotMatch(html, /slotgo-card-product|slotgo-card-screen/);
 });
 
-test("renders the SlotGo customer-to-venue system story", async () => {
+test("SlotGo presents the original sports product with an evidence-aware AI workflow", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("slotgo-test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
-
-  const response = await worker.fetch(
-    new Request("http://localhost/slotgo", {
-      headers: { accept: "text/html" },
-    }),
-    {
-      ASSETS: {
-        fetch: async () => new Response("Not found", { status: 404 }),
-      },
-    },
-    {
-      waitUntil() {},
-      passThroughOnException() {},
-    },
-  );
-
+  const response = await worker.fetch(new Request("http://localhost/slotgo", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} });
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.equal([...html.matchAll(/<h1\b/g)].length, 1);
-  assert.match(html, /<h1[^>]*><span>Sports Booking<\/span><span>&amp; Venue<\/span><span>Operations<\/span><\/h1>/);
-  for (const destination of ["overview", "analysis", "customer-app", "venue-app", "outcome"]) {
+  assert.match(html, /A clearer path/);
+  for (const destination of ["overview", "analysis", "prototype", "customer-app", "design-system"]) {
     assert.ok(html.includes('href="#' + destination + '"'));
     assert.ok(html.includes('id="' + destination + '"'));
   }
-
-  // The two product galleries must never mix app ownership again.
-  for (const [side, count] of [["customer", 5], ["venue", 4]]) {
+  assert.equal([...html.matchAll(/<section\b/g)].length, 10, "topics stay consolidated");
+  for (const term of ["Figma Make", "Codex", "live scoreboard", "payment status", "memberships"]) assert.ok(html.toLowerCase().includes(term.toLowerCase()), term);
+  assert.match(html, /It does not create a reservation or process payment/);
+  assert.match(html, /reconstructed from the existing screens, not original workshop sketches/);
+  assert.doesNotMatch(html, /parking|Client product|68%|76%|4\.8 min|58%|Arjun Mehta|Rohit Kumar|256-bit encryption|—/);
+  for (const [side, count] of [["customer", 6], ["venue", 3]]) {
     const section = html.match(new RegExp('<section[^>]*data-app="' + side + '"[^>]*>([\\s\\S]*?)<\\/section>'))?.[1];
-    assert.ok(section, side + " app section is server-rendered");
+    assert.ok(section, side + " product section renders");
     const images = [...section.matchAll(/<img\b[^>]*\bsrc="(\/slotgo\/[^\"]+)"/g)].map(match => match[1]);
     assert.equal(new Set(images).size, count);
-    for (const src of images) {
-      assert.ok(src.startsWith("/slotgo/" + side + "-"));
-      assert.ok(readFileSync(new URL("../public" + src, import.meta.url)).byteLength > 0);
-    }
+    for (const src of images) assert.ok(src.startsWith('/slotgo/' + side + '-'));
   }
-  assert.doesNotMatch(html, /<details\b/);
-  assert.match(html, /See the complete screen collection/);
-  assert.match(html, /Watch product walkthrough/);
-  assert.ok(/data-chapter="true" aria-current="location"/.test(html), "initial chapter is marked current");
-  assert.equal([...html.matchAll(/data-shared-state="true"/g)].length, 1);
-  assert.equal([...html.matchAll(/data-booking-step="/g)].length, 3);
-  assert.match(html, /<th scope="col">Customer App<\/th>/);
-  assert.doesNotMatch(html, /68%|76%|4\.8 min|58%|Arjun Mehta|Rohit Kumar/);
-  assert.doesNotMatch(html, /SL–6421|Success framework/);
-  assert.doesNotMatch(html, /256-bit encryption/);
-
-  // The cinematic appendix preserves the existing story and includes every original.
-  assert.ok(html.indexOf('id="product-film"') > html.indexOf('id="outcome"'));
-  assert.match(html, /Explore all 30 screens/);
-  assert.match(html, /aria-label="Product film scenes"/);
+  assert.match(html, /Explore all 30 original screens/);
   assert.match(html, /<dialog[^>]*aria-labelledby="screen-dialog-title"/);
   const collection = html.slice(html.indexOf('id="screen-collection"'));
   const split = collection.indexOf('data-showcase-app="venue"');
@@ -105,13 +102,9 @@ test("renders the SlotGo customer-to-venue system story", async () => {
     assert.equal(images.length, count);
     assert.equal(new Set(images).size, count);
     for (const src of images) {
-      assert.ok(src.startsWith("/slotgo/" + side + "-"));
-      assert.ok(readFileSync(new URL("../public" + src, import.meta.url)).byteLength > 0);
+      assert.ok(src.startsWith('/slotgo/' + side + '-'));
+      assert.ok(readFileSync(new URL('../public' + src, import.meta.url)).byteLength > 0);
     }
-  }
-  for (const file of ["studio-phone-pair.png", "studio-locker.png", "hero-phones.png", "hero-court.png"]) {
-    assert.ok(html.includes('/slotgo/' + file));
-    assert.ok(readFileSync(new URL("../public/slotgo/" + file, import.meta.url)).byteLength > 0);
   }
 });
 
@@ -132,28 +125,20 @@ test("hero screen projections align all four corners at every display scale", as
   }
 });
 
-test("the SlotGo project follows F-35 and reuses the case-study phone mockup", () => {
-  const source = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
-  const f35Position = source.indexOf('id: "research"');
-  const slotGoPosition = source.indexOf('id: "slotgo"');
-
-  assert.ok(f35Position >= 0 && slotGoPosition > f35Position);
-  assert.match(source, /<HeroMockups caption=\{false\} priority=\{false\} animate=\{false\}/);
-  assert.match(source, /slotgo-card-artwork/);
-  assert.doesNotMatch(source, /slotgo-card-product|slotgo-card-screen/);
-  assert.doesNotMatch(source, /slotgo-card-link/);
-});
-
-test("the F-35 thumbnail presents one restrained full-bleed target story", () => {
-  const source = readFileSync(new URL("../app/page.tsx", import.meta.url), "utf8");
-  const stylesheet = readFileSync(new URL("../app/globals.css", import.meta.url), "utf8");
-
-  assert.match(source, /targeting-cockpit-v2\.webp/);
-  assert.doesNotMatch(source, /research-attention-line/);
-  assert.match(source, /research-target-data/);
-  assert.doesNotMatch(source, /research-gaze-origin/);
-  assert.match(stylesheet, /\.project-research \.mockup-research \{[\s\S]*?inset: 0;[\s\S]*?border: 0;[\s\S]*?box-shadow: none;/);
-  assert.doesNotMatch(stylesheet, /@keyframes research-attention-line/);
-  assert.match(stylesheet, /@keyframes research-target-lock/);
-  assert.match(stylesheet, /prefers-reduced-motion/);
+test("ALTITUDE renders a clean layout without a reset button", async () => {
+  const { default: worker } = await import(new URL('../dist/server/index.js', import.meta.url));
+  const response = await worker.fetch(new Request('http://localhost/', { headers: { accept: 'text/html' } }), { ASSETS: { fetch: async () => new Response('Not found', { status: 404 }) } }, { waitUntil() {}, passThroughOnException() {} });
+  const html = await response.text();
+  assert.equal(response.status, 200);
+  assert.doesNotMatch(html, /class="altitude-footer"|EXPLORE THE JOURNEY|id="altitude-progress"|Demo itinerary/);
+  assert.match(html, /class="altitude-panel-nav" aria-label="Journey sections"/);
+  assert.doesNotMatch(html, /class="altitude-compact-journey"|class="altitude-header"|class="altitude-view-reset"|class="altitude-profile"|class="altitude-aircraft-segments"|class="altitude-view-angle"/);
+  assert.doesNotMatch(html, /altitude-globe-reset|Reset ALTITUDE experience/);
+  assert.match(html, /class="altitude-airport-name">Los Angeles/);
+  assert.match(html, /8 Oct 2026/);
+  assert.match(html, /class="altitude-airport-name">Tokyo Haneda/);
+  assert.match(html, /9 Oct · \+1 day/);
+  assert.match(html, /11:40/);
+  assert.match(html, /15:40/);
+  assert.match(html, /Crossing the Pacific/);
 });

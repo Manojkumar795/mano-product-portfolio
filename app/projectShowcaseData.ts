@@ -53,6 +53,16 @@ export const showcaseGroups: { title: string; projects: ShowcaseProject[] }[] = 
           { src: "/slotgo/customer-book-time.png", label: "Player booking time slots", width: 806, height: 1746 },
         ],
       },
+      {
+        id: "ticket9", title: "Ticket9", href: "/ticket9", color: "#ff6577",
+        backdrop: "/ticket9/event-backdrop.webp",
+        description: "Help attendees discover events, compare ticket tiers, and review their booking before payment.",
+        screens: [
+          { src: "/ticket9/3433.webp", label: "City discovery and recommendations", width: 1206, height: 2622 },
+          { src: "/ticket9/3415.webp", label: "Event overview and booking action", width: 1206, height: 2622 },
+          { src: "/ticket9/3419.webp", label: "Booking price and fees", width: 1206, height: 2622 },
+        ],
+      },
     ],
   },
   {
