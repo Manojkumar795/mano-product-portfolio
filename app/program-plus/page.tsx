@@ -1,3 +1,5 @@
+import ScreenshotTrigger from "../ScreenshotTrigger";
+import SyncfusionShowcase from "../SyncfusionShowcase";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -61,24 +63,6 @@ const systemPatterns = [
     title: "Inline edit · drawer · modal",
     text: "Small changes stay quick. Complex work gets a focused space.",
   },
-];
-
-const colorTokens = [
-  { token: "Brand / 500", name: "Program orange", value: "#F6532C", className: "brand" },
-  { token: "Ink / 900", name: "Primary text", value: "#171B24", className: "ink" },
-  { token: "Surface / 0", name: "Main surface", value: "#FFFFFF", className: "surface" },
-  { token: "Surface / 50", name: "Quiet surface", value: "#F4F6F8", className: "subtle" },
-  { token: "Success / 500", name: "Complete", value: "#1FC45F", className: "success" },
-  { token: "Warning / 500", name: "At risk", value: "#F0B700", className: "warning" },
-  { token: "Critical / 500", name: "Overdue", value: "#F33D45", className: "critical" },
-  { token: "Info / 500", name: "Linked data", value: "#3D80ED", className: "info" },
-];
-
-const typeScale = [
-  { role: "Display", spec: "56 / 60 · 650", sample: "Program health", className: "display" },
-  { role: "Page title", spec: "32 / 40 · 600", sample: "Open Issue Tracker", className: "title" },
-  { role: "Body", spec: "16 / 26 · 400", sample: "Review timing, risk and gate readiness in one place.", className: "body" },
-  { role: "System label", spec: "12 / 16 · 600", sample: "STATUS / IN REVIEW", className: "label" },
 ];
 
 const improvements = [
@@ -212,9 +196,9 @@ function ProductScreen({
       {note && (
         <figcaption>
           <span>{note}</span>
-          <a href={src} target="_blank" rel="noreferrer">
+          <ScreenshotTrigger src={src}>
             View full interface <i aria-hidden="true">↗</i>
-          </a>
+          </ScreenshotTrigger>
         </figcaption>
       )}
     </figure>
@@ -223,7 +207,7 @@ function ProductScreen({
 
 export default function ProgramPlusCaseStudy() {
   return (
-    <main className="program-case">
+    <main data-portfolio-media className="program-case">
       <ProgramScrollMotion />
       <header className="pp-nav">
         <Link className="pp-brand" href="/#work" aria-label="Back to selected work">
@@ -528,7 +512,7 @@ export default function ProgramPlusCaseStudy() {
             <p>
               A gate decision needs more than a percentage. The screen brings
               owners, related tasks, evidence, comments and approvers together
-              so the team can understand why a gate is ready—or why it is not.
+              so the team can see what supports the decision and what still needs attention.
             </p>
           </div>
           <ProductScreen
@@ -583,217 +567,7 @@ export default function ProgramPlusCaseStudy() {
           ))}
         </div>
 
-        <div className="pp-ds-foundations">
-          <article className="pp-ds-panel pp-color-system">
-            <div className="pp-ds-panel-head pp-ds-panel-head-clean">
-              <div>
-                <h3>Color has a job.</h3>
-              </div>
-              <p>Orange signals action. Semantic colors communicate state. Neutral surfaces keep dense work calm.</p>
-            </div>
-            <div className="pp-color-spectrum" aria-hidden="true">
-              {colorTokens.map((color) => (
-                <i className={`pp-color-${color.className}`} key={color.token} />
-              ))}
-            </div>
-            <div className="pp-color-grid">
-              {colorTokens.map((color) => (
-                <div className="pp-color-token" key={color.token}>
-                  <i className={`pp-color-sample pp-color-${color.className}`} />
-                  <span>{color.token}</span>
-                  <strong>{color.name}</strong>
-                  <small>{color.value}</small>
-                </div>
-              ))}
-            </div>
-          </article>
-
-          <article className="pp-ds-panel pp-type-system">
-            <div className="pp-ds-panel-head pp-ds-panel-head-clean">
-              <div>
-                <h3>Hierarchy you can scan.</h3>
-              </div>
-              <p>Interface type stays familiar. Mono appears only where system data needs a different voice.</p>
-            </div>
-            <div className="pp-type-families" aria-label="Typeface roles">
-              <div><strong>Geist Sans</strong><span>Interface + content</span></div>
-              <div><strong>Geist Mono</strong><span>IDs + system data</span></div>
-            </div>
-            <div className="pp-type-list">
-              {typeScale.map((type) => (
-                <div className={`pp-type-row pp-type-${type.className}`} key={type.role}>
-                  <div>
-                    <span>{type.role}</span>
-                    <small>{type.spec}</small>
-                  </div>
-                  <p>{type.sample}</p>
-                </div>
-              ))}
-            </div>
-          </article>
-        </div>
-
-        <div className="pp-system-practice">
-          <div className="pp-system-practice-head">
-            <span>System in practice</span>
-            <h3>From a shared rule to real product behaviour.</h3>
-          </div>
-
-          <article className="pp-practice-row">
-            <header>
-              <span>01</span>
-              <strong>Status / risk</strong>
-              <p>One semantic rule travels from token to component to program-level visibility.</p>
-            </header>
-            <div className="pp-practice-flow">
-              <div className="pp-practice-stage pp-practice-foundation">
-                <small>Foundation</small>
-                <div className="pp-practice-semantic" aria-hidden="true">
-                  <i className="complete" />
-                  <i className="risk" />
-                  <i className="overdue" />
-                </div>
-                <b>Semantic status</b>
-              </div>
-              <div className="pp-practice-stage">
-                <small>Component</small>
-                <span className="pp-practice-risk-chip">! At risk</span>
-                <b>Status chip</b>
-              </div>
-              <div className="pp-practice-stage">
-                <small>Pattern</small>
-                <div className="pp-practice-issue-row">
-                  <i aria-hidden="true" />
-                  <span>Supplier timing</span>
-                  <b>At risk</b>
-                </div>
-                <b>Issue row</b>
-              </div>
-              <div className="pp-practice-stage pp-practice-product">
-                <small>Product</small>
-                <div className="pp-practice-product-ui">
-                  <span>Program health</span>
-                  <strong>At-risk issues</strong>
-                  <i>Open Issue Tracker</i>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article className="pp-practice-row">
-            <header>
-              <span>02</span>
-              <strong>Action / workflow</strong>
-              <p>Action priority stays consistent from a single control to an operational workflow.</p>
-            </header>
-            <div className="pp-practice-flow">
-              <div className="pp-practice-stage pp-practice-foundation">
-                <small>Foundation</small>
-                <div className="pp-practice-hierarchy" aria-hidden="true">
-                  <i />
-                  <i />
-                  <i />
-                </div>
-                <b>Action hierarchy</b>
-              </div>
-              <div className="pp-practice-stage">
-                <small>Component</small>
-                <div className="pp-practice-actions" aria-label="Button states">
-                  <i>Update</i>
-                  <i>Cancel</i>
-                  <i>Disabled</i>
-                </div>
-                <b>Button state</b>
-              </div>
-              <div className="pp-practice-stage">
-                <small>Pattern</small>
-                <div className="pp-practice-task-row">
-                  <span>Review issue</span>
-                  <b>Update</b>
-                </div>
-                <b>Task action</b>
-              </div>
-              <div className="pp-practice-stage pp-practice-product">
-                <small>Product</small>
-                <div className="pp-practice-product-ui pp-practice-queue-ui">
-                  <span>Work Queue</span>
-                  <strong>Next action visible</strong>
-                  <i>Today · This week · Future</i>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div className="pp-ds-application">
-          <article className="pp-ds-rhythm">
-            <div className="pp-ds-editorial-head">
-              <h3>Built on an 8-point rhythm.</h3>
-              <p>Spacing isn&apos;t decoration. It creates predictable density across complex screens.</p>
-            </div>
-
-            <div className="pp-spacing-composition">
-              <div className="pp-spacing-demo" aria-label="Program task composed with the 8-point spacing system">
-                <span>Open issues</span>
-                <article>
-                  <header>
-                    <div><i aria-hidden="true" /><span>Issue</span></div>
-                    <b>At risk</b>
-                  </header>
-                  <strong>Confirm supplier timing</strong>
-                  <p>Owner · Due date · Dependency</p>
-                  <footer>
-                    <span>View details</span>
-                    <b>Update</b>
-                  </footer>
-                </article>
-              </div>
-              <ul className="pp-spacing-key" aria-label="Spacing decisions">
-                <li><b>8px</b><span>Icon + label</span></li>
-                <li><b>16px</b><span>Internal padding</span></li>
-                <li><b>24px</b><span>Card content</span></li>
-                <li><b>32px</b><span>Section grouping</span></li>
-              </ul>
-            </div>
-          </article>
-
-          <article className="pp-ds-states">
-            <div className="pp-ds-editorial-head pp-ds-states-head">
-              <h3>States that explain themselves.</h3>
-              <p>The same interaction rules carry from one workflow to the next.</p>
-            </div>
-
-            <div className="pp-state-specimen">
-              <div className="pp-state-specimen-top">
-                <div className="pp-button-states">
-                  <i className="primary">Save changes</i>
-                  <i className="secondary">Cancel</i>
-                  <i className="disabled">Disabled</i>
-                </div>
-                <div className="pp-status-states">
-                  <i className="complete">✓ Complete</i>
-                  <i className="risk">! At risk</i>
-                  <i className="overdue">× Overdue</i>
-                  <i className="linked">↗ Linked</i>
-                </div>
-              </div>
-
-              <div className="pp-state-specimen-bottom">
-                <div className="pp-field-demo">
-                  <label>
-                    <small>Assignee</small>
-                    <b>Select a team member</b>
-                    <i className="pp-field-chevron" aria-hidden="true" />
-                  </label>
-                </div>
-                <p className="pp-state-rule">
-                  <b>Color never carries state alone.</b>
-                  Text and icons reinforce meaning for faster, safer scanning.
-                </p>
-              </div>
-            </div>
-          </article>
-        </div>
+        <SyncfusionShowcase project="program" />
       </section>
 
       <section className="pp-reflection" id="reflection">

@@ -1,0 +1,42 @@
+.dialog {
+  width: max-content;
+  max-width: min(94vw, 1440px);
+  max-height: 92dvh;
+  margin: auto;
+  padding: 0 16px 16px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #3c4555;
+  border-radius: 14px;
+  background: #101620;
+  color: #f5f7fb;
+}
+
+.dialog::backdrop {
+  background: rgb(3 7 14 / 82%);
+}
+
+.toolbar {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  display: flex;
+  justify-content: flex-end;
+  padding-block: 12px;
+  background: #101620;
+}
+
+.toolbar button {
+  min-height: 44px;
+  padding-inline: 16px;
+  border: 1px solid #566274;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}

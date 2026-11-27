@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../ScreenshotTrigger";
 const componentGroups = [
   {
     title: "Discovery and selection",
@@ -29,9 +30,9 @@ const brandExcerpts = {
 
 function BrandExcerpt({ file, width, height, alt }: (typeof brandExcerpts)[keyof typeof brandExcerpts]) {
   const src = `/ticket9/brand/style-guide/${file}.webp`;
-  return <a href={src} target="_blank" rel="noreferrer" aria-label={`View full size: ${alt}`}>
+  return <ScreenshotTrigger src={src} aria-label={`View full size: ${alt}`}>
     <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
-  </a>;
+  </ScreenshotTrigger>;
 }
 
 export function TicketSpecimens() {
@@ -71,9 +72,9 @@ export function TicketSpecimens() {
             const src = `/ticket9/specimens/${file}.webp`;
             return <figure key={file}>
               <figcaption>{label}</figcaption>
-              <a href={src} target="_blank" rel="noreferrer" data-tone={dark ? "dark" : "light"} aria-label={`Open ${label.toLowerCase()} at full size`}>
+              <ScreenshotTrigger src={src} data-tone={dark ? "dark" : "light"} aria-label={`Open ${label.toLowerCase()} at full size`}>
                 <img src={src} alt={label} width={width} height={height} loading="lazy" decoding="async" />
-              </a>
+              </ScreenshotTrigger>
             </figure>;
           })}
         </div>

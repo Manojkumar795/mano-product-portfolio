@@ -63,7 +63,7 @@
 .pg-pizza .pb-order:disabled { opacity: 1; }
 .pg-pizza .pb-order.confirmed > svg { color: #fff; }
 .pg-pizza .pb-order:focus-visible, .pg-pizza .pb-options button:focus-visible { outline-color: var(--pb-accent); }
-.pg-pizza .pg-demo-control { bottom: 14px; right: 22px; font-size: 10px; color: #8b8d9a; }
+.pg-pizza .pb-credit { position: absolute; bottom: 14px; right: 22px; font-size: 15px; color: #626572; }
 @container pizza (max-width: 940px) {
   .pg-pizza .pb-layout { padding: 26px 24px 50px; gap: 20px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .pg-pizza .pb-details h2 { font-size: 39px; }

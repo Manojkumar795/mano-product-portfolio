@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../../ScreenshotTrigger";
 type Screen = { file: string; label: string };
 
 const midStudies: Screen[][] = [
@@ -17,11 +18,11 @@ export function MidFidelityGallery() {
   return <div className="homiq-mid-gallery">
     {midStudies.map((screens, index) => <div className="homiq-mid-board" key={screens[0].file} aria-label={index === 0 ? "Daily control wireframes" : "Room and scene wireframes"}>
       {screens.map(screen => <figure key={screen.file}>
-        <a href={`/homiq/fidelity/mid/${screen.file}.svg`} target="_blank" rel="noreferrer" aria-label={`Open ${screen.label.toLowerCase()} wireframe at full size`}><img src={`/homiq/fidelity/mid/${screen.file}.svg`} width={390} height={844} alt={`Flat HOMIQ mid-fidelity wireframe: ${screen.label}, using grayscale content blocks and outlined controls`} loading="lazy" decoding="async" /></a>
+        <ScreenshotTrigger src={`/homiq/fidelity/mid/${screen.file}.svg`} aria-label={`Open ${screen.label.toLowerCase()} wireframe at full size`}><img src={`/homiq/fidelity/mid/${screen.file}.svg`} width={390} height={844} alt={`Flat HOMIQ mid-fidelity wireframe: ${screen.label}, using grayscale content blocks and outlined controls`} loading="lazy" decoding="async" /></ScreenshotTrigger>
         <figcaption>{screen.label}</figcaption>
       </figure>)}
     </div>)}
-    <figure className="homiq-mid-library"><a href="/homiq/fidelity/mid-library.svg" target="_blank" rel="noreferrer" aria-label="Open all 29 HOMIQ wireframes at full size"><img src="/homiq/fidelity/mid-library.svg" width={1004} height={1174} alt="HOMIQ wireframe library: 29 flat grayscale screens grouped into entry and recovery, home and rooms, device setup and controls, scenes and account" loading="lazy" decoding="async" /></a></figure>
+    <figure className="homiq-mid-library"><ScreenshotTrigger src="/homiq/fidelity/mid-library.svg" aria-label="Open all 29 HOMIQ wireframes at full size"><img src="/homiq/fidelity/mid-library.svg" width={1004} height={1174} alt="HOMIQ wireframe library: 29 flat grayscale screens grouped into entry and recovery, home and rooms, device setup and controls, scenes and account" loading="lazy" decoding="async" /></ScreenshotTrigger></figure>
   </div>;
 }
 
@@ -81,5 +82,5 @@ const experiences = [
 ];
 
 function ProductScreen({ screen }: { screen: Screen }) {
-  return <figure><a href={`/homiq/screens/${screen.file}.png`} target="_blank" rel="noreferrer" aria-label={`Open ${screen.label.toLowerCase()} product screen at full size`}><img src={`/homiq/screens/${screen.file}.png`} width={390} height={844} alt={`Original HOMIQ product screen: ${screen.label}`} loading="lazy" decoding="async" /></a><figcaption>{screen.label}</figcaption></figure>;
+  return <figure><ScreenshotTrigger src={`/homiq/screens/${screen.file}.png`} aria-label={`Open ${screen.label.toLowerCase()} product screen at full size`}><img src={`/homiq/screens/${screen.file}.png`} width={390} height={844} alt={`Original HOMIQ product screen: ${screen.label}`} loading="lazy" decoding="async" /></ScreenshotTrigger><figcaption>{screen.label}</figcaption></figure>;
 }

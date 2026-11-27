@@ -1,3 +1,5 @@
+import ScreenshotTrigger from "../ScreenshotTrigger";
+import SyncfusionShowcase from "../SyncfusionShowcase";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -152,7 +154,7 @@ function ProductScreen({
       {note && (
         <figcaption>
           <span>{note}</span>
-          <a href={src} target="_blank" rel="noreferrer">View full interface <i aria-hidden="true">↗</i></a>
+          <ScreenshotTrigger src={src}>View full interface <i aria-hidden="true">↗</i></ScreenshotTrigger>
         </figcaption>
       )}
     </figure>
@@ -161,7 +163,7 @@ function ProductScreen({
 
 export default function SustainPlusCaseStudy() {
   return (
-    <main className="sustain-case">
+    <main data-portfolio-media className="sustain-case">
       <SustainScrollMotion />
 
       <header className="sustain-nav">
@@ -413,6 +415,14 @@ export default function SustainPlusCaseStudy() {
         </section>
       </section>
 
+      <section className="sustain-chapter" id="design-system" aria-labelledby="sustain-system-heading">
+        <div className="sustain-chapter-head">
+          <div><span>Sustain+ design system</span><h2 id="sustain-system-heading">Make reporting progress traceable.</h2></div>
+          <p>Shared tables, navigation and progress indicators carry ownership and evidence through the reporting workflow.</p>
+        </div>
+        <SyncfusionShowcase project="sustain" />
+      </section>
+
       <section className="sustain-reflection" id="reflection">
         <div className="sustain-reflection-head" data-sustain-reveal>
           <h2>What works today.<br /><ColourfulText text="What I would improve next." tone="sustain" /></h2>
@@ -434,7 +444,7 @@ export default function SustainPlusCaseStudy() {
         </div>
 
         <section className="sustain-measurement" data-sustain-reveal>
-          <div><h3>How I would prove the workflow is becoming clearer.</h3><p>No invented impact numbers—just the signals that should move after release.</p></div>
+          <div><h3>How I would prove the workflow is becoming clearer.</h3><p>I would track these signals after release to see where the workflow improves.</p></div>
           <div className="sustain-measurement-grid">
             {measurementPlan.map((item) => (
               <article key={item.area}>

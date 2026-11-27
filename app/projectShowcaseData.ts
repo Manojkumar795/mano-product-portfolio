@@ -44,6 +44,16 @@ export const showcaseGroups: { title: string; projects: ShowcaseProject[] }[] = 
         ],
       },
       {
+        id: "ticket9", title: "Ticket9", href: "/ticket9", color: "#ff6577",
+        backdrop: "/ticket9/arena-concert-wallpaper.webp",
+        description: "Help attendees discover events, compare ticket tiers, and review their booking before payment.",
+        screens: [
+          { src: "/ticket9/3433.webp", label: "City discovery and recommendations", width: 1206, height: 2622 },
+          { src: "/ticket9/3415.webp", label: "Event overview and booking action", width: 1206, height: 2622 },
+          { src: "/ticket9/3419.webp", label: "Booking price and fees", width: 1206, height: 2622 },
+        ],
+      },
+      {
         id: "slotgo", title: "SlotGo", href: "/slotgo", color: "#20d4c3",
         backdrop: "/project-showcase/slotgo-turf.webp",
         description: "Help players discover and book courts, and give venues a calendar to manage reservations.",
@@ -51,16 +61,6 @@ export const showcaseGroups: { title: string; projects: ShowcaseProject[] }[] = 
           { src: "/slotgo/customer-home.png", label: "Player home and court discovery", width: 806, height: 1746 },
           { src: "/slotgo/venue-calendar.png", label: "Venue booking calendar", width: 806, height: 1746 },
           { src: "/slotgo/customer-book-time.png", label: "Player booking time slots", width: 806, height: 1746 },
-        ],
-      },
-      {
-        id: "ticket9", title: "Ticket9", href: "/ticket9", color: "#ff6577",
-        backdrop: "/ticket9/event-backdrop.webp",
-        description: "Help attendees discover events, compare ticket tiers, and review their booking before payment.",
-        screens: [
-          { src: "/ticket9/3433.webp", label: "City discovery and recommendations", width: 1206, height: 2622 },
-          { src: "/ticket9/3415.webp", label: "Event overview and booking action", width: 1206, height: 2622 },
-          { src: "/ticket9/3419.webp", label: "Booking price and fees", width: 1206, height: 2622 },
         ],
       },
     ],
@@ -71,12 +71,12 @@ export const showcaseGroups: { title: string; projects: ShowcaseProject[] }[] = 
       {
         id: "delivery", title: "Design System to Product", href: "/modern-product-delivery", color: "#9169ff",
         description: "Follow an enterprise interface from Figma components through React implementation and validation.",
-        screens: [{ src: "/project-showcase/delivery-interface.webp", label: "Task Automate product interface", width: 800, height: 493 }],
+        screens: [{ src: "/modern-product-delivery/task-automate-ui.png", label: "Task Automate workspace with the finished Kanban board and task controls", width: 1734, height: 1068 }],
       },
       {
-        id: "research", title: "Helmet Interface Research", href: "/f35-helmet-ux", color: "#488dff",
+        id: "research", title: "F-35 Helmet Interface Research", href: "/f35-helmet-ux", color: "#488dff",
         description: "Explore how a helmet-mounted display can preserve context and reduce visual complexity in flight.",
-        screens: [{ src: "/project-showcase/f35-targeting.webp", label: "Cockpit and aircraft tracking visual", width: 800, height: 450 }],
+        screens: [{ src: "/project-showcase/helmet-cover.webp", label: "Helmeted pilot and a jet in flight in a single blue twilight scene", width: 1536, height: 512 }],
       },
     ],
   },

@@ -125,7 +125,7 @@ function Screen({
 
 export default function ProfitPlusCaseStudy() {
   return (
-    <main className={`${styles.page} profit-case`}>
+    <main data-portfolio-media className={`${styles.page} profit-case`}>
       <ProfitScrollMotion />
       <header className={styles.nav}>
         <Link className={styles.brand} href="/#work" aria-label="Back to selected work">
@@ -192,7 +192,7 @@ export default function ProfitPlusCaseStudy() {
         <div className={styles.researchHeader}>
           <div className={styles.sectionIntro} data-profit-reveal>
             <p className={styles.eyebrow}>Competitor synthesis</p>
-            <h2>Research shaped the architecture—<ColourfulText text="not the visual style." tone="quote" /></h2>
+            <h2>Research shaped <ColourfulText text="the configuration structure." tone="quote" /></h2>
           </div>
           <div className={styles.researchContext} data-profit-reveal>
             <p>
@@ -221,7 +221,7 @@ export default function ProfitPlusCaseStudy() {
       <section className={styles.evolution} id="evolution">
         <div className={`${styles.sectionIntro} ${styles.evolutionIntro}`} data-profit-reveal>
           <p className={styles.eyebrow}>The evolution</p>
-          <h2>Each level solved one risk—<ColourfulText text="and exposed the next." tone="quote" /></h2>
+          <h2>Each level addressed one risk and <ColourfulText text="revealed the next." tone="quote" /></h2>
           <p>This is intentionally not a before/after gallery. Every stage records a design decision, the reason for it and the limitation that forced the next iteration.</p>
         </div>
 

@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../../ScreenshotTrigger";
 import flow from "../../../docs/homiq/information-architecture-flow.json";
 
 const fills: Record<string,string> = {main:"#273c2f",done:"#f5ebd9",screen:"#fbfcfa"};
@@ -9,7 +10,7 @@ export function NavigationArchitecture({
   detailUrl = "/homiq/editorial/information-architecture-flow.svg",
 }: { diagram?: typeof flow; project?: string; description?: string; detailUrl?: string | null } = {}) {
   return <figure className="homiq-craft-panel homiq-connected-flow">
-    <figcaption><h3>Information architecture</h3>{detailUrl && <a href={detailUrl} target="_blank" rel="noreferrer" aria-label="Open the full information architecture flowchart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M14 3h7v7m0-7L10 14M10 4H4v16h16v-6"/></svg></a>}</figcaption>
+    <figcaption><h3>Information architecture</h3>{detailUrl && <ScreenshotTrigger src={detailUrl} aria-label="Open the full information architecture flowchart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M14 3h7v7m0-7L10 14M10 4H4v16h16v-6"/></svg></ScreenshotTrigger>}</figcaption>
     <div className="homiq-flow-scroll" tabIndex={0} role="region" aria-label={`${project} flowchart. Scroll horizontally to explore on smaller screens.`}>
       <svg className="homiq-flowchart" viewBox={`0 0 ${diagram.width} ${diagram.height}`} role="img" aria-label={description}>
         <defs><marker id="homiq-flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1L9 5 1 9Z" fill="#819485"/></marker></defs>

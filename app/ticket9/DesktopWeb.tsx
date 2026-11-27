@@ -1,5 +1,6 @@
 "use client";
 
+import ScreenshotTrigger from "../ScreenshotTrigger";
 import { useRef, useState, type KeyboardEvent } from "react";
 
 const journey = [
@@ -45,9 +46,9 @@ export function DesktopWeb() {
         const src = `/ticket9/web/${id}.webp`;
         return <div key={id} role="tabpanel" id={`ticket9-web-panel-${id}`} aria-labelledby={`ticket9-web-tab-${id}`} hidden={selected !== index}>
           <figure>
-            <a href={src} target="_blank" rel="noreferrer" aria-label={`Open ${title.toLowerCase()} desktop screen at full size`}>
+            <ScreenshotTrigger src={src} aria-label={`Open ${title.toLowerCase()} desktop screen at full size`}>
               <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
-            </a>
+            </ScreenshotTrigger>
             <figcaption>{detail}</figcaption>
           </figure>
         </div>;
@@ -62,9 +63,9 @@ export function WebScreenLibrary() {
     <div>{supporting.map(({ id, title, width, height }) => {
       const src = `/ticket9/web/${id}.webp`;
       return <figure key={id}>
-        <a href={src} target="_blank" rel="noreferrer" aria-label={`Open ${title.toLowerCase()} at full size`}>
+        <ScreenshotTrigger src={src} aria-label={`Open ${title.toLowerCase()} at full size`}>
           <img src={src} alt={`Ticket9 desktop ${title.toLowerCase()} screen`} width={width} height={height} loading="lazy" decoding="async" />
-        </a>
+        </ScreenshotTrigger>
         <figcaption>{title}</figcaption>
       </figure>;
     })}</div>

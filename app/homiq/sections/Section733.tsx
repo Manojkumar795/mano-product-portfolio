@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../../ScreenshotTrigger";
 import { CraftHeading } from "../components/CraftedPanels";
 
 const comparisons = [
@@ -15,7 +16,7 @@ export default function Section733() {
     <nav className="homiq-mobile-chapters" aria-label="Design decisions"><a href="#decision-discovery">Control</a><a href="#decision-rooms">Navigation</a><a href="#decision-climate">Clarity</a></nav>
     <div className="homiq-decision-list" role="region" tabIndex={0} aria-label="Three design decisions, scroll horizontally on a small screen">{comparisons.map((review, index) => <section key={review.id} id={`decision-${review.id}`} data-comparison={review.id} aria-label={review.title}>
       <div className="homiq-decision-copy"><span className="homiq-editorial-kicker">{"\u00a0"}</span><h3>{review.title}</h3><p>{review.description}</p></div>
-      <div className="homiq-comparison-pair"><figure><a href={"/homiq/earlier/" + review.before + ".png"} target="_blank" rel="noreferrer" aria-label={"Open earlier " + review.alt.toLowerCase() + " screen"}><img src={"/homiq/earlier/" + review.before + ".png"} width={390} height={844} alt={"Before: " + review.alt} loading="lazy" decoding="async" /></a><figcaption>Before</figcaption></figure><span className="homiq-comparison-arrow" aria-hidden="true">→</span><figure><a href={"/homiq/screens/" + review.after + ".png"} target="_blank" rel="noreferrer" aria-label={"Open current " + review.alt.toLowerCase() + " screen"}><img src={"/homiq/screens/" + review.after + ".png"} width={390} height={844} alt={"After: " + review.alt} loading="lazy" decoding="async" /></a><figcaption>After</figcaption></figure></div>
+      <div className="homiq-comparison-pair"><figure><ScreenshotTrigger src={"/homiq/earlier/" + review.before + ".png"} aria-label={"Open earlier " + review.alt.toLowerCase() + " screen"}><img src={"/homiq/earlier/" + review.before + ".png"} width={390} height={844} alt={"Before: " + review.alt} loading="lazy" decoding="async" /></ScreenshotTrigger><figcaption>Before</figcaption></figure><span className="homiq-comparison-arrow" aria-hidden="true">→</span><figure><ScreenshotTrigger src={"/homiq/screens/" + review.after + ".png"} aria-label={"Open current " + review.alt.toLowerCase() + " screen"}><img src={"/homiq/screens/" + review.after + ".png"} width={390} height={844} alt={"After: " + review.alt} loading="lazy" decoding="async" /></ScreenshotTrigger><figcaption>After</figcaption></figure></div>
     </section>)}</div>
   </div>;
 }

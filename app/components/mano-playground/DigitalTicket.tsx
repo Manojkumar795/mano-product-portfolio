@@ -9,6 +9,7 @@ export interface DigitalTicketProps {
 }
 
 const spring = { type: "spring" as const, stiffness: 170, damping: 26 }
+const flipMotion = { type: "tween" as const, duration: 0.56, ease: "easeOut" as const }
 const qrCells: React.ReactNode[] = []
 for (let y = 0; y < 25; y++) {
   for (let x = 0; x < 25; x++) {
@@ -180,6 +181,7 @@ export default function DigitalTicket({
   }
 
   const transition = reduced ? { duration: 0 } : spring
+  const flipTransition = reduced ? { duration: 0 } : flipMotion
   return (
     <MotionConfig reducedMotion={reduced ? "always" : "never"}>
       <motion.article
@@ -187,17 +189,13 @@ export default function DigitalTicket({
           back ? "dt-showing-back" : "dt-showing-front"
         }`}
         data-side={back ? "back" : "front"}
-        initial={reduced ? false : { opacity: 0, y: 10, scale: 0.98 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
+        initial={reduced ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={transition}
       >
-        <motion.div
-          className="dt-flipper"
-          initial={false}
-          animate={{ rotateY: back ? 180 : 0 }}
-          transition={transition}
-        >
-          <div className="dt-face dt-front" aria-hidden={back} inert={back}>
+        <div className="dt-flipper">
+          <motion.div className="dt-face dt-front" aria-hidden={back} inert={back}
+            initial={false} animate={{ rotateY: back ? 180 : 0 }} transition={flipTransition}>
             <div className="dt-art">
               {videoFailed ? (
                 <img src="/playground/concert.jpg" alt="" draggable={false} />
@@ -268,8 +266,9 @@ export default function DigitalTicket({
                 flip()
               }}
             />
-          </div>
-          <div className="dt-face dt-back" aria-hidden={!back} inert={!back}>
+          </motion.div>
+          <motion.div className="dt-face dt-back" aria-hidden={!back} inert={!back}
+            initial={false} animate={{ rotateY: back ? 0 : -180 }} transition={flipTransition}>
             <div className="dt-back-header">
               <span>THE MIDNIGHT</span>
               <span className="dt-seat-pill">Floor · A12</span>
@@ -340,8 +339,8 @@ export default function DigitalTicket({
                 flip()
               }}
             />
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </motion.article>
     </MotionConfig>
   )

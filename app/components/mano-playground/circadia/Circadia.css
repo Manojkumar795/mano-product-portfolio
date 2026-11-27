@@ -1,0 +1,142 @@
+.circadia {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+  border: 1px solid #99b7ff2b;
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at 52% 54%, #1d2a50 0%, transparent 68%),
+    linear-gradient(155deg, #080e20, #111735 66%, #090d1e);
+  color: #e8efff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.circadia-sky,
+.cir-night-photo,
+.cir-dawn-photo,
+.cir-sunrise-photo,
+.cir-clouds,
+.cir-stars,
+.cir-sky-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cir-night-photo,
+.cir-dawn-photo,
+.cir-sunrise-photo {
+  background-position: center;
+  background-size: cover;
+}
+
+.cir-night-photo { background-image: url("/playground/circadia/midnight.webp"); }
+.cir-dawn-photo {
+  background-image: url("/playground/circadia/dawn.webp");
+  opacity: var(--cir-day);
+}
+.cir-sunrise-photo {
+  background-image: url("/playground/circadia/sunrise.webp");
+  opacity: var(--cir-sun);
+}
+
+.cir-clouds {
+  inset-inline: -4%;
+  transform: translateX(var(--cir-cloud-drift));
+  mask-image: linear-gradient(to bottom, transparent 8%, #000b 21%, #000 32%, #000b 43%, transparent 55%);
+}
+
+.cir-stars {
+  width: 100%;
+  height: 100%;
+  opacity: calc(var(--cir-moon) * .73);
+  mask-image: linear-gradient(#000 7%, #000 24%, transparent 46%);
+}
+
+.cir-moon-photo {
+  position: absolute;
+  left: 14%;
+  top: 17.5%;
+  width: 16%;
+  aspect-ratio: 170 / 117;
+  background: url("/playground/circadia/crescent.webp") center / contain no-repeat;
+  opacity: var(--cir-moon);
+  transform: translate(var(--cir-moon-x), var(--cir-moon-y)) rotate(-27deg);
+  filter: drop-shadow(0 0 6px #adc9fc5c);
+}
+
+.cir-sky-shade {
+  background:
+    linear-gradient(to bottom, #050a1552, transparent 32%, transparent 69%, #04071085),
+    radial-gradient(ellipse at 50% 50%, transparent 44%, #0407124d);
+}
+
+.circadia-dial {
+  position: absolute;
+  top: 49%;
+  left: 50%;
+  width: 97%;
+  aspect-ratio: 1;
+  overflow: visible;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 10px 13px rgb(2 5 17 / calc(.38 - .16 * var(--cir-day))));
+  user-select: none;
+}
+
+.cir-warm-reflection { opacity: var(--cir-day); filter: drop-shadow(0 0 3px #ffaf63); }
+.cir-progress { filter: drop-shadow(0 0 3px #6d9cff8c); }
+.cir-arc-end {
+  stop-color: color-mix(in srgb, #7779ff, #ffbb63 calc(var(--cir-sun) * 100%));
+}
+
+.cir-hours { fill: #d2def6; font-size: 8.4px; font-weight: 500; }
+.cir-center-icon {
+  color: color-mix(in srgb, #dbe8ff, #ffdea8 calc(var(--cir-day) * 100%));
+}
+.cir-time {
+  fill: #f4f7ff;
+  font-size: 22px;
+  font-weight: 620;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.55px;
+  paint-order: stroke;
+  stroke: #10142a60;
+  stroke-width: .7px;
+}
+.cir-time tspan { font-size: 17px; }
+.cir-handle { cursor: grab; touch-action: none; outline: none; }
+.cir-handle:active { cursor: grabbing; }
+.cir-handle:focus-visible .cir-knob { stroke: #fff; stroke-width: 2px; }
+.cir-handle .cir-knob { filter: drop-shadow(0 0 3px #6998ff88); }
+.cir-wake .cir-knob {
+  filter: drop-shadow(0 0 5px rgb(255 174 71 / calc(.2 + var(--cir-sun) * .45)));
+}
+.cir-handle path {
+  fill: none;
+  stroke: #f7f8ff;
+  stroke-width: 1.55px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.cir-caption {
+  position: absolute;
+  bottom: 11px;
+  inset-inline: 13px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  color: #f0f3fb;
+  font-size: 15px;
+  font-weight: 620;
+  line-height: 1.2;
+  pointer-events: none;
+}
+.cir-byline {
+  color: #ced7e8;
+  font-size: 10px;
+  font-weight: 500;
+}

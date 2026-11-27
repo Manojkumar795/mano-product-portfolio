@@ -41,9 +41,10 @@
 .heroScreens > figure:nth-child(2) { margin-top:36px; }
 .heroScreens .productScreen { outline:1px solid #79ceca55; box-shadow:0 20px 45px #030c1070; }
 .heroScreens figcaption { margin-top:14px; color:#c7dbda; font-size:14px; text-align:center; }
-.productScreen { width:100%; position:relative; aspect-ratio:806 / 1746; overflow:hidden; background:#0b1015; border-radius:clamp(8px,1.2vw,18px); }
+.productScreen { display:block; width:100%; position:relative; aspect-ratio:806 / 1746; overflow:hidden; background:#0b1015; border-radius:clamp(8px,1.2vw,18px); }
 .productScreen > img { display:block; width:100%; height:auto; }
 .productScreen > .originalImage { position:absolute; max-width:none; width:129.776675%; height:112.256586%; left:-14.888337%; top:-1.489118%; }
+.rawScreen { display:block; }
 .rawScreen img { display:block; width:100%; height:auto; }
 .story { width:var(--content); margin:0 auto; padding-top:67px; }
 .section + .section { margin-top:var(--section-space); }
@@ -62,7 +63,7 @@
 .facts dd { margin-top:6px; font-size:15px; font-weight:500; }
 .screenBoard { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:40px; padding:44px; border-radius:10px; background:#ececec; color:#141817; }
 .screenBoard figure { min-width:0; }
-.screenBoard a { display:block; }
+.screenBoard button[data-screenshot-src] { display:block; width:100%; }
 .screenBoard .productScreen { max-width:260px; margin:auto; }
 .screenBoard figcaption { margin-top:16px; font-size:13px; line-height:1.4; text-align:center; color:#505a63; }
 .secondaryExperience { margin-top:50px; }

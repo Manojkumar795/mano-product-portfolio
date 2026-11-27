@@ -21,7 +21,7 @@ const challenges = [
   },
   {
     title: "Master Timing",
-    text: "A master timing plan carries a lot at once — hierarchy, dates, dependencies, owners and status. That detail is useful while planning, but showing all of it with the same weight can make a quick progress review unnecessarily heavy.",
+    text: "A master timing plan tracks hierarchy, dates, dependencies, owners and status. That detail helps during planning, but giving everything equal weight makes it harder to review progress quickly.",
   },
   {
     title: "Issue Control",
@@ -77,7 +77,7 @@ const approachSteps = [
   },
   {
     title: "Define the hierarchy",
-    text: "I started separating signals from detail — what needs attention first, what provides context and what belongs deeper in the workflow.",
+    text: "I gave urgent information the most weight, kept supporting context close by and moved detailed information deeper into the workflow.",
   },
   {
     title: "Prototype the decision",

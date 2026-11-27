@@ -9,6 +9,9 @@ export const playgroundCanvases = {
   checkout: { label: "Express Checkout", width: 600, initialHeight: 950 },
   ticket: { label: "Digital Ticket", width: 320, initialHeight: 640 },
   pizza: { label: "Build Your Pizza", width: 1100, initialHeight: 700 },
+  cipher: { label: "Cipher — OTP Verification", width: 348, initialHeight: 428 },
+  "circadia": { label: "Circadia", width: 270, initialHeight: 480 },
+  milestone: { label: "Milestone — YouTube subscriber count", width: 340, initialHeight: 428 },
 } as const;
 export type PlaygroundId = keyof typeof playgroundCanvases;
 export function isPlaygroundId(value: unknown): value is PlaygroundId {

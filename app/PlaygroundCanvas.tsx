@@ -5,7 +5,7 @@ import { EMBED_CHANNEL, EMBED_GUTTER, EMBED_VIEWPORT_MIN, fitPlaygroundCanvas, p
 
 const previewSizes: Partial<Record<PlaygroundId, number>> = { music: 0.7, ticket: 0.5, checkout: 0.6 };
 
-/** Scale only the iframe element. Its inner DOM, media queries and pointer coordinates stay native. */
+/** Size the iframe preview while keeping its native layout dimensions. */
 export default function PlaygroundCanvas({ component, onMeasure }: { component: PlaygroundId; onMeasure?: (id: PlaygroundId, height: number, width: number) => void }) {
   const spec = playgroundCanvases[component];
   const viewport = useRef<HTMLDivElement>(null);
@@ -72,6 +72,10 @@ export default function PlaygroundCanvas({ component, onMeasure }: { component: 
   const previewSize = compact ? (previewSizes[component] ?? 1) : 1;
   const scale = fit.scale * previewSize;
   const visibleWidth = crop.width * scale;
+  // Zoom the ticket at paint time so its settled text and QR stay sharp.
+  const frameFit = component === "ticket"
+    ? { top: -crop.y, left: -crop.x, zoom: scale }
+    : { top: -crop.y * scale, left: -crop.x * scale, transform: `scale(${scale})` };
   return <div ref={viewport} style={{ width: "100%" }}>
     <div className="mano-playground-viewport" style={{ width: available ? visibleWidth : "100%", marginInline: "auto", height: available ? fit.height * previewSize : undefined, aspectRatio: `${crop.width} / ${crop.height}` }} aria-busy={!ready && !failed}>
     {!ready && (failed
@@ -80,7 +84,7 @@ export default function PlaygroundCanvas({ component, onMeasure }: { component: 
           setAttempt(previous => previous + 1);
         }}>Try again</button></div>
       : <span className="mano-playground-loading" role="status">Loading {spec.label}…</span>)}
-    <iframe key={attempt} ref={frame} className="mano-playground-frame" title={`${spec.label} — interactive component`} src={source} loading="lazy" allow="autoplay" onLoad={requestSize} style={{ width: compact ? width : Math.max(EMBED_VIEWPORT_MIN, width), height, top: -crop.y * scale, left: -crop.x * scale, transform: `scale(${scale})`, opacity: ready && available ? 1 : 0 }} />
+    <iframe key={attempt} ref={frame} className="mano-playground-frame" title={`${spec.label} — interactive component`} src={source} loading="lazy" allow="autoplay" onLoad={requestSize} style={{ width: compact ? width : Math.max(EMBED_VIEWPORT_MIN, width), height, ...frameFit, opacity: ready && available ? 1 : 0 }} />
     </div>
   </div>;
 }

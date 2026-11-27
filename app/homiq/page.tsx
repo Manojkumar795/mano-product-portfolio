@@ -36,7 +36,7 @@ export const metadata: Metadata = {
  description: "HOMIQ smart-home design by Manoj Kumar N: room and device flows, a shared control model, interface decisions and a focused validation plan.",
 };
 export default function HomiqPage() {
- return <main className={`homiq-page ${inter.variable}`}>
+ return <main data-portfolio-media className={`homiq-page ${inter.variable}`}>
   <header className="homiq-toolbar">
    <a className="homiq-toolbar-brand" href="/#work" aria-label="Manoj Kumar N, selected work"><span>MK</span><strong>Manoj Kumar N</strong></a>
    <nav aria-label="Homiq case study navigation"><a href="#overview">Overview</a><a href="#discovery">Discovery</a><a href="#research">Research</a><a href="#product">Product</a><a href="#design-system">Design system</a></nav>

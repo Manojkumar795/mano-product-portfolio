@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../ScreenshotTrigger";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter } from "next/font/google";
@@ -70,9 +71,9 @@ function Chapter({ id, title, description, space = 100, children }: {
 
 function Screen({ id, caption = true }: { id: number; caption?: boolean }) {
   return <figure className="ticket9-screen">
-    <a href={`/ticket9/${id}.webp`} target="_blank" rel="noreferrer" aria-label={`Open ${screens[id]} at full size`}>
+    <ScreenshotTrigger src={`/ticket9/${id}.webp`} aria-label={`Open ${screens[id]} at full size`}>
       <img src={`/ticket9/${id}.webp`} alt={screens[id]} width={1206} height={2622} loading="lazy" decoding="async" />
-    </a>
+    </ScreenshotTrigger>
     {caption && <figcaption>{screens[id]}</figcaption>}
   </figure>;
 }
@@ -93,7 +94,7 @@ export default function Ticket9Page() {
     ["select", "Make pass coverage explicit.", "Event details establish the plan. Selection adds tier conditions and quantity, which attendees need to compare before making a commitment.", 3415, 3418],
     ["fees", "Carry the full cost through booking.", "Selection indicates that fees apply. The itemized total at checkout shows what would need to appear earlier in a proposed fee-comprehension test.", 3418, 3419],
   ] as const;
-  return <main className={`homiq-page ticket9-page ${inter.variable}`}>
+  return <main data-portfolio-media className={`homiq-page ticket9-page ${inter.variable}`}>
     <header className="homiq-toolbar">
       <a className="homiq-toolbar-brand" href="/#work" aria-label="Manoj Kumar N, selected work"><span>MK</span><strong>Manoj Kumar N</strong></a>
       <nav aria-label="Ticket9 case study navigation"><a href="#overview">Overview</a><a href="#discovery">Discovery</a><a href="#research">Research</a><a href="#product">Product</a><a href="#design-system">Design system</a></nav>
@@ -170,7 +171,7 @@ export default function Ticket9Page() {
             <AffinityThemeBoard project="Ticket9" themes={affinityThemes} basis="Booking questions and design priorities, grouped by theme." />
           </div>
         </Chapter>
-        <Chapter id="low-fidelity" title="Low-Fidelity" description="One sketch board traces discovery, booking, error recovery, and RSVP setup.">
+        <Chapter id="low-fidelity" title="Low-Fidelity" description="A pencil-style reconstruction of the Ticket9 wireframes, from finding an event to booking, fixing an error, and setting up an RSVP.">
           <TicketSketchBoard />
         </Chapter>
         <Chapter id="mid-fidelity" title="Mid-Fidelity" description="Grayscale wireframes turn those decisions into layouts for discovery, pass selection, and checkout.">
@@ -189,7 +190,7 @@ export default function Ticket9Page() {
           <div className="homiq-editorial-section"><nav className="homiq-mobile-chapters" aria-label="Interaction decisions">{decisions.map(([id], i) => <a key={id} href={`#decision-${id}`}>{["Discovery","Selection","Price"][i]}</a>)}</nav><div className="homiq-decision-list" tabIndex={0} role="region" aria-label="Three interaction decisions">{decisions.map(([id, title, detail, first, second]) => <section key={id} id={`decision-${id}`}><div className="homiq-decision-copy"><h3>{title}</h3><p>{detail}</p></div><div className="homiq-comparison-pair"><Screen id={first} /><span className="homiq-comparison-arrow" aria-hidden="true">→</span><Screen id={second} /></div></section>)}</div></div>
         </Chapter>
         <Chapter id="recovery" title="Recovery States" space={60} description="Three states guide attendees and organizers toward a next action.">
-          <div className="homiq-craft-panel homiq-feedback-board homiq-feedback-simple"><div className="homiq-feedback-grid">{[["Invalid number", "Review the phone number before continuing.", 3421], ["RSVP update", "Confirm the required listing update.", 3429], ["Booking support", "Use the booking ID and contact detail to look up the booking.", 3430]].map(([title, detail, id], i) => <div className="homiq-feedback-item" key={title}><div className="homiq-feedback-label"><span className={i === 0 ? "homiq-feedback-warning" : "homiq-feedback-success"} aria-hidden="true">{i === 0 ? "!" : "•"}</span><h3>{title}</h3></div><p>{detail}</p><a href={`/ticket9/${id}.webp`} target="_blank" rel="noreferrer">View screen</a></div>)}</div></div>
+          <div className="homiq-craft-panel homiq-feedback-board homiq-feedback-simple"><div className="homiq-feedback-grid">{[["Invalid number", "Review the phone number before continuing.", 3421], ["RSVP update", "Confirm the required listing update.", 3429], ["Booking support", "Use the booking ID and contact detail to look up the booking.", 3430]].map(([title, detail, id], i) => <div className="homiq-feedback-item" key={title}><div className="homiq-feedback-label"><span className={i === 0 ? "homiq-feedback-warning" : "homiq-feedback-success"} aria-hidden="true">{i === 0 ? "!" : "•"}</span><h3>{title}</h3></div><p>{detail}</p><ScreenshotTrigger src={`/ticket9/${id}.webp`}>View screen</ScreenshotTrigger></div>)}</div></div>
         </Chapter>
         <Chapter id="design-system" title="Design System">
           <div className="homiq-system-showcase">
@@ -197,7 +198,7 @@ export default function Ticket9Page() {
               <TicketInterfaceAnatomy />
               <figure className="homiq-kit-card homiq-kit-inventory">
                 <figcaption><h3>UI specifications</h3><p>Discovery, booking, and account flows</p></figcaption>
-                <div className="homiq-kit-screen-groups">{groups.map(({ title, ids }) => <div key={title}><h4>{title}</h4><div>{ids.map(id => <a key={id} href={`/ticket9/${id}.webp`} target="_blank" rel="noreferrer" aria-label={`Open ${screens[id]}`}><img src={`/ticket9/${id}.webp`} alt="" width={1206} height={2622} loading="lazy" decoding="async" /></a>)}</div></div>)}</div>
+                <div className="homiq-kit-screen-groups">{groups.map(({ title, ids }) => <div key={title}><h4>{title}</h4><div>{ids.map(id => <ScreenshotTrigger key={id} src={`/ticket9/${id}.webp`} aria-label={`Open ${screens[id]}`}><img src={`/ticket9/${id}.webp`} alt="" width={1206} height={2622} loading="lazy" decoding="async" /></ScreenshotTrigger>)}</div></div>)}</div>
               </figure>
             </div>
             <div className="homiq-kit-right">

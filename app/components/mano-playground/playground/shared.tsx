@@ -63,28 +63,21 @@ export function useDemo(
   const latest = useRef({ cues, reset })
   latest.current = { cues, reset }
   const [held, setHeld] = useState(false)
-  const [replay, setReplay] = useState(0)
-  const [forced, setForced] = useState(false)
   const [cycle, setCycle] = useState(0)
   const holdTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   useAutoplayResume(() => {
     if (holdTimer.current) clearTimeout(holdTimer.current)
-    setHeld(false); setForced(false); setReplay(value => value + 1)
+    setHeld(false); setCycle(value => value + 1)
   })
   useEffect(() => {
-    if (held || (!forced && (!isPlaying || reduced))) return
+    if (held || !isPlaying || reduced) return
     latest.current.reset()
     const timers = latest.current.cues.map((cue) =>
       setTimeout(() => cue.run(), cue.at),
     )
-    timers.push(
-      setTimeout(() => {
-        if (forced) setForced(false)
-        if (isPlaying && !reduced) setCycle((value) => value + 1)
-      }, duration),
-    )
+    timers.push(setTimeout(() => setCycle((value) => value + 1), duration))
     return () => timers.forEach(clearTimeout)
-  }, [isPlaying, reduced, held, forced, replay, cycle, duration])
+  }, [isPlaying, reduced, held, cycle, duration])
   useEffect(
     () => () => {
       if (holdTimer.current) clearTimeout(holdTimer.current)
@@ -93,25 +86,17 @@ export function useDemo(
   )
   function takeControl() {
     setHeld(true)
-    setForced(false)
     if (holdTimer.current) clearTimeout(holdTimer.current)
     holdTimer.current = setTimeout(() => setHeld(false), 12000)
   }
-  function restart() {
-    if (holdTimer.current) clearTimeout(holdTimer.current)
-    setHeld(false)
-    setForced(true)
-    setReplay((value) => value + 1)
-  }
   return {
     takeControl,
-    restart,
     reduced: !!reduced,
     label: held
       ? "Your turn"
       : reduced
         ? "Reduced motion"
-        : isPlaying || forced
+        : isPlaying
           ? "Auto demo"
           : "Demo paused",
   }
@@ -136,7 +121,7 @@ export function Icon({
   name,
   size = 20,
 }: {
-  name: "bag" | "check" | "arrow" | "replay" | "close" | "card" | "ticket" | "plus" | "minus"
+  name: "bag" | "check" | "arrow" | "close" | "card" | "ticket" | "plus" | "minus"
   size?: number
 }) {
   const paths = {
@@ -150,11 +135,6 @@ export function Icon({
     arrow: (
       <>
         <path d="M4 12h16M14 6l6 6-6 6" />
-      </>
-    ),
-    replay: (
-      <>
-        <path d="M4 9a8 8 0 1 1 0 6M4 3v6h6" />
       </>
     ),
     close: <path d="m6 6 12 12M6 18 18 6" />,
@@ -187,25 +167,6 @@ export function Icon({
     >
       {paths[name]}
     </svg>
-  )
-}
-
-export function DemoControl({ demo }: { demo: ReturnType<typeof useDemo> }) {
-  return (
-    <div className="pg-demo-control">
-      <span>
-        <i />
-        {demo.label}
-      </span>
-      <button
-        onClick={demo.restart}
-        aria-label="Replay demonstration"
-        title="Replay demonstration"
-      >
-        <Icon name="replay" size={15} />
-        Replay
-      </button>
-    </div>
   )
 }
 

@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../ScreenshotTrigger";
 const benchmarkColumns = ["BookMyShow", "District", "Eventbrite", "Ticket9 opportunity"];
 
 const benchmark = [
@@ -82,7 +83,7 @@ export function TicketEvidenceDashboard() {
         </svg>
         <figcaption>{priceSteps.map(({ label, amount }) => <div key={label}><strong>{currency.format(amount)}</strong><span>{label}</span></div>)}</figcaption>
       </figure>
-      <p>The complete total first appears after pass selection. For this duo pass, GST and the convenience fee add <strong>{currency.format(price.tax + price.fee)}</strong> to the pass price. <a href="/ticket9/3419.webp" target="_blank" rel="noreferrer">View the price breakdown</a></p>
+      <p>The complete total first appears after pass selection. For this duo pass, GST and the convenience fee add <strong>{currency.format(price.tax + price.fee)}</strong> to the pass price. <ScreenshotTrigger src="/ticket9/3419.webp">View the price breakdown</ScreenshotTrigger></p>
     </section>
     <section className="ticket9-analysis-panel">
       <h3>What attendees know at each decision</h3>
@@ -114,7 +115,7 @@ const brandArtwork = [
 function BrandImage({ index }: { index: number }) {
   const { file, label, alt, width, height } = brandArtwork[index];
   const src = `/ticket9/brand/${file}.webp`;
-  return <a href={src} target="_blank" rel="noreferrer" aria-label={`Open ${label} artwork at full size`}><img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" /></a>;
+  return <ScreenshotTrigger src={src} aria-label={`Open ${label} artwork at full size`}><img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" /></ScreenshotTrigger>;
 }
 
 export function TicketVisualDirection() {

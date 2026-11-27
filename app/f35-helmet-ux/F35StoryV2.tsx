@@ -385,7 +385,7 @@ export default function F35StoryV2() {
   return (
     <div className={styles.page}>
       <Navigation active={active} />
-      <main>
+      <main data-portfolio-media>
         <HeroSection />
         <TargetingSection />
         <ContextSection />

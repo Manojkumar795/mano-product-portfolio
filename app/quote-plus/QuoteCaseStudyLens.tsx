@@ -56,7 +56,7 @@ const quoteProblems = [
   },
   {
     title: "Handoff",
-    text: "A Win started the next stage. The award team needed confirmed information, decision history and supporting documents—not a blank record and a final status.",
+    text: "A Win started the next stage. The award team needed confirmed quote details, decision history and supporting documents to pick up the work.",
   },
 ];
 
@@ -67,7 +67,7 @@ const reasoningSteps = [
   },
   {
     title: "Find the decisions",
-    text: "I looked for moments where users weren't simply entering information anymore — they were deciding whether something could move forward.",
+    text: "I looked for points where users had to decide whether a quote could move forward.",
   },
   {
     title: "Identify what changes",
@@ -258,8 +258,8 @@ function ApproachPanel() {
       <div className="quote-approach-layout">
         <div className="quote-approach-intro">
           <p>
-            I initially approached some of these as individual screen problems —
-            a long form, a qualification step, a decision state, a document view.
+            I started by treating the long form, qualification step, decision state and
+            document view as separate screen problems.
           </p>
           <p>
             But once I followed the quote from RFQ to award, the same pattern kept

@@ -1,11 +1,33 @@
 /* Keep each original canvas aspect ratio with room between rounded surfaces. */
 .mano-playground { background: var(--portfolio-dark, #070910); color: #f5f7fa; padding: 0 0 84px; }
 .mano-playground-inner { box-sizing: border-box; width: 94%; max-width: 1440px; margin: 0 auto; }
-.mano-playground h2 { margin: 0 0 24px; font-size: clamp(26px, 2.7vw, 36px); font-weight: 630; line-height: 1.1; letter-spacing: -.05em; }
+.mano-playground-intro { margin-bottom: clamp(24px, 3.5vw, 44px); }
+.mano-playground-label {
+  margin: 0 0 12px;
+  color: #a8bdd5;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.mano-playground-intro h2 {
+  margin: 0;
+  font-size: clamp(30px, 4.2vw, 56px);
+  font-weight: 630;
+  line-height: 1.08;
+  letter-spacing: -.05em;
+}
+.mano-playground-description {
+  max-width: 66ch;
+  margin: 14px 0 0;
+  color: #afbaca;
+  font-size: clamp(16px, 1.4vw, 18px);
+  line-height: 1.6;
+}
 .mano-playground-grid { display: flex; flex-direction: column; gap: 8px; }
 .mano-playground-row { display: grid; gap: 8px; align-items: start; min-width: 0; }
 /* Proportional tracks bring complete, uniformly scaled previews edge to edge. */
-.mano-playground-row-1 { grid-template-columns: minmax(0, .79916fr) minmax(0, .63492fr) minmax(0, 1.57143fr) minmax(0, .71429fr); }
+.mano-playground-row-1 { grid-template-columns: minmax(0, .79916fr) minmax(0, .63492fr) minmax(0, 1.57143fr) minmax(0, .66667fr); }
 .mano-playground-row-2 { grid-template-columns: minmax(0, 2.29008fr) minmax(0, 1.14379fr); }
 .mano-playground-tile, .mano-playground-content { position: relative; min-width: 0; }
 .mano-playground-viewport { position: relative; width: 100%; overflow: hidden; }
@@ -30,3 +52,64 @@
 
 .mano-playground-error { z-index: 1; align-content: center; gap: 8px; }
 .mano-playground-error button { color: inherit; text-decoration: underline; cursor: pointer; }
+
+.mano-playground-closing-row {
+  display: grid;
+  grid-template-columns: minmax(0, 240fr) minmax(0, 348fr) minmax(0, 240fr) minmax(0, 340fr) minmax(0, 240fr);
+  align-items: start;
+  gap: 8px;
+  margin-top: 8px;
+}
+.mano-playground-cipher .mano-playground-viewport { border-radius: 20px; background: #121522; }
+.mano-playground-circadia .mano-playground-viewport { border-radius: 18px; background: #090a14; }
+.mano-playground-milestone .mano-playground-viewport { border-radius: 18px; background: #13090e; }
+@media (max-width: 1000px) {
+  .mano-playground-closing-row {
+    grid-template-columns: minmax(0, 240px) minmax(0, 348px) minmax(0, 240px);
+  }
+}
+@media (max-width: 800px) {
+  .mano-playground-closing-row {
+    grid-template-columns: minmax(0, 240px) minmax(0, 348px);
+  }
+  .mano-playground-closing-row > :last-child { max-width: 240px; }
+}
+@media (max-width: 540px) {
+  .mano-playground-closing-row { grid-template-columns: minmax(0, 348px); }
+  .mano-playground-motion-demo, .mano-playground-circadia { max-width: 240px; }
+  .mano-playground-milestone { max-width: 340px; }
+}
+.mano-playground-motion-demo figure { position: relative; min-width: 0; margin: 0; overflow: hidden; border-radius: 18px; }
+.mano-playground-motion-demo video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  background: #0c0f15;
+}
+.mano-playground-motion-demo figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, #05070c40, #05070c15 14%, transparent 34%),
+    radial-gradient(
+      ellipse at 50% 45%,
+      transparent 28%,
+      #080b1617 52%,
+      #080b1652 76%,
+      #05070caa 100%
+    );
+  pointer-events: none;
+}
+.mano-playground-motion-demo figcaption {
+  position: absolute;
+  z-index: 1;
+  inset: auto 0 0;
+  padding: 24px 12px 10px;
+  background: linear-gradient(transparent, #080b10df);
+  color: #f5f7fa;
+  font-size: 14px;
+  font-weight: 600;
+  pointer-events: none;
+}

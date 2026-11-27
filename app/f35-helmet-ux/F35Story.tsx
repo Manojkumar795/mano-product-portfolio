@@ -436,7 +436,7 @@ export default function F35Story() {
     <div className={styles.page}>
       <Navigation active={active} />
       <ProgressRail active={active} progress={progress} />
-      <main><Hero /><TargetAcquisitionSection /><SituationalAwarenessSection /><CognitiveLoadSection /><ProductTranslationSection /></main>
+      <main data-portfolio-media><Hero /><TargetAcquisitionSection /><SituationalAwarenessSection /><CognitiveLoadSection /><ProductTranslationSection /></main>
     </div>
   );
 }

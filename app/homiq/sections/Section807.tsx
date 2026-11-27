@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../../ScreenshotTrigger";
 import { CraftHeading } from "../components/CraftedPanels";
 import { SystemStyleguide, SystemMeasurements } from "../components/SystemStyleguide";
 
@@ -45,7 +46,7 @@ export default function Section807() {
         </figure>
         <figure className="homiq-kit-card homiq-kit-inventory">
           <figcaption><h3>UI specifications</h3><p>29 original screens · 390 × 844 px</p></figcaption>
-          <div className="homiq-kit-screen-groups">{screenGroups.map(([title,files]) => <div key={title}><h4>{title}</h4><div>{files.map(file => <a key={file} href={`/homiq/screens/${file}.png`} target="_blank" rel="noreferrer" aria-label={`Open original ${file.replaceAll("-"," ")} screen`}><img src={`/homiq/screens/${file}.png`} loading="lazy" decoding="async" alt="" width="390" height="844" /></a>)}</div></div>)}</div>
+          <div className="homiq-kit-screen-groups">{screenGroups.map(([title,files]) => <div key={title}><h4>{title}</h4><div>{files.map(file => <ScreenshotTrigger key={file} src={`/homiq/screens/${file}.png`} aria-label={`Open original ${file.replaceAll("-"," ")} screen`}><img src={`/homiq/screens/${file}.png`} loading="lazy" decoding="async" alt="" width="390" height="844" /></ScreenshotTrigger>)}</div></div>)}</div>
         </figure>
       </div>
       <div className="homiq-kit-right">

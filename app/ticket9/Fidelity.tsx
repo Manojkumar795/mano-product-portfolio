@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../ScreenshotTrigger";
 const wireframes = [
   ["home", "City discovery"],
   ["search", "Event search"],
@@ -10,21 +11,21 @@ const wireframes = [
   ["support", "Booking support"],
 ] as const;
 
-const sketchBoard = "/ticket9/fidelity/booking-sketch-board.webp";
+const sketchBoard = "/ticket9/fidelity/booking-pencil-sketches.webp";
 
 export function TicketSketchBoard() {
   return <figure className="homiq-craft-panel homiq-rough-board">
-    <a href={sketchBoard} target="_blank" rel="noreferrer" aria-label="Open the Ticket9 sketch board at full size">
-      <img src={sketchBoard} width={1536} height={1024} alt="Ten pen-style sketches on one page show city discovery, search, event details, pass selection, price review, attendee details, phone number correction, payment, booking lookup, and organizer RSVP setup." loading="lazy" decoding="async" />
-    </a>
+    <ScreenshotTrigger src={sketchBoard} aria-label="Open the Ticket9 sketch board at full size">
+      <img src={sketchBoard} width={1536} height={1024} alt="Ten rough pencil wireframes on plain paper show event discovery, search, event details, pass selection, price review, attendee details, phone number correction, payment, booking lookup, and organizer RSVP setup." loading="lazy" decoding="async" />
+    </ScreenshotTrigger>
   </figure>;
 }
 
 function WireframeImage({ screen, label }: { screen: string; label: string }) {
   const src = `/ticket9/fidelity/${screen}.svg`;
-  return <a href={src} target="_blank" rel="noreferrer" aria-label={`Open the ${label.toLowerCase()} wireframe at full size`}>
+  return <ScreenshotTrigger src={src} aria-label={`Open the ${label.toLowerCase()} wireframe at full size`}>
     <img src={src} width={390} height={844} alt={`Ticket9 wireframe for ${label.toLowerCase()}`} loading="lazy" decoding="async" />
-  </a>;
+  </ScreenshotTrigger>;
 }
 
 export function TicketWireframeGallery() {

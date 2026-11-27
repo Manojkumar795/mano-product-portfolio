@@ -1,3 +1,5 @@
+import ScreenshotTrigger from "../ScreenshotTrigger";
+import SyncfusionShowcase from "../SyncfusionShowcase";
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -156,24 +158,6 @@ const systemPatterns = [
   },
 ];
 
-const colorTokens = [
-  { token: "Brand / 600", name: "Quote blue", value: "#34649E", className: "brand" },
-  { token: "Ink / 950", name: "Primary ink", value: "#0D1628", className: "ink" },
-  { token: "Surface / 0", name: "Main surface", value: "#FFFFFF", className: "surface" },
-  { token: "Surface / 50", name: "Quiet surface", value: "#F4F7FA", className: "subtle" },
-  { token: "Success / 600", name: "Approved", value: "#009F6B", className: "success" },
-  { token: "Warning / 500", name: "Needs review", value: "#E9A11B", className: "warning" },
-  { token: "Critical / 600", name: "Stopped", value: "#E52C35", className: "critical" },
-  { token: "Info / 500", name: "In progress", value: "#397FE5", className: "info" },
-];
-
-const typeScale = [
-  { role: "Display", spec: "64 / 64 · 650", sample: "Quote decisions", className: "display" },
-  { role: "Page title", spec: "32 / 40 · 620", sample: "Go / No-Go Decision", className: "title" },
-  { role: "Body", spec: "16 / 26 · 400", sample: "Keep the RFQ, decision and evidence connected.", className: "body" },
-  { role: "System label", spec: "12 / 16 · 600", sample: "STATUS / PENDING REVIEW", className: "label" },
-];
-
 const strengths = [
   {
     index: "01",
@@ -293,9 +277,9 @@ function QuoteScreen({
       {note && (
         <figcaption>
           <span>{note}</span>
-          <a href={src} target="_blank" rel="noreferrer">
+          <ScreenshotTrigger src={src}>
             View full interface <i aria-hidden="true">↗</i>
-          </a>
+          </ScreenshotTrigger>
         </figcaption>
       )}
     </figure>
@@ -304,7 +288,7 @@ function QuoteScreen({
 
 export default function QuotePlusCaseStudy() {
   return (
-    <main className="quote-case">
+    <main data-portfolio-media className="quote-case">
       <QuoteScrollMotion />
       <header className="qp-nav">
         <Link className="qp-brand" href="/#work" aria-label="Back to selected work">
@@ -684,73 +668,7 @@ export default function QuotePlusCaseStudy() {
             <article key={pattern.label}><span>{pattern.label}</span><strong>{pattern.title}</strong><p>{pattern.text}</p></article>
           ))}
         </div>
-        <div className="qp-foundations">
-          <article className="qp-ds-panel qp-color-panel">
-            <div className="qp-ds-head qp-ds-head-clean">
-              <div><h3>Color has a job.</h3></div>
-              <p>Blue anchors primary actions. Semantic colors communicate state. Neutral surfaces keep quotation work calm.</p>
-            </div>
-            <div className="qp-color-spectrum" aria-hidden="true">
-              {colorTokens.map((color) => (
-                <i className={`qp-color-${color.className}`} key={color.token} />
-              ))}
-            </div>
-            <div className="qp-color-grid">
-              {colorTokens.map((color) => (
-                <div className="qp-color-token" key={color.token}>
-                  <i className={`qp-color-${color.className}`} />
-                  <span>{color.token}</span><strong>{color.name}</strong><small>{color.value}</small>
-                </div>
-              ))}
-            </div>
-          </article>
-          <article className="qp-ds-panel qp-type-panel">
-            <div className="qp-ds-head qp-ds-head-clean">
-              <div><h3>Hierarchy you can scan.</h3></div>
-              <p>Interface type stays familiar. Mono is reserved for IDs, status and compact system data.</p>
-            </div>
-            <div className="qp-type-families" aria-label="Typeface roles">
-              <div><strong>Geist Sans</strong><span>Interface + content</span></div>
-              <div><strong>Geist Mono</strong><span>IDs + system data</span></div>
-            </div>
-            <div className="qp-type-list">
-              {typeScale.map((type) => (
-                <div className={`qp-type-row qp-type-${type.className}`} key={type.role}>
-                  <div><span>{type.role}</span><small>{type.spec}</small></div><p>{type.sample}</p>
-                </div>
-              ))}
-            </div>
-          </article>
-        </div>
-        <div className="qp-components">
-          <article className="qp-ds-panel qp-component-panel">
-            <div className="qp-ds-head qp-ds-head-clean"><div><h3>States stay predictable.</h3></div><p>Steps, decisions, roles, files and status labels follow the same interaction rules.</p></div>
-            <div className="qp-component-canvas">
-              <div className="qp-component-group">
-                <span>Lifecycle step</span>
-                <div className="qp-step-samples"><i className="done">✓ General Information</i><i className="active">5. Customer Decision</i><i>6. Workflow Status</i></div>
-              </div>
-              <div className="qp-component-group">
-                <span>Decision</span>
-                <div className="qp-decision-samples"><i className="approve">✓ Go</i><i className="revise">↻ Next Round</i><i className="reject">× No-Go</i></div>
-              </div>
-              <div className="qp-component-group">
-                <span>Status + access</span>
-                <div className="qp-status-samples"><i className="complete">Complete</i><i className="review">Pending Review</i><i className="access">Can edit⌄</i></div>
-              </div>
-              <div className="qp-access-note"><p><b>Accessible state</b>Color is reinforced by text, shape and icon. Focus remains visible for keyboard users.</p></div>
-            </div>
-          </article>
-          <article className="qp-ds-panel qp-delivery-panel">
-            <div className="qp-ds-head qp-ds-head-clean"><div><h3>Handoff the rules.</h3></div><p>Tokens, components and workflow logic stay connected to implementation.</p></div>
-            <ol>
-              <li><span>01</span><div><b>Tokens</b><p>Color, type, spacing, radius and elevation map to product variables.</p></div></li>
-              <li><span>02</span><div><b>Components</b><p>Steps, accordions, decisions, role rows and file rows use named variants.</p></div></li>
-              <li><span>03</span><div><b>State matrix</b><p>Loading, empty, error, disabled, locked and permission states are specified.</p></div></li>
-              <li><span>04</span><div><b>Workflow contract</b><p>Validation and transition rules stay aligned with the product&apos;s business logic.</p></div></li>
-            </ol>
-          </article>
-        </div>
+        <SyncfusionShowcase project="quote" />
       </section>
 
       <QuoteAuditExperience

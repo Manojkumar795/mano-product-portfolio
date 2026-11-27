@@ -301,7 +301,6 @@ function CommerceSystem({ active, restartToken }: { active: number; restartToken
       </header>
       <div className="hero-commerce-body">
         <section className="hero-commerce-photo">
-          <small>THE EVERYDAY EDIT</small>
           <div className="hero-commerce-image">
             <NikeShoePreview active={active === 1} moving resetKey={entrance} onInteract={keepSlideshowPlaying} onStoryChange={setStory} />
           </div>
@@ -323,7 +322,7 @@ function CommerceSystem({ active, restartToken }: { active: number; restartToken
           <p className="hero-commerce-delivery" role="status">{added ? `Sunset · Size ${size} added to demo bag` : "Shopping preview · No checkout"}</p>
         </section>
       </div>
-      <footer className="hero-commerce-footer"><span>No live pricing</span><span>3D: <a href="https://sketchfab.com/3d-models/nike-air-max-plus-sunset-2df7e6025d29489192c92bd81fed0b54" target="_blank" rel="noreferrer" tabIndex={active === 1 ? 0 : -1}>SRUSH651</a> · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer" tabIndex={active === 1 ? 0 : -1}>CC BY 4.0</a></span></footer>
+      <div className="hero-commerce-footer" aria-hidden="true" />
     </div>
   );
 }

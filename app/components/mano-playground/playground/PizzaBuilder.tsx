@@ -2,7 +2,6 @@ import { useRef, useState } from "react"
 import { AnimatePresence, motion } from "motion/react"
 import {
   assets,
-  DemoControl,
   type DemoProps,
   Icon,
   Loading,
@@ -320,7 +319,7 @@ export default function PizzaBuilder({ isPlaying = true }: DemoProps) {
           />
         )}
       </AnimatePresence>
-      <DemoControl demo={demo} />
+      <p className="pb-credit">By Mano</p>
       <span className="pg-sr-only" role="status">
         {state === "confirmed" ? `Pizza added. Total ${money(total)}.` : ""}
       </span>

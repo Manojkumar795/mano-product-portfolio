@@ -55,16 +55,18 @@
   white-space: nowrap;
 }
 
-.controls { display: grid; gap: 1.8cqw; width: 79%; }
-.controls > label {
+.controls { display: grid; gap: 1.3cqw; width: clamp(0px, max(79%, 228px), 100%); }
+.gpuField {
   display: grid;
   gap: .65cqw;
   color: #e1e2e2;
   font-size: clamp(12px, 1.2cqw, 20px);
 }
 
-.controls select, .resolutions {
+.gpuTrigger, .resolutions {
+  box-sizing: border-box;
   min-width: 0;
+  width: 100%;
   padding: 0;
   margin: 0;
   border: 1px solid #ffffff62;
@@ -75,12 +77,43 @@
   font: inherit;
 }
 
-.controls select {
-  width: 100%;
-  min-height: 30px;
-  padding: .48cqw .9cqw;
+.gpuPicker { position: relative; min-width: 0; }
+.gpuTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: max(36px, 2.8cqw);
+  padding: 4px clamp(10px, .9cqw, 16px);
   font-size: clamp(13px, 1.35cqw, 23px);
+  text-align: left;
+  cursor: pointer;
 }
+
+.gpuTrigger span { min-width: 0; }
+.gpuTrigger svg { flex: none; }
+.gpuTrigger[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+.gpuOptions {
+  position: absolute;
+  z-index: 4;
+  inset: calc(100% + 6px) 0 auto;
+  visibility: hidden;
+  margin: 0;
+  padding: 4px;
+  border: 1px solid #ffffff47;
+  border-radius: 8px;
+  background: #171c1f;
+  box-shadow: 0 8px 25px #000a;
+  color: #fff;
+  font-size: clamp(13px, 1.2cqw, 19px);
+  list-style: none;
+}
+.gpuOptions[data-open="true"] { visibility: visible; }
+.gpuOptions[data-above="true"] { inset: auto 0 calc(100% + 6px); }
+.gpuOptions li { padding: 7px 8px; border-radius: 4px; cursor: pointer; }
+.gpuOptions li[aria-selected="true"] { box-shadow: inset 2px 0 var(--accent); }
+.gpuOptions li:is(:hover, [data-highlighted="true"]) { background: #ffffff20; }
 
 .resolutions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .resolutions label { position: relative; cursor: pointer; }
@@ -167,7 +200,7 @@
   .copy h2 { margin: 9px 0 12px; white-space: normal; }
   .copy h2 br { display: none; }
   .controls { width: 100%; gap: 8px; }
-  .controls select, .resolutions span { min-height: 36px; }
+  .resolutions span { min-height: 36px; }
   .benchmark { margin-top: 9px; }
   .links { margin-top: 10px; }
   .frame img.gpu { align-self: center; max-height: 27cqw; }

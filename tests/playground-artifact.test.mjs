@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import test from "node:test";
 
-test("ships a standalone embed document and all six original demos", () => {
+test("ships a standalone embed document and independent demo chunks", () => {
   const root = new URL("../dist/client/playground-embeds/", import.meta.url);
   const html = readFileSync(new URL("index.html", root), "utf8");
   assert.match(html, /id="embed-root"/);
@@ -11,7 +11,7 @@ test("ships a standalone embed document and all six original demos", () => {
     assert.ok(readFileSync(new URL("../dist/client" + asset, import.meta.url)).length > 0);
   }
   const chunks = readdirSync(new URL("assets/", root));
-  for (const name of ["MusicPlayer", "FirstPage", "Tonight", "OneTapCheckout", "DigitalTicket", "PizzaBuilder"]) {
+  for (const name of ["MusicPlayer", "FirstPage", "Tonight", "OneTapCheckout", "DigitalTicket", "PizzaBuilder", "Milestone"]) {
     assert.ok(chunks.some(file => file.startsWith(name + "-") && file.endsWith(".js")), name + " ships independently");
   }
   const hashes = JSON.parse(readFileSync(new URL("fixtures/playground-source-hashes.json", import.meta.url), "utf8"));

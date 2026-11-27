@@ -1,0 +1,247 @@
+.cipher {
+  container-type: inline-size;
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 348 / 428;
+  min-height: 350px;
+  overflow: hidden;
+  border: 1px solid #7380ab30;
+  border-radius: 20px;
+  color: #f7f8fc;
+  background:
+    radial-gradient(ellipse at 100% 37%, #33447762 0%, transparent 37%),
+    radial-gradient(ellipse at 34% -12%, #27396469 0%, transparent 35%),
+    radial-gradient(ellipse at 52% 110%, #26397672 0%, transparent 48%),
+    #111321;
+  box-shadow: inset 0 1px 0 #b5c9ff11, inset 0 -1px 0 #809bde12;
+  text-align: center;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.cipher::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: repeating-linear-gradient(180deg, #7395df22 0 1px, transparent 1px 3px);
+  mask-image: radial-gradient(ellipse at 4% 30%, #000 0%, transparent 46%),
+    radial-gradient(ellipse at 97% 88%, #0009 0%, transparent 34%);
+  pointer-events: none;
+}
+
+.cipher-lock {
+  /* Keep the body's rim highlight below the rotating shackle. */
+  --cipher-lock-seam: 44.2%;
+  --cipher-lock-image: url("/playground/cipher/padlock.webp");
+  position: absolute;
+  inset: 7cqi 12.5% auto;
+  aspect-ratio: 1312 / 1199;
+  mask-image: linear-gradient(#000 60%, #000d 70%, transparent 91%);
+  pointer-events: none;
+}
+
+.cipher-lock::before,
+.cipher-lock::after,
+.cipher-emblem::before,
+.cipher-emblem::after {
+  position: absolute;
+  content: "";
+  inset: 0;
+}
+
+.cipher-lock::before,
+.cipher-lock::after,
+.cipher-emblem::before {
+  background: var(--cipher-lock-image) center / contain no-repeat;
+}
+
+.cipher-lock::before {
+  clip-path: inset(0 0 calc(100% - var(--cipher-lock-seam)));
+  transform-origin: 31% var(--cipher-lock-seam);
+  transition: transform 620ms cubic-bezier(.2, .72, .25, 1), filter 430ms ease;
+}
+
+.cipher-lock::after { clip-path: inset(var(--cipher-lock-seam) 0 0); }
+
+.cipher:focus-within .cipher-lock::before { filter: brightness(1.13); }
+.cipher[data-phase="success"] .cipher-lock::before {
+  transform: translateY(-.65cqi) rotate(-12deg);
+  filter: brightness(1.25);
+}
+
+.cipher-emblem {
+  --cipher-emblem-light: #65ffa8;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  visibility: hidden;
+  opacity: 0;
+  mix-blend-mode: screen;
+  filter: blur(clamp(.35px, .2cqi, .7px));
+  background: radial-gradient(
+    ellipse 13% 15% at 50% 67%,
+    color-mix(in srgb, var(--cipher-emblem-light) 35%, transparent),
+    color-mix(in srgb, var(--cipher-emblem-light) 10%, transparent) 58%,
+    transparent
+  );
+  transition: opacity 220ms ease;
+}
+
+/* Light the original engraved facets using the outline of the mark in the artwork. */
+.cipher-emblem::before,
+.cipher-emblem::after {
+  clip-path: polygon(
+    44% 60.4%, 48.1% 58.7%, 49.9% 60.7%, 52.1% 58.7%,
+    56.1% 60.2%, 57.5% 65.1%, 56% 67%, 57.6% 69.1%,
+    56.1% 73.8%, 52% 75.2%, 50% 73.3%, 48.2% 75.3%,
+    43.9% 73.8%, 42.3% 69.1%, 43.9% 66.9%, 42.3% 65.1%
+  );
+}
+
+.cipher-emblem::before { filter: grayscale(1) blur(.35px) brightness(4.15); }
+.cipher-emblem::after { background: var(--cipher-emblem-light); mix-blend-mode: multiply; }
+.cipher[data-phase="error"] .cipher-emblem { --cipher-emblem-light: #ff4967; }
+.cipher:is([data-phase="success"], [data-phase="error"]) .cipher-emblem { visibility: visible; opacity: 1; }
+
+.cipher-verify {
+  position: absolute;
+  inset: auto 0 max(11px, 4.2cqi);
+  padding-inline: clamp(11px, 11.5cqi, 40px);
+}
+
+.cipher-verify h1 {
+  margin: 0 0 clamp(6px, 1.9cqi, 8px);
+  font-size: clamp(19px, 5.95cqi, 24px);
+  font-weight: 750;
+  line-height: 1.12;
+  letter-spacing: -.06em;
+}
+
+.cipher[data-phase="success"] h1 span {
+  display: inline-block;
+  color: #65ef9f;
+}
+
+.cipher[data-phase="error"] h1 span { color: #ff899b; }
+
+@supports (background-clip: text) {
+  .cipher[data-phase="success"] h1 span {
+    color: transparent;
+    background: linear-gradient(110deg, #53dd90 36%, #85ffad 46%, #cdffdb 50%, #79f5a4 54%, #45cf80 62%, #53dd90 70%);
+    background-size: 240% 100%;
+    background-clip: text;
+    animation: cipher-verified-wave 2s ease-in-out 2;
+  }
+}
+
+@keyframes cipher-verified-wave {
+  from { background-position: 115% 50%; }
+  to { background-position: -15% 50%; }
+}
+
+.cipher[data-visible="false"] h1 span { animation-play-state: paused; }
+
+.cipher-description {
+  min-height: 2.8em;
+  margin: 0 0 clamp(8px, 3cqi, 12px);
+  color: #b0b3c2;
+  font-size: clamp(12px, 3.6cqi, 13px);
+  line-height: 1.45;
+  letter-spacing: -.025em;
+}
+
+.cipher[data-phase="error"] .cipher-description { color: #ffc4ce; }
+.cipher[data-phase="success"] .cipher-description { color: #b8e4d3; }
+
+.cipher-fields {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(3px, 1.2cqi, 5px);
+}
+
+.cipher-field {
+  display: block;
+  position: relative;
+  min-width: 0;
+  height: clamp(44px, 13.7cqi, 52px);
+}
+
+.cipher-field input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  padding: 0;
+  appearance: none;
+  border: 1px solid #8ea2cc55;
+  border-radius: clamp(8px, 3.5cqi, 12px);
+  outline: 0;
+  color: inherit;
+  background: linear-gradient(163deg, #263860ad, #0b1428e8 54%, #121b2f);
+  box-shadow: inset 0 1px 2px #9fb3ea22, inset 0 -2px 8px #667eac33, 0 4px 9px #0507136b;
+  font-family: inherit;
+  font-size: clamp(17px, 5.25cqi, 21px);
+  font-weight: 720;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  caret-color: #89a9ff;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.cipher-field input::selection { background: #4565a7; color: #fff; }
+.cipher-field input:focus,
+.cipher:not(:focus-within) .cipher-field[data-preview-caret] input {
+  border-color: #edf3ff;
+  box-shadow: inset 0 1px 3px #95b4ff30, inset 0 -2px 8px #667eac33, 0 0 0 1px #6c97ff33;
+}
+
+.cipher:not(:focus-within) .cipher-field[data-preview-caret]::after {
+  content: "";
+  position: absolute;
+  inset: 34% auto 32% 63%;
+  width: 1px;
+  background: #789dff;
+  pointer-events: none;
+}
+
+.cipher[data-phase="verifying"] .cipher-field input { animation: cipher-check 520ms ease both; }
+.cipher[data-phase="error"] .cipher-field input { border-color: #e598a88c; }
+.cipher[data-phase="error"] .cipher-field input:focus { border-color: #ffd6df; }
+.cipher[data-phase="success"] .cipher-field input { border-color: #95d7c696; }
+.cipher[data-phase="success"] .cipher-field input:focus { border-color: #ddfff5; }
+
+@keyframes cipher-check {
+  50% { border-color: #b0c8ff; box-shadow: inset 0 0 16px #4c75dc60, 0 0 10px #466fdb26; }
+}
+
+.cipher-footer {
+  margin-top: clamp(8px, 3.7cqi, 14px);
+  font-size: clamp(12px, 3.7cqi, 14px);
+  line-height: 1.4;
+  letter-spacing: -.035em;
+}
+
+.cipher-footer button {
+  padding: 3px 0;
+  border: 0;
+  color: inherit;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cipher-footer button[aria-disabled="true"] { cursor: default; text-decoration: none; }
+.cipher-footer button:focus-visible { outline: 1px solid #adc0ff; outline-offset: 3px; border-radius: 2px; }
+
+.cipher-credit { margin: 2px 0 0; color: #a4aec6; font-size: 12px; line-height: 1.35; }
+.cipher-credit strong { color: #cbd5f0; font-weight: 650; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cipher-lock::before, .cipher-emblem, .cipher-field input { transition: none; }
+  .cipher[data-phase="verifying"] .cipher-field input { animation: none; }
+  .cipher[data-phase="success"] h1 span { animation: none; }
+}

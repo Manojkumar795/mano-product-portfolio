@@ -14,7 +14,6 @@
   --alt-muted: #536577;
   --alt-teal: #008f93;
   --alt-border: #152c3f16;
-  --alt-safe: clamp(71px, calc(4vw + 16px), 161px);
   display: grid;
   grid-template-rows: 42px minmax(0, 1fr) 76px;
   background: #f8f7f4;
@@ -23,7 +22,6 @@
   font-size: 11px;
   line-height: 1.4;
   overflow: hidden;
-  padding-right: var(--alt-safe);
   text-shadow: none;
 }
 .altitude-slide :is(h3, h4, p) {
@@ -919,8 +917,6 @@
 }
 @media (max-width: 760px) {
   .system-slide.altitude-slide {
-    padding-left: calc(8vw + 10px);
-    padding-right: calc(8vw + 10px);
     grid-template-rows: 35px minmax(0, 1fr) 69px;
     font-size: 10px;
   }

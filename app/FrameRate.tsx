@@ -1,5 +1,5 @@
 "use client";
-import { useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import styles from "./FrameRate.module.css";
 
 const cards = [
@@ -24,8 +24,64 @@ export default function FrameRate({active,onFocusChange}:{active:boolean;onFocus
   const [game,setGame] = useState(0);
   const [res,setRes] = useState(1);
   const [expanded,setExpanded] = useState(false);
+  const [gpuMenu, setGpuMenu] = useState<{ option: number; above: boolean } | null>(null);
+  const gpuPicker = useRef<HTMLDivElement>(null);
+  const gpuList = useRef<HTMLUListElement>(null);
+  const gpuButton = useRef<HTMLButtonElement>(null);
   const card = cards[gpu], title = games[game];
   const bench = gpu === 0 && game === 0 ? cyber5070 : null;
+  const menuOpen = active && gpuMenu !== null;
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    function dismissOutside(event: PointerEvent) {
+      if (event.target instanceof Node && !gpuPicker.current?.contains(event.target)) setGpuMenu(null);
+    }
+    document.addEventListener("pointerdown", dismissOutside);
+    return () => document.removeEventListener("pointerdown", dismissOutside);
+  }, [menuOpen]);
+
+  function openGpuMenu() {
+    const picker = gpuPicker.current;
+    const viewport = picker?.closest(`.${styles.scroll}`);
+    const list = gpuList.current;
+    if (!picker || !viewport || !list) return;
+    const control = picker.getBoundingClientRect();
+    const frame = viewport.getBoundingClientRect();
+    const roomBelow = frame.bottom - control.bottom;
+    const roomAbove = control.top - frame.top;
+    gpuButton.current?.focus({ preventScroll: true });
+    setGpuMenu({ option: gpu, above: roomBelow < list.offsetHeight + 8 && roomAbove > roomBelow });
+  }
+
+  function chooseGpu(index: number) {
+    setGpu(index);
+    setExpanded(false);
+    setGpuMenu(null);
+  }
+
+  function navigateGpuMenu(event: KeyboardEvent<HTMLButtonElement>) {
+    const { key } = event;
+    if (!gpuMenu) {
+      if (key === "ArrowDown" || key === "ArrowUp") {
+        event.preventDefault();
+        openGpuMenu();
+      }
+      return;
+    }
+    if (key === "Escape") {
+      event.preventDefault();
+      setGpuMenu(null);
+    } else if (key === "Enter" || key === " ") {
+      event.preventDefault();
+      chooseGpu(gpuMenu.option);
+    } else if (key === "ArrowDown" || key === "ArrowUp" || key === "Home" || key === "End") {
+      event.preventDefault();
+      const next = key === "Home" ? 0 : key === "End" ? cards.length - 1 : gpuMenu.option + (key === "ArrowDown" ? 1 : -1);
+      setGpuMenu({ ...gpuMenu, option: Math.max(0, Math.min(cards.length - 1, next)) });
+    }
+  }
+
   return <section id="showcase-slide-3" role="group" aria-roledescription="slide" aria-label="4 of 4: FRAME RATE graphics card and game store" aria-hidden={!active} inert={!active}
     className={`system-slide ${styles.frame} ${active ? "is-active" : ""}`} style={{"--accent":title[3]} as CSSProperties}
     onFocusCapture={()=>onFocusChange(true)} onBlurCapture={e=>{if(!e.currentTarget.contains(e.relatedTarget))onFocusChange(false)}}
@@ -38,12 +94,31 @@ export default function FrameRate({active,onFocusChange}:{active:boolean;onFocus
           <b className={styles.brand}>FRAME RATE</b>
           <h2>What can your<br /> GPU play?</h2>
           <div className={styles.controls}>
-            <label>
-              Graphics card
-              <select value={gpu} onChange={event => { setGpu(Number(event.target.value)); setExpanded(false); }}>
-                {cards.map(([id, model], index) => <option value={index} key={id}>{model}</option>)}
-              </select>
-            </label>
+            <div className={styles.gpuField}>
+              <span id="frame-rate-gpu-label">Graphics card</span>
+              <div className={styles.gpuPicker} ref={gpuPicker}>
+                <button type="button" role="combobox" className={styles.gpuTrigger} ref={gpuButton}
+                  aria-labelledby="frame-rate-gpu-label" aria-controls="frame-rate-gpu-options" aria-expanded={menuOpen}
+                  aria-activedescendant={menuOpen ? `frame-rate-gpu-${cards[gpuMenu.option][0]}` : undefined}
+                  onBlur={() => setGpuMenu(null)} onKeyDown={navigateGpuMenu}
+                  onClick={() => menuOpen ? setGpuMenu(null) : openGpuMenu()}>
+                  <span>{card[1]}</span>
+                  <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+                    <path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <ul id="frame-rate-gpu-options" role="listbox" aria-labelledby="frame-rate-gpu-label" ref={gpuList}
+                  className={styles.gpuOptions} data-open={menuOpen} data-above={gpuMenu?.above} aria-hidden={!menuOpen}
+                  onPointerDown={event => event.preventDefault()}>
+                  {cards.map(([id, model], index) => (
+                    <li id={`frame-rate-gpu-${id}`} role="option" aria-selected={index === gpu}
+                      data-highlighted={gpuMenu?.option === index} key={id} onClick={() => chooseGpu(index)}>
+                      {model}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
             <fieldset className={styles.resolutions} aria-label="Resolution">
               {resolutions.map((resolution, index) => (
                 <label key={resolution}>

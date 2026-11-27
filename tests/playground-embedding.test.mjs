@@ -10,7 +10,7 @@ const { EMBED_GUTTER, EMBED_VIEWPORT_MIN, EMBED_CHANNEL, playgroundCanvases, fit
 test("unmodified supplied sources and all assets remain identical to the ZIP", () => {
   const fixtures = JSON.parse(readFileSync(new URL("./fixtures/playground-source-hashes.json", import.meta.url)));
   assert.equal(fixtures.length, 71);
-  // These sources were explicitly revised for idle resume, the paper credit and checkout cleanup.
+  // These sources include intentional changes to autoplay, credits, and checkout.
   const revised = new Set([
     "app/components/mano-playground/MusicPlayer.tsx",
     "app/components/mano-playground/DigitalTicket.tsx",
@@ -19,6 +19,10 @@ test("unmodified supplied sources and all assets remain identical to the ZIP", (
     "app/components/mano-playground/firstpage/PaperBook.tsx",
     "app/components/mano-playground/playground/shared.tsx",
     "app/components/mano-playground/playground/OneTapCheckout.tsx",
+    "app/components/mano-playground/playground/OneTapCheckout.css",
+    "app/components/mano-playground/playground/PizzaBuilder.tsx",
+    "app/components/mano-playground/playground/PizzaBuilder.css",
+    "app/components/mano-playground/playground/playground.css",
   ]);
   for (const fixture of fixtures.filter(item => !revised.has(item.path))) {
     const actual = createHash("sha256").update(readFileSync(new URL(`../${fixture.path}`, import.meta.url))).digest("hex");

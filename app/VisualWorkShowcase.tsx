@@ -251,6 +251,7 @@ export default function VisualWorkShowcase() {
   return (
     <section
       className={`visual-cinema${selectedWork ? " is-viewing" : ""}`}
+      data-portfolio-media
       id="visual-work"
       ref={sectionRef}
       style={{ height: `${visualWorks.length * 175}svh` }}
@@ -273,13 +274,13 @@ export default function VisualWorkShowcase() {
                 <li>
                   <div>
                     <strong>Customer Problem</strong>
-                    <p>Customers were discovering products but lacked clear information about their benefits, differences, and value—creating hesitation before purchase.</p>
+                    <p>Shoppers found the products but hesitated to buy because the pages made it hard to compare options, understand the benefits, or judge the value.</p>
                   </div>
                 </li>
                 <li>
                   <div>
                     <strong>Design Strategy</strong>
-                    <p>I transformed product information into a guided buying journey using Amazon Premium A+—combining visual storytelling, benefit-led content, product comparisons, and consistent branding.</p>
+                    <p>I used Amazon Premium A+ to guide shoppers through the decision with product comparisons, clear benefits, visual storytelling, and consistent branding.</p>
                   </div>
                 </li>
                 <li>
@@ -291,7 +292,7 @@ export default function VisualWorkShowcase() {
                 <li>
                   <div>
                     <strong>Outcome</strong>
-                    <p>The result was a cohesive Premium A+ experience with clearer product differentiation, stronger brand storytelling, and more intuitive product comparisons—designed to turn product interest into confident buying decisions.</p>
+                    <p>The updated pages made it easier to tell products apart and compare them. They also gave the brand a more consistent voice throughout the buying journey.</p>
                   </div>
                 </li>
               </ol>

@@ -17,14 +17,19 @@ function ProjectCard({ project }: { project: ShowcaseProject }) {
           <h4 id={`project-${project.id}-title`}>{project.title}</h4>
           <p>{project.description}</p>
         </div>
-        <div className={styles.stage} data-scene={Boolean(project.backdrop)} data-window={desktopWindow}>
-          {project.backdrop && <div className={styles.backdrop}
-            style={{ backgroundImage: `url("${project.backdrop}")` }} aria-hidden="true" />}
-          {desktopWindow ? (
-            <div className={styles.window}>
-              {screens}
-            </div>
-          ) : screens}
+        <div className={styles.stage} data-scene={!desktopWindow} data-window={desktopWindow}>
+          <div className={styles.window}>
+            {project.backdrop && <div className={styles.backdrop}
+              style={{ backgroundImage: `url("${project.backdrop}")` }} aria-hidden="true" />}
+            {screens}
+            {project.id === "delivery" && (
+              <figure className={styles.deliveryDetail} aria-label="A task card enlarged from the Kanban board">
+                <figcaption>Reusable task card</figcaption>
+                <div className={styles.deliveryDetailCrop} aria-hidden="true"
+                  style={{ backgroundImage: `url("${project.screens[0].src}")` }} />
+              </figure>
+            )}
+          </div>
         </div>
         <svg className={styles.arrow} viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M4 12h15m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.5"

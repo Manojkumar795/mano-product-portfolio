@@ -770,9 +770,8 @@ export default function Home() {
         <div className="hero-status">
           <span>
             <i />
-            Available for senior product roles
+            Available for senior &amp; lead design roles
           </span>
-          <small>Coimbatore · Bengaluru · Chennai · Remote</small>
         </div>
 
         <p className="hero-identity">
@@ -789,7 +788,7 @@ export default function Home() {
         <div className="hero-composition">
           <div className="hero-copy-column">
             <div className="hero-title">
-              <p>Enterprise UX · Design Systems · AI Workflows</p>
+              <p>Product Design · Systems Thinking · Design Technology</p>
               <h1>
                 <span>Complex.</span>
                 <span className="hero-outline">Made <ColourfulText text="clear." /></span>
@@ -798,8 +797,8 @@ export default function Home() {
 
             <div className="hero-bottom">
               <p>
-                I simplify complex enterprise workflows, build design systems that
-                scale, and connect Figma to AI-assisted development.
+                I design products that make complicated things easier to use. From everyday mobile experiences to
+                enterprise platforms, I care about how products work, how they feel, and how they are built.
               </p>
               <div className="hero-actions">
                 <a className="action-primary" href="#work">
@@ -820,7 +819,7 @@ export default function Home() {
 
       </section>
 
-      <section className="work-modern" id="work" aria-labelledby="projects-title">
+      <section data-portfolio-media className="work-modern" id="work" aria-labelledby="projects-title">
         <ProjectShowcaseGrid />
       </section>
 
@@ -869,14 +868,16 @@ export default function Home() {
         </div>
         <div className="about-copy" data-reveal>
           <p>
-            I&apos;m Manoj Kumar N, a Senior Product Designer with 8+ years of
-            experience across enterprise SaaS, complex B2B workflows, RFQ
-            platforms, dashboards and scalable design systems.
+            I&apos;m a Senior Product Designer with over eight years of experience across mobile applications,
+            enterprise software, e-commerce and design systems.
           </p>
           <p>
-            I work at the intersection of product strategy, interaction design
-            and engineering—especially where the product has many users, rules,
-            states and consequences.
+            My work has taken me from understanding online shopping behavior to designing complex enterprise
+            platforms, evaluating design talent and helping engineering teams build better interfaces.
+          </p>
+          <p>
+            I care about the decisions behind an interface. What should we build, why does it matter,
+            and how will people use it?
           </p>
           <blockquote>
             “Clarity is not removing complexity. It is helping people move
@@ -893,7 +894,7 @@ export default function Home() {
       >
         <div className="leadership-principles-heading" data-reveal>
           <h2 id="leadership-principles-title">
-            Good products need <em>more than good <ColourfulText text="screens." /></em>
+            Design philosophy
           </h2>
         </div>
 
@@ -906,9 +907,8 @@ export default function Home() {
             </div>
             <h3>Product Judgment</h3>
             <p>
-              Not every problem deserves the same amount of design. I focus
-              first on the decisions that affect the user, the workflow and the
-              business.
+              Working on Program+ and Quote+ taught me that the hardest part of design is often deciding
+              what the product needs, not what the interface should look like.
             </p>
           </article>
 
@@ -920,9 +920,8 @@ export default function Home() {
             </div>
             <h3>Business + UX</h3>
             <p>
-              Enterprise products come with rules, deadlines and technical
-              limits. I design with those constraints in the room instead of
-              treating them as someone else&apos;s problem.
+              Designing for e-commerce and enterprise software has taught me to consider both the person
+              using the product and the business behind it.
             </p>
           </article>
 
@@ -935,9 +934,8 @@ export default function Home() {
             </div>
             <h3>Cross-functional Leadership</h3>
             <p>
-              I work with product, engineering and stakeholders to turn
-              different points of view into one direction the team can actually
-              build.
+              At Kyyba, I worked directly with product leadership and engineering teams across three
+              countries, making design decisions together rather than handing over screens.
             </p>
           </article>
 
@@ -950,9 +948,8 @@ export default function Home() {
             </div>
             <h3>Mentorship</h3>
             <p>
-              At BYJU&apos;S and Kyyba, mentoring became part of my work. I helped
-              teams work through problems, explain their decisions and become
-              more confident owning the work.
+              From evaluating and training designers at BYJU&apos;S to training 30+ developers at Kyyba,
+              helping others improve their work has become an important part of mine.
             </p>
           </article>
         </div>
@@ -984,6 +981,7 @@ export default function Home() {
         <footer>
           <a href="#top">Manoj Kumar N · Senior Product Designer</a>
           <span>Coimbatore · Bengaluru · Chennai · Remote</span>
+          <a href="/hero-commerce/nike-sunset-license.txt">3D model credits</a>
           <a href="#top">Back to top ↑</a>
         </footer>
       </section>

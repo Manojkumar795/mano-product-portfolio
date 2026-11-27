@@ -160,7 +160,7 @@ export default function QuoteAuditExperience({
 
       <section className="qp-decision-path qp-cinematic-reveal" style={{ "--reveal-order": 5 } as CSSProperties}>
         <div className="qp-decision-path-copy">
-          <h3>I redesigned the decision path—not just the screens.</h3>
+          <h3>I redesigned how quotes move from intake to award.</h3>
           <p>
             One governed record now carries readiness, ownership, evidence and
             consequence from RFQ intake to award.

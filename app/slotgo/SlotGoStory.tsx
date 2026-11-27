@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../ScreenshotTrigger";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { LuCalendarDays, LuUserRound } from "react-icons/lu";
@@ -10,7 +11,7 @@ function Heading({ id, title, children }: { id: string; title: string; children:
   return <header className={styles.sectionHeading}><h2 id={id}>{title}</h2><div className={styles.rule} /><p>{children}</p></header>;
 }
 function Screens({ items, label }: { items: readonly (readonly [string, string])[]; label: string }) {
-  return <div className={styles.screenBoard} role="group" aria-label={label}>{items.map(([id, title]) => <figure key={id}><a href={`/slotgo/${id}.png`} target="_blank" rel="noreferrer" aria-label={`Open ${title} at full size`}><ProductScreen id={id} /></a><figcaption>{title}</figcaption></figure>)}</div>;
+  return <div className={styles.screenBoard} role="group" aria-label={label}>{items.map(([id, title]) => <figure key={id}><ScreenshotTrigger src={`/slotgo/${id}.png`} aria-label={`Open ${title} at full size`}><ProductScreen id={id} /></ScreenshotTrigger><figcaption>{title}</figcaption></figure>)}</div>;
 }
 function Detail({ id, x, y, width, height, label }: { id: string; x: number; y: number; width: number; height: number; label: string }) {
   return <svg viewBox={`${x} ${y} ${width} ${height}`} role="img" aria-label={label}><image href={`/slotgo/${id}.png`} width="806" height="1746" /></svg>;
@@ -69,7 +70,7 @@ function ComponentBoard() {
   </div>;
 }
 export default function SlotGoStory({ fontClassName = "" }: { fontClassName?: string }) {
-  return <main className={`${styles.page} ${fontClassName}`}>
+  return <main data-portfolio-media className={`${styles.page} ${fontClassName}`}>
     <header className={styles.topbar}><Link className={styles.brand} href="/#work" aria-label="Manoj Kumar N, selected work"><span>MK</span><strong>Manoj Kumar N</strong></Link><nav aria-label="SlotGo case study navigation">{chapters.map(([id, title]) => <a key={id} href={`#${id}`}>{title}</a>)}</nav><Link className={styles.allProjects} href="/#work">All projects <span aria-hidden="true">↗</span></Link></header>
     <header className={styles.hero}>
       <div className={styles.heroInner}>

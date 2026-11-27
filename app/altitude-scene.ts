@@ -464,7 +464,8 @@ export function createAltitudeScene(
     event.stopPropagation();
   };
   const up = (event: PointerEvent) => {
-    event.stopPropagation();
+    // OrbitControls listens for pointerup on the document to finish the drag.
+    // Let the release bubble even when this handler checks for an aircraft click.
     if (
       mode ||
       !model ||

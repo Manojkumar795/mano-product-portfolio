@@ -11,6 +11,9 @@ const loaders = {
   checkout: () => import("../app/components/mano-playground/playground/OneTapCheckout"),
   ticket: () => import("../app/components/mano-playground/DigitalTicket"),
   pizza: () => import("../app/components/mano-playground/playground/PizzaBuilder"),
+  cipher: () => import("../app/components/mano-playground/cipher/Cipher"),
+  "circadia": () => import("../app/components/mano-playground/circadia/Circadia"),
+  milestone: () => import("../app/components/mano-playground/milestone/Milestone"),
 };
 const component = new URLSearchParams(window.location.search).get("component");
 if (isPlaygroundId(component)) {
@@ -64,7 +67,7 @@ if (isPlaygroundId(component)) {
   }
   function App() {
     // Manual takeover is local to this iframe; neighboring demos continue independently.
-    const { playing, onAutoplayChange } = useIdleAutoplay();
+    const { playing, onAutoplayChange } = useIdleAutoplay(id === "cipher" || id === "circadia" ? 7000 : undefined);
     return <Suspense fallback={null}><Ready><Demo isPlaying={playing} onAutoplayChange={onAutoplayChange} /></Ready></Suspense>;
   }
   createRoot(canvas).render(<App />);

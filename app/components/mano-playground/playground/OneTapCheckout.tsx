@@ -54,6 +54,7 @@ export default function OneTapCheckout({ isPlaying = true }: DemoProps) {
     11000,
   )
   const watching = demo.label === "Auto demo"
+  const confirmed = state === "success"
   useAutoplayResume(() => { setManualEditing(false); setEditor(null) })
 
   useEffect(() => {
@@ -62,10 +63,11 @@ export default function OneTapCheckout({ isPlaying = true }: DemoProps) {
     return () => clearTimeout(timer)
   }, [editor, watching])
 
+  useEffect(() => {
+    if (state === "success" && !watching) successHeading.current?.focus({ preventScroll: true })
+  }, [state, watching])
+
   function stopDemo() { demo.takeControl() }
-  function startAgain() {
-    stopDemo(); paymentTimers.clear(); setEditor(null); setManualEditing(false); setState("ready")
-  }
   function openEditor(type: Editor) {
     if (state !== "ready") return
     stopDemo()
@@ -107,34 +109,54 @@ export default function OneTapCheckout({ isPlaying = true }: DemoProps) {
 
   return <Stage className="pg-stage pg-checkout" aria-label="Interactive express checkout">
     <div className="xc-ambient" aria-hidden="true" />
-    <motion.div className="xc-card" layout transition={spring}>
-      <AnimatePresence mode="wait" initial={false}>
-        {state !== "success" ? <motion.div key="review" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={spring}>
-          <header className="xc-card-heading"><h2>Express checkout</h2><span className="xc-ready-status"><i />{watching ? "Demo" : state === "processing" ? "Paying" : "Ready"}</span></header>
-          <div className="xc-product-summary"><div className="xc-thumbnail xc-reference-shoe" role="img" aria-label="White Form 01 sneaker with a black heel" /><div><strong>Form 01</strong><span>Cloud White / Onyx</span><small>EU 42 · Quantity 1</small></div><strong className="xc-product-price">{money(subtotal)}</strong></div>
-          <div className="xc-details">
-            <section className="xc-saved-detail" aria-label="Delivery details">
-              <div className="xc-detail-row"><span className="xc-detail-icon"><DeliveryIcon /></span><div className="xc-detail-copy"><span>Deliver to</span><strong>{address.name}</strong><small>{address.street} · {address.city}</small></div><button className="xc-change" ref={(node) => { changeButtons.current.delivery = node }} onClick={() => openEditor("delivery")} disabled={state !== "ready"} aria-expanded={editor === "delivery"} aria-controls={editor === "delivery" ? `${headingId}-delivery` : undefined} aria-label="Change delivery address">{editor === "delivery" ? "Close" : "Change"}</button></div>
-              {renderEditor("delivery")}
-            </section>
-            <section className="xc-saved-detail" aria-label="Payment details">
-              <div className="xc-detail-row"><span className="xc-detail-icon"><Icon name="card" size={20} /></span><div className="xc-detail-copy"><span>Pay with</span><strong>{payment.name}</strong><small>{payment.detail}</small></div><button className="xc-change" ref={(node) => { changeButtons.current.payment = node }} onClick={() => openEditor("payment")} disabled={state !== "ready"} aria-expanded={editor === "payment"} aria-controls={editor === "payment" ? `${headingId}-payment` : undefined} aria-label="Change payment method">{editor === "payment" ? "Close" : "Change"}</button></div>
-              {renderEditor("payment")}
-            </section>
+    <div className="xc-card">
+      <div className="xc-review" inert={confirmed}>
+        <header className="xc-card-heading"><h2>Express checkout</h2><span className="xc-ready-status"><i />{watching ? "Demo" : state === "processing" ? "Paying" : "Ready"}</span></header>
+        <div className="xc-product-summary"><div className="xc-thumbnail xc-reference-shoe" role="img" aria-label="White Form 01 sneaker with a black heel" /><div><strong>Form 01</strong><span>Cloud White / Onyx</span><small>EU 42 · Quantity 1</small></div><strong className="xc-product-price">{money(subtotal)}</strong></div>
+        <div className="xc-details">
+          <section className="xc-saved-detail" aria-label="Delivery details">
+            <div className="xc-detail-row"><span className="xc-detail-icon"><DeliveryIcon /></span><div className="xc-detail-copy"><span>Deliver to</span><strong>{address.name}</strong><small>{address.street} · {address.city}</small></div><button className="xc-change" ref={(node) => { changeButtons.current.delivery = node }} onClick={() => openEditor("delivery")} disabled={state !== "ready"} aria-expanded={editor === "delivery"} aria-controls={editor === "delivery" ? `${headingId}-delivery` : undefined} aria-label="Change delivery address">{editor === "delivery" ? "Close" : "Change"}</button></div>
+            {renderEditor("delivery")}
+          </section>
+          <section className="xc-saved-detail" aria-label="Payment details">
+            <div className="xc-detail-row"><span className="xc-detail-icon"><Icon name="card" size={20} /></span><div className="xc-detail-copy"><span>Pay with</span><strong>{payment.name}</strong><small>{payment.detail}</small></div><button className="xc-change" ref={(node) => { changeButtons.current.payment = node }} onClick={() => openEditor("payment")} disabled={state !== "ready"} aria-expanded={editor === "payment"} aria-controls={editor === "payment" ? `${headingId}-payment` : undefined} aria-label="Change payment method">{editor === "payment" ? "Close" : "Change"}</button></div>
+            {renderEditor("payment")}
+          </section>
+        </div>
+        <div className="xc-price-breakdown"><div><span>Subtotal</span><span>{money(subtotal)}</span></div><div><span>Delivery</span><span className="xc-free">Free</span></div><div><span>Tax · 8%</span><span>{money(tax)}</span></div></div>
+        <div className="xc-total"><span>Total</span><strong>{money(total)}</strong></div>
+        <motion.button className="xc-pay" onClick={pay} whileTap={{ scale: 0.985 }} disabled={state === "processing" || !!editor} aria-busy={state === "processing"}>{state === "processing" ? <><Loading />Processing…<motion.span className="xc-pay-progress" initial={{ width: "0%" }} animate={{ width: "100%" }} transition={{ duration: 1.2, ease: "easeInOut" }} /></> : <>Pay {money(total)}<Icon name="arrow" size={19} /></>}</motion.button>
+        <p className="xc-demo-note">{editor ? "Save or cancel your changes to continue." : "Demo purchase · No real charge"}</p>
+      </div>
+      {confirmed && <div className="xc-success">
+        <header className="xc-success-header">
+          <motion.div className="xc-confirmation-mark" initial={{ scale: 0.85 }} animate={{ scale: 1 }} transition={spring}><Icon name="check" size={44} /></motion.div>
+          <span className="xc-success-kicker">ALL SET</span>
+          <h2 ref={successHeading} tabIndex={-1}>Order confirmed</h2>
+          <p>Your demo order is complete.<br />No charge was made.</p>
+        </header>
+        <div className="xc-confirmation-summary">
+          <img
+            className="xc-confirmation-image"
+            src="/playground/checkout-form-01.webp"
+            alt="White Form 01 sneaker with a black heel"
+            width={242}
+            height={195}
+            draggable={false}
+            onContextMenu={(event) => event.preventDefault()}
+          />
+          <div className="xc-confirmation-product">
+            <div className="xc-confirmation-copy">
+              <span className="xc-product-brand">MANO</span>
+              <strong>Form 01</strong>
+              <small>White / Black · EU 42 · Qty 1</small>
+            </div>
+            <strong className="xc-confirmation-price">{money(total)}</strong>
           </div>
-          <div className="xc-price-breakdown"><div><span>Subtotal</span><span>{money(subtotal)}</span></div><div><span>Delivery</span><span className="xc-free">Free</span></div><div><span>Tax · 8%</span><span>{money(tax)}</span></div></div>
-          <div className="xc-total"><span>Total</span><strong>{money(total)}</strong></div>
-          <motion.button className="xc-pay" onClick={pay} whileTap={{ scale: 0.985 }} disabled={state === "processing" || !!editor} aria-busy={state === "processing"}>{state === "processing" ? <><Loading />Processing…<motion.span className="xc-pay-progress" initial={{ width: "0%" }} animate={{ width: "100%" }} transition={{ duration: 1.2, ease: "easeInOut" }} /></> : <>Pay {money(total)}<Icon name="arrow" size={19} /></>}</motion.button>
-          <p className="xc-demo-note">{editor ? "Save or cancel your changes to continue." : "Demo purchase · No real charge"}</p>
-        </motion.div> : <motion.div key="confirmation" className="xc-success" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={spring} onAnimationComplete={() => { if (!watching) successHeading.current?.focus({ preventScroll: true }) }}>
-          <motion.div className="xc-confirmation-mark" initial={{ scale: 0.85 }} animate={{ scale: 1 }} transition={spring}><span className="xc-orb-core"><Icon name="check" size={44} /></span><i className="xc-orb-dot dot-one" /><i className="xc-orb-dot dot-two" /><i className="xc-orb-dot dot-three" /></motion.div>
-          <span className="xc-success-kicker">ALL SET</span><h2 ref={successHeading} tabIndex={-1}>Order confirmed</h2><p>Your demo order is complete.<br />No charge was made.</p>
-          <div className="xc-confirmation-summary"><div className="xc-confirmation-image xc-reference-shoe" role="img" aria-label="White Form 01 sneaker with a black heel" /><span className="xc-confirmation-copy"><span className="xc-product-brand">MANO</span><strong>Form 01</strong><small>EU 42 · Quantity 1</small><span className="xc-color-chip"><i />White / Black</span></span><span className="xc-product-dots" aria-hidden="true">•••</span><strong className="xc-confirmation-price">{money(total)}</strong></div>
-          <div className="xc-confirmation-details"><div><span className="xc-confirmation-icon"><DeliveryIcon /></span><span><small>Delivery</small><strong>{address.name}</strong><span>{address.street}<br />{address.city}</span></span></div><div><span className="xc-confirmation-icon"><Icon name="card" size={20} /></span><span><small>Demo payment</small><strong>{payment.name}{paymentId === "card" ? " · 4242" : ""}</strong></span></div></div>
-          <button className="xc-again" onClick={startAgain}><span className="xc-again-icon"><Icon name="replay" size={26} /></span><span>Start again</span><Icon name="arrow" size={26} /></button>
-        </motion.div>}
-      </AnimatePresence>
-    </motion.div>
+        </div>
+        <div className="xc-confirmation-details"><div><span className="xc-confirmation-icon"><DeliveryIcon /></span><span><small>Delivery</small><strong>{address.name}</strong><span>{address.street}<br />{address.city}</span></span></div><div><span className="xc-confirmation-icon"><Icon name="card" size={20} /></span><span><small>Demo payment</small><strong>{payment.name}{paymentId === "card" ? " · 4242" : ""}</strong></span></div></div>
+      </div>}
+    </div>
     <span className="pg-sr-only" role="status" aria-live="polite">{state === "processing" ? "Processing demo payment." : state === "success" ? "Demo order confirmed. No real charge was made." : "Review your order and saved details before paying."}</span>
   </Stage>
 }

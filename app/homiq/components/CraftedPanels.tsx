@@ -1,3 +1,4 @@
+import ScreenshotTrigger from "../../ScreenshotTrigger";
 import type { ReactNode } from "react";
 
 type IconName = "home" | "rooms" | "profile" | "light" | "power" | "action" | "lock" | "mail" | "check" | "plus" | "minus" | "back";
@@ -49,5 +50,5 @@ export function ContextPattern() {
 }
 
 export function TaskStructureBoard() {
-  return <figure className="homiq-craft-panel homiq-rough-board"><a href="/homiq/fidelity/rough-exploration-v4.png" target="_blank" rel="noreferrer" aria-label="Open the rough HOMIQ sketches at full size"><img src="/homiq/fidelity/rough-exploration-v4.png" width={1536} height={1024} alt="Nine hand-drawn HOMIQ wireframes for Home, Rooms, Living Room, light and AC controls, device setup, room assignment and scene setup, with black pen sketches and blue annotations." loading="lazy" decoding="async" /></a></figure>;
+  return <figure className="homiq-craft-panel homiq-rough-board"><ScreenshotTrigger src="/homiq/fidelity/rough-exploration-v4.png" aria-label="Open the rough HOMIQ sketches at full size"><img src="/homiq/fidelity/rough-exploration-v4.png" width={1536} height={1024} alt="Nine hand-drawn HOMIQ wireframes for Home, Rooms, Living Room, light and AC controls, device setup, room assignment and scene setup, with black pen sketches and blue annotations." loading="lazy" decoding="async" /></ScreenshotTrigger></figure>;
 }

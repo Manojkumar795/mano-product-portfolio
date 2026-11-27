@@ -42,7 +42,7 @@ export const screenLibrary: LibraryScreen[] = [
 
 export const demoScenes = [
   { screen: "customer-home", label: "Discover", title: "Your next game\nstarts here.", text: "A place to play. People to play with." },
-  { screen: "customer-explore-list", label: "Explore", title: "Find the court.\nSee the next slot.", text: "Location, availability and price—together." },
+  { screen: "customer-explore-list", label: "Explore", title: "Find the court.\nSee the next slot.", text: "See location, availability and price in one place." },
   { screen: "customer-book-time", label: "Choose", title: "Make time\nfor the game.", text: "Choose a slot, with its price already in view." },
   { screen: "customer-book-summary", label: "Review", title: "The details.\nBefore the decision.", text: "Court, time and total. One last look." },
   { screen: "customer-confirmed", label: "Confirm", title: "Court booked.\nSee you there.", text: "The plan stays with you, from payment to play." },

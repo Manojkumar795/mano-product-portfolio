@@ -7,11 +7,10 @@ body { box-sizing: border-box; margin: 0; padding: 24px; overflow: hidden; backg
 /* Give the credit breathing room inside the music canvas's rounded top edge. */
 body[data-component="music"] .turntable-header { padding: 20px 24px 0; }
 
-/* The checkout demo changes inside one stable surface; editors float above the review. */
+/* Keep the editors above the review without stretching the narrow layouts. */
 body[data-component="checkout"] .pg-stage.pg-checkout {
-  height: 840px; min-height: 840px; padding: 0; justify-content: flex-start; background: transparent; border: 0;
+  min-height: 0; padding: 0; justify-content: flex-start; background: transparent; border: 0;
 }
-body[data-component="checkout"] .xc-card { height: 840px; flex-shrink: 0; }
 body[data-component="checkout"] .xc-details { position: relative; }
 body[data-component="checkout"] .xc-inline-editor {
   position: absolute; z-index: 10; inset: -4px 0 auto;
@@ -20,9 +19,15 @@ body[data-component="checkout"] .xc-inline-editor {
 }
 body[data-component="checkout"] .xc-editor-options { padding-top: 0; }
 
-@media (max-width: 640px) {
-  body[data-component="checkout"] .pg-stage.pg-checkout { height: 1140px; min-height: 1140px; }
-  body[data-component="checkout"] .xc-card { height: 1140px; }
+/* Match the desktop tile row and spread space between the checkout sections. */
+@container express (min-width: 560px) {
+  body[data-component="checkout"] .xc-card { min-height: 840px; }
+  body[data-component="checkout"] .xc-review {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  body[data-component="checkout"] .xc-confirmation-details > div { align-items: center; }
 }
 
 /* Programmatically focused dialog titles do not need a control-style focus ring. */
@@ -30,17 +35,11 @@ body[data-component="tonight"] .tn-match-panel h2[tabindex="-1"]:focus { outline
 
 /* The creator credit lives on the paper, beside the folio. */
 body[data-component="firstpage"] .fp-leaf-credit { margin-right: 7px; font-style: normal; letter-spacing: .03em; }
-/* Keep the success tick; remove the decorative orbital rings, dots and glow. */
-body[data-component="checkout"] .xc-confirmation-mark,
-body[data-component="checkout"] .xc-orb-core { border: 0; background: none; box-shadow: none; }
-body[data-component="checkout"] .xc-orb-dot { display: none; }
-
 body[data-component="checkout"] .xc-ambient { display: none; }
 
 /* Quiet white glass: edge highlights and translucent layers, without sweeping ornaments. */
 body[data-component="checkout"] .xc-card::before,
-body[data-component="checkout"] .xc-card::after,
-body[data-component="checkout"] .xc-confirmation-summary::after { display: none; }
+body[data-component="checkout"] .xc-card::after { display: none; }
 body[data-component="checkout"] .xc-card {
   background: linear-gradient(145deg, #ffffffef, #ffffffdb 55%, #f6faffeb);
   backdrop-filter: blur(28px) saturate(140%);

@@ -4,7 +4,7 @@ export const AUTOPLAY_IDLE_MS = 5000
 const RESUME_EVENT = "mano:autoplay-resume"
 
 /** Each iframe owns its activity clock; native demo cues never count as user input. */
-export function useIdleAutoplay() {
+export function useIdleAutoplay(idleMs = AUTOPLAY_IDLE_MS) {
   const [playing, setPlaying] = useState(true)
   const control = useRef<(next: boolean) => void>(() => {})
   useEffect(() => {
@@ -22,7 +22,7 @@ export function useIdleAutoplay() {
         document.body.dataset.autoplayState = "playing"
         document.body.dataset.autoplayResumes = String(++resumes)
         window.dispatchEvent(new Event(RESUME_EVENT))
-      }, AUTOPLAY_IDLE_MS)
+      }, idleMs)
     }
     const pointerDown = (event: PointerEvent) => { if (!event.isTrusted) return; pointers.add(event.pointerId); pause() }
     const pointerMove = (event: PointerEvent) => { if (event.isTrusted && pointers.has(event.pointerId)) pause() }
@@ -60,7 +60,7 @@ export function useIdleAutoplay() {
       for (const event of ["click", "input", "change", "wheel"]) document.removeEventListener(event, activity, true)
       window.removeEventListener("blur", blur)
     }
-  }, [])
+  }, [idleMs])
   const onAutoplayChange = useCallback((next: boolean) => control.current(next), [])
   return { playing, onAutoplayChange }
 }

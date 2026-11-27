@@ -37,7 +37,13 @@
 .back { display: flex; align-items: center; gap: 14px; color: #b7c0cb; font-size: 14px; }
 .back:hover, .back:focus-visible { color: #fff; outline: none; }
 
-.hero { min-height: 750px; padding: 105px 28px 88px; display: flex; align-items: center; }
+.hero {
+  min-height: 750px;
+  padding: 105px 28px 88px;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at 76% 20%, #261d34 0%, transparent 69%), var(--bg);
+}
 .heroInner, .sectionInner { width: min(1180px, 100%); margin-inline: auto; }
 .heroKicker { margin: 0 0 24px; color: #8ca8c5; font-size: 13px; font-weight: 650; letter-spacing: 0.09em; text-transform: uppercase; }
 .hero h1 { max-width: 980px; margin: 0; font-size: clamp(58px, 7.1vw, 92px); font-weight: 575; letter-spacing: -0.065em; line-height: 0.99; }

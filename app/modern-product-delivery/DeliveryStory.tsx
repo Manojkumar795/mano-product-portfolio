@@ -77,7 +77,7 @@ function Hero() {
     <section className={styles.hero}>
       <div className={styles.heroInner}>
         <p className={styles.heroKicker}>Modern Product Delivery</p>
-        <h1>From Figma to production—<span>without losing the details.</span></h1>
+        <h1>From Figma to production <span>with the details intact.</span></h1>
         <div className={styles.heroSummary}>
           <p>A practical view of how I move an enterprise interface through product design, shared foundations, component behaviour, implementation and final validation.</p>
           <dl>
@@ -101,7 +101,7 @@ function ProductDesign() {
   ];
   return (
     <Stage id="design">
-      <StageIntro description="I first worked through the task flow, information hierarchy and product states. The system followed the experience—not the other way around." label="Product Design" number="01" title="I started with the workflow, not the component library." />
+      <StageIntro description="I worked through the task flow, information hierarchy and product states first. Those decisions shaped the design system." label="Product Design" number="01" title="I started with the workflow, not the component library." />
       <WorkbenchFrame title="Figma · Task Automate exploration">
         <div className={styles.designWorkspace}>
           <div className={styles.designCanvas}>
@@ -261,7 +261,7 @@ function Outcome() {
 
 export default function DeliveryStory() {
   return (
-    <main className={styles.page}>
+    <main data-portfolio-media className={styles.page}>
       <header className={styles.nav}><a aria-label="Manoj Kumar N home" className={styles.brand} href="/"><span>MK</span><strong>Manoj Kumar N</strong></a><a className={styles.back} href="/#work">Back to work <span aria-hidden="true">↙</span></a></header>
       <Hero /><ProductDesign /><DesignSystem /><Components /><MCP /><Code /><Validation /><Outcome />
     </main>
